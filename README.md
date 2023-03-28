@@ -14,7 +14,7 @@ The motivation behind this repository is to provide a clear and concise resource
 
 ## Authors
 
-[Negin Sobhani](@negin513), [Brian Vanderwende](@vanderwb), [Deepak Cherian](@dcherian), and [Kirk](@benkirk)
+[Negin Sobhani](@negin513), [Brian Vanderwende](@vanderwb), [Deepak Cherian](@dcherian), and [Ben Kirk](@benkirk)
 
 ### Contributors
 
