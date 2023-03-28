@@ -7,6 +7,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  MY_TOKEN: ${{ secrets.MY_TOKEN }}
+
 jobs:
   build:
     uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
@@ -15,6 +18,7 @@ jobs:
 
   deploy:
     needs: build
+    environment_name: cookbook-dev
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -32,7 +36,7 @@ jobs:
         if: inputs.is_preview == 'true'
         uses: dawidd6/action-download-artifact@v2.26.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MY_TOKEN }}
           workflow: build-book.yaml
           run_id: ${{ github.event.workflow_run.id }}
           name: ${{ inputs.artifact_name }}
@@ -48,7 +52,7 @@ jobs:
           (github.ref == 'refs/heads/main'
           && inputs.cname == 'None')
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MY_TOKEN }}
           publish_dir: _build/html
           enable_jekyll: false
           keep_files: true  # This preserves existing previews from open PRs
@@ -60,7 +64,7 @@ jobs:
           (github.ref == 'refs/heads/main'
           && inputs.cname != 'None')
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.MY_TOKEN }}
           publish_dir: _build/html
           enable_jekyll: false
           keep_files: true  # This preserves existing previews from open PRs
