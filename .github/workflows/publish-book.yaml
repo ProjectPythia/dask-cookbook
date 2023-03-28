@@ -13,8 +13,6 @@ env:
 jobs:
   build:
     uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
-    secrets:
-      ACCESS_TOKEN: ${{ secrets.GH_PAT }}
     with:
       environment_name: dask-cookbook-dev
 
