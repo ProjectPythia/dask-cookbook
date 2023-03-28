@@ -9,6 +9,7 @@ on:
   
 env:
   ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+  GITHUB_TOKEN: ${{ secrets.GH_PAT }}
   
 jobs:
   build:
@@ -19,5 +20,3 @@ jobs:
   deploy:
     needs: build
     uses: ProjectPythia/cookbook-actions/.github/workflows/deploy-book.yaml@main
-    with:
-      github_token: ${{ secrets.GH_PAT }}
