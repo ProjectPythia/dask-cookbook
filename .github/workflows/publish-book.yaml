@@ -1,14 +1,11 @@
 name: publish-book
 
 on:
-  # Trigger the workflow on push to main branch
+  # Trigger the workflow on push to main branch. 
   push:
     branches:
       - main
   workflow_dispatch:
-
-env:
-  MY_TOKEN: ${{ secrets.MY_TOKEN }}
 
 jobs:
   build:
@@ -18,8 +15,9 @@ jobs:
 
   deploy:
     needs: build
-    environment_name: cookbook-dev
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     defaults:
       run:
         shell: bash -l {0}
@@ -36,7 +34,7 @@ jobs:
         if: inputs.is_preview == 'true'
         uses: dawidd6/action-download-artifact@v2.26.0
         with:
-          github_token: ${{ secrets.MY_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: build-book.yaml
           run_id: ${{ github.event.workflow_run.id }}
           name: ${{ inputs.artifact_name }}
@@ -52,7 +50,8 @@ jobs:
           (github.ref == 'refs/heads/main'
           && inputs.cname == 'None')
         with:
-          github_token: ${{ secrets.MY_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          #deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_dir: _build/html
           enable_jekyll: false
           keep_files: true  # This preserves existing previews from open PRs
@@ -64,9 +63,10 @@ jobs:
           (github.ref == 'refs/heads/main'
           && inputs.cname != 'None')
         with:
-          github_token: ${{ secrets.MY_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           publish_dir: _build/html
           enable_jekyll: false
           keep_files: true  # This preserves existing previews from open PRs
           destination_dir: ${{ inputs.destination_dir }}
-          cname: ${{ inputs.cname }}
+          cname: ${{ inputs.cname }} 
