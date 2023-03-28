@@ -19,3 +19,5 @@ jobs:
   deploy:
     needs: build
     uses: ProjectPythia/cookbook-actions/.github/workflows/deploy-book.yaml@main
+    with:
+      github_token: ${{ secrets.GITHUB_TOKEN }}
