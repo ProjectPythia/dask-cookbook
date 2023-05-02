@@ -1,7 +1,7 @@
 name: publish-book
 
 on:
-  # Trigger the workflow on push to main branch. 
+  # Trigger the workflow on push to main branch
   push:
     branches:
       - main
@@ -11,62 +11,8 @@ jobs:
   build:
     uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
     with:
-      environment_name: cookbook-dev
+      environment_name: dask-cookbook-dev
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    defaults:
-      run:
-        shell: bash -l {0}
-    steps: 
-      - name: Download merged artifact
-        if: inputs.is_preview != 'true'
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ inputs.artifact_name }}
-
-      # For the preview, the official download-artifact action doesn't work
-      # because the artifact is created by a different workflow
-      - name: Download preview artifact
-        if: inputs.is_preview == 'true'
-        uses: dawidd6/action-download-artifact@v2.26.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow: build-book.yaml
-          run_id: ${{ github.event.workflow_run.id }}
-          name: ${{ inputs.artifact_name }}
-
-      - name: Unzip the book
-        run: |
-          rm -rf _build/html
-          unzip book.zip
-          rm -f book.zip
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3.9.2
-        if: |
-          (github.ref == 'refs/heads/main'
-          && inputs.cname == 'None')
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          #deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          publish_dir: _build/html
-          enable_jekyll: false
-          keep_files: true  # This preserves existing previews from open PRs
-          destination_dir: ${{ inputs.destination_dir }}
-
-      - name: Deploy to GitHub Pages with custom domain
-        uses: peaceiris/actions-gh-pages@v3.9.2
-        if: |
-          (github.ref == 'refs/heads/main'
-          && inputs.cname != 'None')
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          deploy_key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
-          publish_dir: _build/html
-          enable_jekyll: false
-          keep_files: true  # This preserves existing previews from open PRs
-          destination_dir: ${{ inputs.destination_dir }}
-          cname: ${{ inputs.cname }} 
+    uses: ProjectPythia/cookbook-actions/.github/workflows/deploy-book.yaml@main
