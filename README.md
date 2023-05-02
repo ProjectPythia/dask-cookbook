@@ -1,4 +1,4 @@
-<img src="notebooks/images/NCAR_CISL_NSF_banner.jpeg" alt="thumbnail" width="300"/>
+<img src="notebooks/images/NCAR_CISL_NSF_banner.jpeg" alt="thumbnail" width="500"/>
 
 # NCAR Dask Tutorial      
 
