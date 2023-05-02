@@ -6,9 +6,9 @@ channels:
 dependencies:
   - jupyter-book
   - jupyterlab>=3
-  - jupyter_server<2
+  - jupyter_server
   - cfgrib
-  - cftime < 1.5
+  - cftime
   - dask
   - dask-labextension
   - distributed
