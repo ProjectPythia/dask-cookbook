@@ -1,13 +1,13 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Project Pythia Cookbook Template
-author: the <a href="https://projectpythia.org/">Project Pythia</a> Community
+title: Dask Cookbook
+author: Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
 logo: notebooks/images/logos/pythia_logo-white-rtext.svg
-email: projectpythia@ucar.edu
-copyright: "2022"
+email: negins@ucar.edu
+copyright: "2023"
 
-description: A sample cookbook description.
+description: A cookbook for Dask workflows. 
 thumbnail: thumbnail.png
 tags:
   domains:
@@ -43,7 +43,7 @@ sphinx:
     html_permalinks_icon: '<i class="fas fa-link"></i>'
     html_theme_options:
       home_page_in_toc: true
-      repository_url: https://github.com/ProjectPythia/cookbook-template/ # Online location of your book
+      repository_url: https://github.com/negin513/dask-cookbook.git # Online location of your book
       repository_branch: main # Which branch of the repository should be used when creating links (optional)
       use_issues_button: true
       use_repository_button: true
