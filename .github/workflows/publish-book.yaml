@@ -7,9 +7,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-
 jobs:
   build:
     uses: ProjectPythia/cookbook-actions/.github/workflows/build-book.yaml@main
