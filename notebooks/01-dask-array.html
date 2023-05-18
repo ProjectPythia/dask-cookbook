@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dask DataFrame" href="02-dask-dataframe.html" />
+    <link rel="prev" title="Dask Overview" href="00-dask-overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -189,10 +191,37 @@ const thebe_selector_output = ".output, .cell_output"
   Introductions to Dask
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="00-dask-overview.html">
    Dask Overview
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Dask Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-dask-dataframe.html">
+   Dask DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-dask-cluster.html">
+   Dask Schedulers
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dask and Xarray
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-dask-xarray.html">
+   Parallelizing Xarray with Dask
   </a>
  </li>
 </ul>
@@ -425,7 +454,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-2326658e-f598-11ed-8ee0-6045bde8ea08</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-b5ab73d7-f59e-11ed-8c10-6045bdf6b8c6</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -460,7 +489,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">3e1b1897</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">93c792fb</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -497,11 +526,11 @@ Computational &amp; Information Systems Lab (CISL)<br />
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-c41d05f0-20ed-49ab-95d7-47dc0cfd798c</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-d262548e-930a-4506-8991-1d6afd1e41a1</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:39351
+                        <strong>Comm:</strong> tcp://127.0.0.1:44817
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -543,7 +572,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:37943
+                            <strong>Comm: </strong> tcp://127.0.0.1:40079
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -551,7 +580,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:46803/status" target="_blank">http://127.0.0.1:46803/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41437/status" target="_blank">http://127.0.0.1:41437/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -559,13 +588,13 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:43307
+                            <strong>Nanny: </strong> tcp://127.0.0.1:44467
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-kdr1czxa
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-ah397fhw
                         </td>
                     </tr>
 
@@ -588,7 +617,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:45639
+                            <strong>Comm: </strong> tcp://127.0.0.1:34715
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -596,7 +625,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:35263/status" target="_blank">http://127.0.0.1:35263/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41687/status" target="_blank">http://127.0.0.1:41687/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -604,13 +633,13 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:41393
+                            <strong>Nanny: </strong> tcp://127.0.0.1:40019
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-xh2v1i5y
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-cm83qxr_
                         </td>
                     </tr>
 
@@ -908,8 +937,8 @@ For example, <code class="docutils literal notranslate"><span class="pre">chunks
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 78.3 ms, sys: 0 ns, total: 78.3 ms
-Wall time: 78.5 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 119 ms, sys: 521 µs, total: 119 ms
+Wall time: 116 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
@@ -926,8 +955,8 @@ Wall time: 78.5 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.63 ms, sys: 0 ns, total: 1.63 ms
-Wall time: 1.63 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.44 ms, sys: 0 ns, total: 2.44 ms
+Wall time: 2.4 ms
 </pre></div>
 </div>
 </div>
@@ -949,8 +978,8 @@ Wall time: 1.63 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 25.8 ms, sys: 0 ns, total: 25.8 ms
-Wall time: 193 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 45.7 ms, sys: 1.86 ms, total: 47.5 ms
+Wall time: 354 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
@@ -1201,8 +1230,8 @@ Let’s try an example using bigger data and bigger calculations:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 237 ms, sys: 24.9 ms, total: 262 ms
-Wall time: 1.93 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 416 ms, sys: 70.9 ms, total: 487 ms
+Wall time: 2.87 s
 </pre></div>
 </div>
 </div>
@@ -1402,8 +1431,8 @@ Wall time: 1.93 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 22.5 s, sys: 1.19 s, total: 23.7 s
-Wall time: 1min 15s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 38.8 s, sys: 2.56 s, total: 41.4 s
+Wall time: 2min 3s
 </pre></div>
 </div>
 </div>
@@ -1530,8 +1559,8 @@ Wall time: 1min 15s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 954 ms, sys: 92.6 ms, total: 1.05 s
-Wall time: 13.2 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2.19 s, sys: 212 ms, total: 2.4 s
+Wall time: 21.9 s
 </pre></div>
 </div>
 </div>
@@ -1607,7 +1636,21 @@ Wall time: 13.2 s
 
               </div>
               <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="00-dask-overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Dask Overview</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02-dask-dataframe.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Dask DataFrame</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </div>
           </div>

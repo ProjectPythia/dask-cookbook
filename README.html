@@ -196,6 +196,33 @@ const thebe_selector_output = ".output, .cell_output"
    Dask Overview
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/01-dask-array.html">
+   Dask Arrays
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/02-dask-dataframe.html">
+   Dask DataFrame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/04-dask-cluster.html">
+   Dask Schedulers
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dask and Xarray
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks/03-dask-xarray.html">
+   Parallelizing Xarray with Dask
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -300,6 +327,11 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#note-on-content-origin">
+   Note on Content Origin
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#structure">
    Structure
   </a>
@@ -317,6 +349,11 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#running-on-your-own-machine">
      Running on Your Own Machine
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#acknowledgments">
+     Acknowledgments
     </a>
    </li>
   </ul>
@@ -353,18 +390,14 @@ Dask is a parallel computing library that allows you to scale your computations 
 </a>
 </div>
 </div>
+<div class="section" id="note-on-content-origin">
+<h2>Note on Content Origin<a class="headerlink" href="#note-on-content-origin" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<p>This cookbook is part of the extensive material used in our NCAR tutorial, <a class="reference external" href="https://github.com/NCAR/dask-tutorial.git">“Using Dask on HPC systems”</a>, which was held in February 2023. The complete tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC . For the complete set of materials, including these additional insights on Dask on HPC, please refer to the main tutorial content available <a class="reference external" href="https://ncar.github.io/dask-tutorial/README.html">here</a>.</p>
+</div>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<ol class="arabic simple">
-<li><p>Dask Overview</p></li>
-<li><p>Dask Data Arrays</p></li>
-<li><p>Dask DataFrames</p></li>
-<li><p>Dask + Xarray</p></li>
-<li><p>Dask Schedulers</p></li>
-<li><p>Dask Best Practices</p></li>
-</ol>
-<p>In the first section of this repository, we provide step-by-step tutorials on the basic concepts of Dask, including Dask arrays and Dask dataframes, which are powerful tools for parallel computing and distributed data processing. We explain the key differences between these Dask data structures and their counterparts in NumPy and Pandas.
-In the second chapter of the repository, we move on to more advanced topics, such as distributed computing and Dask+Xarray integration. We provide examples of how to use Dask+Xarray to efficiently work with large, labelled multi-dimensional datasets.
+<p>In the first chapter of this cookbook, we provide step-by-step tutorials on the basic concepts of Dask, including Dask arrays and Dask dataframes, which are powerful tools for parallel computing and distributed data processing. We explain the key differences between these Dask data structures and their counterparts in NumPy and Pandas.</p>
+<p>In the second chapter of the repository, we move on to more advanced topics, such as distributed computing and Dask+Xarray integration. We provide examples of how to use Dask+Xarray to efficiently work with large, labelled multi-dimensional datasets.
 Finally, we will discuss some best practices regarding Dask + Xarray.</p>
 </div>
 <div class="section" id="running-the-notebooks">
@@ -415,6 +448,15 @@ jupyter<span class="w"> </span>lab
 </li>
 </ol>
 </div>
+<div class="section" id="acknowledgments">
+<h3>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<ul class="simple">
+<li><p>NCAR CISL/CSG Team</p></li>
+<li><p>ESDS Initiative</p></li>
+</ul>
+</div>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>

@@ -23,16 +23,13 @@ The motivation behind this repository is to provide a clear and concise resource
   <img src="https://contrib.rocks/image?repo=NCAR/dask-tutorial" />
 </a>
 
+## Note on Content Origin
+This cookbook is part of the extensive material used in our NCAR tutorial, ["Using Dask on HPC systems"](https://github.com/NCAR/dask-tutorial.git), which was held in February 2023. The complete tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC . For the complete set of materials, including these additional insights on Dask on HPC, please refer to the main tutorial content available [here](https://ncar.github.io/dask-tutorial/README.html).
+
 ## Structure
 
-1. Dask Overview
-2. Dask Data Arrays
-3. Dask DataFrames
-4. Dask + Xarray
-5. Dask Schedulers
-6. Dask Best Practices
+In the first chapter of this cookbook, we provide step-by-step tutorials on the basic concepts of Dask, including Dask arrays and Dask dataframes, which are powerful tools for parallel computing and distributed data processing. We explain the key differences between these Dask data structures and their counterparts in NumPy and Pandas.
 
-In the first section of this repository, we provide step-by-step tutorials on the basic concepts of Dask, including Dask arrays and Dask dataframes, which are powerful tools for parallel computing and distributed data processing. We explain the key differences between these Dask data structures and their counterparts in NumPy and Pandas.
 In the second chapter of the repository, we move on to more advanced topics, such as distributed computing and Dask+Xarray integration. We provide examples of how to use Dask+Xarray to efficiently work with large, labelled multi-dimensional datasets.
 Finally, we will discuss some best practices regarding Dask + Xarray.
 
@@ -86,3 +83,7 @@ If you are interested in running this material locally on your computer, you wil
    cd notebooks/
    jupyter lab
    ```
+
+### Acknowledgments
+* NCAR CISL/CSG Team
+* ESDS Initiative
