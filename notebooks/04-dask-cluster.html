@@ -478,12 +478,12 @@ This is the default scheduler for Dask, and is suitable for most use cases on a 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14 s, sys: 940 ms, total: 15 s
-Wall time: 15 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 12.2 s, sys: 532 ms, total: 12.7 s
+Wall time: 12.7 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99919495, 10.00006911,  9.99977983, ..., 10.00056296,
-       10.00029426, 10.00074275])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.00078359, 10.0001323 , 10.00070217, ...,  9.99918436,
+        9.99894328, 10.00100765])
 </pre></div>
 </div>
 </div>
@@ -499,12 +499,12 @@ Wall time: 15 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14.3 s, sys: 86.7 ms, total: 14.4 s
-Wall time: 7.38 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 12.5 s, sys: 34.4 ms, total: 12.5 s
+Wall time: 6.52 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99910548,  9.99970257,  9.99994511, ..., 10.00021541,
-        9.99895634,  9.99998186])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99960866,  9.99925892,  9.99925631, ...,  9.99996293,
+       10.00026793, 10.00065285])
 </pre></div>
 </div>
 </div>
@@ -522,13 +522,13 @@ Wall time: 7.38 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> threading :  7.2662 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> threading :  6.2486 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> processes :  8.0755 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> processes :  7.2865 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      sync :  15.2953 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      sync :  12.2433 s
 </pre></div>
 </div>
 </div>
@@ -572,7 +572,7 @@ Wall time: 7.38 s
             <h4 style="display: inline;">Layer1: normal</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            normal-9edeab4f189fbed341fc7d69eb622983
+            normal-3294e15c9f238141dbe95a31255c06b4
         </p>
 
         <table>
@@ -678,7 +678,7 @@ Wall time: 7.38 s
             <h4 style="display: inline;">Layer2: mean_chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_chunk-dc1b330fa65d934fc953ea6418306f12
+            mean_chunk-555dc8cf45d28a324b48c3a2513b0a03
         </p>
 
         <table>
@@ -730,7 +730,7 @@ Wall time: 7.38 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">normal-9edeab4f189fbed341fc7d69eb622983</td>
+                            <td style="text-align: left;">normal-3294e15c9f238141dbe95a31255c06b4</td>
                         </tr>
                     
                 
@@ -791,7 +791,7 @@ Wall time: 7.38 s
             <h4 style="display: inline;">Layer3: mean_combine-partial</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_combine-partial-3234127e79ef8503093a420e66343a5c
+            mean_combine-partial-9b6272afb97cb4639ab94fba6c970c8b
         </p>
 
         <table>
@@ -843,7 +843,7 @@ Wall time: 7.38 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">mean_chunk-dc1b330fa65d934fc953ea6418306f12</td>
+                            <td style="text-align: left;">mean_chunk-555dc8cf45d28a324b48c3a2513b0a03</td>
                         </tr>
                     
                 
@@ -897,7 +897,7 @@ Wall time: 7.38 s
             <h4 style="display: inline;">Layer4: mean_agg-aggregate</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_agg-aggregate-b66898ddbff5e97a1c19a087a91aea61
+            mean_agg-aggregate-b9e878a09308fb3c16a378375180aeb1
         </p>
 
         <table>
@@ -949,7 +949,7 @@ Wall time: 7.38 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">mean_combine-partial-3234127e79ef8503093a420e66343a5c</td>
+                            <td style="text-align: left;">mean_combine-partial-9b6272afb97cb4639ab94fba6c970c8b</td>
                         </tr>
                     
                 
@@ -1102,7 +1102,7 @@ Wall time: 7.38 s
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-23a4e4dc-f418-11ed-8c58-6045bde2d8af</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-7f6e8447-f598-11ed-8f84-6045bde8ea08</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1137,7 +1137,7 @@ Wall time: 7.38 s
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">6d516b24</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">1f533fa8</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -1174,11 +1174,11 @@ Wall time: 7.38 s
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-638f64f8-abbd-43a5-a310-b45dd53dbd34</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-540e3905-21c9-44ed-a134-45247dfeffd6</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:33699
+                        <strong>Comm:</strong> tcp://127.0.0.1:44411
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -1220,7 +1220,7 @@ Wall time: 7.38 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:42739
+                            <strong>Comm: </strong> tcp://127.0.0.1:43805
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1228,7 +1228,7 @@ Wall time: 7.38 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38667/status" target="_blank">http://127.0.0.1:38667/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45421/status" target="_blank">http://127.0.0.1:45421/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -1236,13 +1236,13 @@ Wall time: 7.38 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:44659
+                            <strong>Nanny: </strong> tcp://127.0.0.1:34451
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-c6h6l4qr
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-tp1vl1pj
                         </td>
                     </tr>
 
@@ -1265,7 +1265,7 @@ Wall time: 7.38 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:36847
+                            <strong>Comm: </strong> tcp://127.0.0.1:36703
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1273,7 +1273,7 @@ Wall time: 7.38 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:44893/status" target="_blank">http://127.0.0.1:44893/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:40477/status" target="_blank">http://127.0.0.1:40477/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.39 GiB
@@ -1281,13 +1281,13 @@ Wall time: 7.38 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:38849
+                            <strong>Nanny: </strong> tcp://127.0.0.1:35647
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-884537s_
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-ap1by0pl
                         </td>
                     </tr>
 
@@ -1342,12 +1342,12 @@ Wall time: 7.38 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.29 s, sys: 132 ms, total: 1.43 s
-Wall time: 19.7 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 645 ms, sys: 66.1 ms, total: 711 ms
+Wall time: 15.7 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.00122132,  9.99932351, 10.00089387, ..., 10.00028568,
-       10.00031907,  9.9991572 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99875149,  9.99922266, 10.0006832 , ..., 10.00065149,
+        9.99943588,  9.99898914])
 </pre></div>
 </div>
 </div>
@@ -1441,7 +1441,7 @@ Wall time: 19.7 s
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 16 May 2023.
+          Last updated on 18 May 2023.
         </p>
       </div>
     </div>
