@@ -11,6 +11,7 @@ description: A cookbook for Dask workflows.
 thumbnail: thumbnail.png
 tags:
   packages:
+    - xarray
     - dask
 
 execute:
