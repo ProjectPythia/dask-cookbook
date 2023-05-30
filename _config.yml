@@ -10,10 +10,9 @@ copyright: "2023"
 description: A cookbook for Dask workflows. 
 thumbnail: thumbnail.png
 tags:
-  domains:
-    - sampledomain
   packages:
-    - samplepackage
+    - xarray
+    - dask
 
 execute:
   # To execute notebooks via a binder instead, replace 'cache' with 'binder'
