@@ -8,6 +8,8 @@ for url in "${urls[@]}"; do
   # Download the tar file
   wget $url -O ../data.tar.gz
 
+  mkdir -p ../data
+
   # Unzip the tar file
   tar -xvzf ../data.tar.gz -C ../data
 
