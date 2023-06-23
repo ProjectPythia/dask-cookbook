@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dask Schedulers" href="04-dask-cluster.html" />
+    <link rel="next" title="Parallelizing Xarray with Dask" href="03-dask-xarray.html" />
     <link rel="prev" title="Dask Arrays" href="01-dask-array.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -207,11 +207,6 @@ const thebe_selector_output = ".output, .cell_output"
    Dask DataFrame
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04-dask-cluster.html">
-   Dask Schedulers
-  </a>
- </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -222,6 +217,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="03-dask-xarray.html">
    Parallelizing Xarray with Dask
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dask Schedulers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-dask-cluster.html">
+   Dask Schedulers
   </a>
  </li>
 </ul>
@@ -675,26 +682,23 @@ This is an example of a real dataset that is used by NCAR scientists for their r
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00030936.csv
+USC00031596.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00031596.csv
-USC00032444.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00032444.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035186.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035754.csv
+USC00035754.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035820.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035908.csv
-USC00042294.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00042294.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00044259.csv
@@ -708,20 +712,18 @@ USC00048758.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051528.csv
+USC00051564.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051564.csv
-USC00051741.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052184.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051741.csv
+USC00052184.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052281.csv
-USC00052446.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053005.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052446.csv
+USC00053005.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053038.csv
@@ -735,37 +737,35 @@ USC00053662.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054076.csv
+USC00054770.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054770.csv
-USC00054834.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054834.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00055322.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00055722.csv
+USC00055722.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057167.csv
-USC00057337.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=15rCwQUxxpH6angDhpXzlvbe1nGetYHrf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057337.csv
+Downloading https://docs.google.com/uc?export=download&amp;id=15rCwQUxxpH6angDhpXzlvbe1nGetYHrf
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057936.csv
-USC00058204.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00058429.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00058204.csv
+USC00058429.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00059243.csv
-USC00068138.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00080211.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00068138.csv
+USC00080211.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00084731.csv
@@ -775,39 +775,37 @@ USC00068138.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00098703.csv
+USC00100010.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00100010.csv
-USC00100470.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00100470.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00105275.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00106152.csv
+USC00106152.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00107264.csv
-USC00108137.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00108137.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00110338.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112140.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112193.csv
+USC00112193.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112348.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112483.csv
-USC00113335.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114108.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00113335.csv
+USC00114108.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114442.csv
@@ -824,22 +822,20 @@ USC00115326.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115768.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115833.csv
+USC00115833.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115901.csv
-USC00115943.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115943.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00116446.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USW00003017.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=1Tbuom1KMCwHjy7-eexEQcOXSr51i6mae
+Downloading https://docs.google.com/uc?export=download&amp;id=1Tbuom1KMCwHjy7-eexEQcOXSr51i6mae
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/
@@ -1298,8 +1294,8 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.3 s, sys: 3.86 s, total: 22.2 s
-Wall time: 22.2 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.4 s, sys: 3.44 s, total: 18.9 s
+Wall time: 19 s
 </pre></div>
 </div>
 </div>
@@ -1336,8 +1332,8 @@ Wall time: 22.2 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
-CPU times: user 527 ms, sys: 716 µs, total: 528 ms
-Wall time: 528 ms
+CPU times: user 475 ms, sys: 0 ns, total: 475 ms
+Wall time: 475 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -1377,7 +1373,7 @@ dtype: object
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-27b18fbe-11fb-11ee-8954-6045bd0a6bc7</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-8eabb2c0-11fe-11ee-898b-000d3a59a4a1</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1412,7 +1408,7 @@ dtype: object
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">9817f22f</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">7f5d9149</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -1449,11 +1445,11 @@ dtype: object
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-52ea68d0-9ac2-4e57-b98f-27d54618c7d7</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-16a407b9-4307-4791-b5fc-33c556d07d66</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:45033
+                        <strong>Comm:</strong> tcp://127.0.0.1:37797
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -1495,7 +1491,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:40965
+                            <strong>Comm: </strong> tcp://127.0.0.1:45201
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1503,7 +1499,7 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:35879/status" target="_blank">http://127.0.0.1:35879/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:40999/status" target="_blank">http://127.0.0.1:40999/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1511,13 +1507,13 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:43257
+                            <strong>Nanny: </strong> tcp://127.0.0.1:37117
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-h0tptpxq
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-jg2m87ky
                         </td>
                     </tr>
 
@@ -1540,7 +1536,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:39459
+                            <strong>Comm: </strong> tcp://127.0.0.1:39707
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1548,7 +1544,7 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:36111/status" target="_blank">http://127.0.0.1:36111/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:43855/status" target="_blank">http://127.0.0.1:43855/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1556,13 +1552,13 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:38291
+                            <strong>Nanny: </strong> tcp://127.0.0.1:37065
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-li_72br7
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-t5m3d2b3
                         </td>
                     </tr>
 
@@ -1608,8 +1604,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 344 ms, sys: 40.6 ms, total: 384 ms
-Wall time: 592 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 238 ms, sys: 62.1 ms, total: 300 ms
+Wall time: 397 ms
 </pre></div>
 </div>
 <div class="output text_html"><div><strong>Dask DataFrame Structure:</strong></div>
@@ -2233,8 +2229,8 @@ For example, let’s find the highest number of snow days in Colorado:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 802 ms, sys: 162 ms, total: 964 ms
-Wall time: 14.3 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 698 ms, sys: 109 ms, total: 807 ms
+Wall time: 11.8 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -2520,14 +2516,14 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
+                            <td style="text-align: left;">gt-0a592f521af18d6a27626d2a771b164f</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">gt-0a592f521af18d6a27626d2a771b164f</td>
+                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
                         </tr>
                     
                 
@@ -2663,7 +2659,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3daed797419be634b443ea4bcabe0f44f56525c4267c47e7bab3ae47f5e3ac52.png" src="../_images/3daed797419be634b443ea4bcabe0f44f56525c4267c47e7bab3ae47f5e3ac52.png" />
+<img alt="../_images/a743711af2dc0677cef6a0027b62790ec585944d4388ddcae588dfe11ac643fb.png" src="../_images/a743711af2dc0677cef6a0027b62790ec585944d4388ddcae588dfe11ac643fb.png" />
 </div>
 </div>
 </div>
@@ -2693,8 +2689,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.59 s, sys: 285 ms, total: 1.88 s
-Wall time: 25.2 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.41 s, sys: 201 ms, total: 1.61 s
+Wall time: 22.4 s
 </pre></div>
 </div>
 </div>
@@ -2708,8 +2704,8 @@ Wall time: 25.2 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 987 ms, sys: 140 ms, total: 1.13 s
-Wall time: 13.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 832 ms, sys: 103 ms, total: 935 ms
+Wall time: 11.6 s
 </pre></div>
 </div>
 </div>
@@ -2986,14 +2982,14 @@ Wall time: 13.4 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
+                            <td style="text-align: left;">gt-0a592f521af18d6a27626d2a771b164f</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">gt-0a592f521af18d6a27626d2a771b164f</td>
+                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
                         </tr>
                     
                 
@@ -3370,8 +3366,8 @@ Wall time: 13.4 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 2.5 s, sys: 350 ms, total: 2.85 s
-Wall time: 29.6 s
+CPU times: user 1.52 s, sys: 192 ms, total: 1.71 s
+Wall time: 22.7 s
 </pre></div>
 </div>
 </div>
@@ -3395,8 +3391,8 @@ Wall time: 29.6 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 1.53 s, sys: 311 ms, total: 1.85 s
-Wall time: 16.4 s
+CPU times: user 1.12 s, sys: 132 ms, total: 1.25 s
+Wall time: 12.1 s
 </pre></div>
 </div>
 </div>
@@ -3512,10 +3508,10 @@ As shown in the above example, the intermediate results can also be shared by ca
             <p class="prev-next-title">Dask Arrays</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04-dask-cluster.html" title="next page">
+    <a class='right-next' id="next-link" href="03-dask-xarray.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dask Schedulers</p>
+        <p class="prev-next-title">Parallelizing Xarray with Dask</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
