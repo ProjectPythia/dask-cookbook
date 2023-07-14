@@ -4,15 +4,7 @@
 title: Dask Cookbook
 author: Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
 logo: notebooks/images/logos/pythia_logo-white-rtext.svg
-email: negins@ucar.edu
 copyright: "2023"
-
-description: A cookbook for Dask workflows. 
-thumbnail: thumbnail.png
-tags:
-  packages:
-    - xarray
-    - dask
 
 execute:
   # To execute notebooks via a binder instead, replace 'cache' with 'binder'
@@ -35,9 +27,8 @@ parse:
 
 sphinx:
   config:
-
     html_favicon: notebooks/images/icons/favicon.ico
-    html_last_updated_fmt: '%-d %B %Y'
+    html_last_updated_fmt: "%-d %B %Y"
     html_theme: sphinx_pythia_theme
     html_permalinks_icon: '<i class="fas fa-link"></i>'
     html_theme_options:

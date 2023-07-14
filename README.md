@@ -1,9 +1,10 @@
 <img src="notebooks/images/NCAR_CISL_NSF_banner.jpeg" alt="NCAR CISL logo" />
 
-# NCAR Dask Tutorial      
+# NCAR Dask Tutorial
 
 [![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
 [![Binder](https://mybinder.org/badge_logo.svg)](http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks)
+[![DOI](https://zenodo.org/badge/610934658.svg)](https://zenodo.org/badge/latestdoi/610934658)
 
 This Project Pythia Cookbook provides a comprehensive guide to understanding the basic concepts and collections of Dask as well as its integration with Xarray.
 Dask is a parallel computing library that allows you to scale your computations to multiple cores or even clusters, while Xarray is a library that enables working with labelled multi-dimensional arrays, with a focus on working with netCDF datasets.
@@ -26,6 +27,7 @@ The motivation behind this repository is to provide a clear and concise resource
 </a>
 
 ## Note on Content Origin
+
 This cookbook is part of the extensive material used in our NCAR tutorial, ["Using Dask on HPC systems"](https://github.com/NCAR/dask-tutorial.git), which was held in February 2023. The complete tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC . For the complete set of materials, including these additional insights on Dask on HPC, please refer to the main tutorial content available [here](https://ncar.github.io/dask-tutorial/README.html).
 
 ## Structure
@@ -87,5 +89,6 @@ If you are interested in running this material locally on your computer, you wil
    ```
 
 ### Acknowledgments
-* NCAR CISL/CSG Team
-* ESDS Initiative
+
+- NCAR CISL/CSG Team
+- ESDS Initiative

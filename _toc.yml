@@ -1,16 +1,20 @@
 format: jb-book
 root: README
 parts:
-- caption: Introductions to Dask
-  chapters:
-    - file: notebooks/00-dask-overview.ipynb
-    - file: notebooks/01-dask-array.ipynb
-    - file: notebooks/02-dask-dataframe.ipynb
-
-- caption: Dask and Xarray
-  chapters:
-    - file: notebooks/03-dask-xarray.ipynb
-
-- caption: Dask Schedulers
-  chapters:
-    - file: notebooks/04-dask-cluster.ipynb
+  - caption: Preamble
+    chapters:
+      - file: notebooks/how-to-cite
+      
+  - caption: Introductions to Dask
+    chapters:
+      - file: notebooks/00-dask-overview.ipynb
+      - file: notebooks/01-dask-array.ipynb
+      - file: notebooks/02-dask-dataframe.ipynb
+      
+  - caption: Dask Schedulers
+    chapters:
+      - file: notebooks/04-dask-cluster.ipynb
+      
+  - caption: Dask and Xarray
+    chapters:
+      - file: notebooks/03-dask-xarray.ipynb
