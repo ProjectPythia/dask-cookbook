@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Parallelizing Xarray with Dask" href="03-dask-xarray.html" />
+    <link rel="next" title="Dask Schedulers" href="04-dask-cluster.html" />
     <link rel="prev" title="Dask Arrays" href="01-dask-array.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -188,6 +188,18 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Preamble
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="how-to-cite.html">
+   How to Cite This Cookbook
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Introductions to Dask
  </span>
 </p>
@@ -210,18 +222,6 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Dask and Xarray
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03-dask-xarray.html">
-   Parallelizing Xarray with Dask
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
   Dask Schedulers
  </span>
 </p>
@@ -229,6 +229,18 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="04-dask-cluster.html">
    Dask Schedulers
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dask and Xarray
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-dask-xarray.html">
+   Parallelizing Xarray with Dask
   </a>
  </li>
 </ul>
@@ -673,9 +685,7 @@ This is an example of a real dataset that is used by NCAR scientists for their r
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00023160.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00027281.csv
+USC00027281.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00027390.csv
@@ -689,69 +699,71 @@ USC00031596.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035186.csv
-USC00035754.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035754.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035820.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035908.csv
+USC00035908.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00042294.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00044259.csv
-USC00048758.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00048758.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00050848.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051294.csv
+USC00051294.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051528.csv
-USC00051564.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051741.csv
-USC00052184.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051564.csv
+USC00051741.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052184.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052281.csv
+USC00052446.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052446.csv
-USC00053005.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053005.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053038.csv
+USC00053146.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053146.csv
-USC00053662.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053662.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053951.csv
+USC00054076.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054076.csv
-USC00054770.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054770.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054834.csv
+USC00055322.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00055322.csv
-USC00055722.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00055722.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057167.csv
+USC00057337.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057337.csv
-Downloading https://docs.google.com/uc?export=download&amp;id=15rCwQUxxpH6angDhpXzlvbe1nGetYHrf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=15rCwQUxxpH6angDhpXzlvbe1nGetYHrf
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057936.csv
@@ -782,10 +794,10 @@ USC00100010.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00105275.csv
-USC00106152.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00107264.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00106152.csv
+USC00107264.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00108137.csv
@@ -795,47 +807,49 @@ USC00106152.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112140.csv
-USC00112193.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112348.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112193.csv
+USC00112348.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112483.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00113335.csv
-USC00114108.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114442.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114108.csv
+USC00114442.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114823.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115079.csv
-USC00115326.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115712.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115326.csv
+USC00115712.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115768.csv
-USC00115833.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115833.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115901.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115943.csv
+USC00115943.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00116446.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USW00003017.csv
-Downloading https://docs.google.com/uc?export=download&amp;id=1Tbuom1KMCwHjy7-eexEQcOXSr51i6mae
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=1Tbuom1KMCwHjy7-eexEQcOXSr51i6mae
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/
@@ -1157,7 +1171,7 @@ data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.205501-206412
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;, ylabel=&#39;Daily Average Snow Depth [mm]&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/8eefa4a7399a6e371504ebc7442b3f19c1752620924c116f182d462ddcb7c1b7.png" src="../_images/8eefa4a7399a6e371504ebc7442b3f19c1752620924c116f182d462ddcb7c1b7.png" />
+<img alt="../_images/f97e9148ade187f975721b84da628cadf73fdaeefbb67bfd313520b88d4d6e1d.png" src="../_images/f97e9148ade187f975721b84da628cadf73fdaeefbb67bfd313520b88d4d6e1d.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1294,8 +1308,8 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.4 s, sys: 3.44 s, total: 18.9 s
-Wall time: 19 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14.7 s, sys: 3.73 s, total: 18.5 s
+Wall time: 18.6 s
 </pre></div>
 </div>
 </div>
@@ -1332,8 +1346,8 @@ Wall time: 19 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
-CPU times: user 475 ms, sys: 0 ns, total: 475 ms
-Wall time: 475 ms
+CPU times: user 424 ms, sys: 95 µs, total: 424 ms
+Wall time: 423 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -1373,7 +1387,7 @@ dtype: object
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-8eabb2c0-11fe-11ee-898b-000d3a59a4a1</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-11786167-227d-11ee-899c-000d3aed8478</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1408,7 +1422,7 @@ dtype: object
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">7f5d9149</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">cf00a385</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -1445,11 +1459,11 @@ dtype: object
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-16a407b9-4307-4791-b5fc-33c556d07d66</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-2bf42e15-bce1-4693-8c97-ca247ab56928</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:37797
+                        <strong>Comm:</strong> tcp://127.0.0.1:43881
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -1491,7 +1505,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:45201
+                            <strong>Comm: </strong> tcp://127.0.0.1:39537
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1499,7 +1513,7 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:40999/status" target="_blank">http://127.0.0.1:40999/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:44437/status" target="_blank">http://127.0.0.1:44437/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1507,13 +1521,13 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:37117
+                            <strong>Nanny: </strong> tcp://127.0.0.1:39303
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-jg2m87ky
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-3x770pfc
                         </td>
                     </tr>
 
@@ -1536,7 +1550,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:39707
+                            <strong>Comm: </strong> tcp://127.0.0.1:46679
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1544,7 +1558,7 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:43855/status" target="_blank">http://127.0.0.1:43855/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38659/status" target="_blank">http://127.0.0.1:38659/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1552,13 +1566,13 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:37065
+                            <strong>Nanny: </strong> tcp://127.0.0.1:44699
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-t5m3d2b3
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-vkw61rty
                         </td>
                     </tr>
 
@@ -1604,8 +1618,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 238 ms, sys: 62.1 ms, total: 300 ms
-Wall time: 397 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 278 ms, sys: 26.7 ms, total: 305 ms
+Wall time: 377 ms
 </pre></div>
 </div>
 <div class="output text_html"><div><strong>Dask DataFrame Structure:</strong></div>
@@ -1632,48 +1646,46 @@ Wall time: 397 ms
       <th>YEAR</th>
       <th>MONTH</th>
       <th>DAY</th>
-      <th>TMAX</th>
-      <th>TMAX_FLAGS</th>
-      <th>TMIN</th>
-      <th>TMIN_FLAGS</th>
       <th>PRCP</th>
       <th>PRCP_FLAGS</th>
       <th>SNOW</th>
       <th>SNOW_FLAGS</th>
-      <th>TOBS</th>
-      <th>TOBS_FLAGS</th>
+      <th>TMAX</th>
+      <th>TMAX_FLAGS</th>
+      <th>TMIN</th>
+      <th>TMIN_FLAGS</th>
       <th>SNWD</th>
       <th>SNWD_FLAGS</th>
+      <th>TOBS</th>
+      <th>TOBS_FLAGS</th>
       <th>DAPR</th>
       <th>DAPR_FLAGS</th>
       <th>MDPR</th>
       <th>MDPR_FLAGS</th>
-      <th>WT16</th>
-      <th>WT16_FLAGS</th>
       <th>WT03</th>
       <th>WT03_FLAGS</th>
+      <th>WT11</th>
+      <th>WT11_FLAGS</th>
+      <th>WT07</th>
+      <th>WT07_FLAGS</th>
       <th>DASF</th>
       <th>DASF_FLAGS</th>
       <th>MDSF</th>
       <th>MDSF_FLAGS</th>
-      <th>WT11</th>
-      <th>WT11_FLAGS</th>
       <th>WT09</th>
       <th>WT09_FLAGS</th>
+      <th>WT01</th>
+      <th>WT01_FLAGS</th>
+      <th>WT08</th>
+      <th>WT08_FLAGS</th>
+      <th>WT05</th>
+      <th>WT05_FLAGS</th>
+      <th>WT06</th>
+      <th>WT06_FLAGS</th>
       <th>WT04</th>
       <th>WT04_FLAGS</th>
       <th>WT14</th>
       <th>WT14_FLAGS</th>
-      <th>WT08</th>
-      <th>WT08_FLAGS</th>
-      <th>WT01</th>
-      <th>WT01_FLAGS</th>
-      <th>WT06</th>
-      <th>WT06_FLAGS</th>
-      <th>WT07</th>
-      <th>WT07_FLAGS</th>
-      <th>WT05</th>
-      <th>WT05_FLAGS</th>
       <th>LATITUDE</th>
       <th>LONGITUDE</th>
       <th>ELEVATION</th>
@@ -1682,8 +1694,6 @@ Wall time: 397 ms
     </tr>
     <tr>
       <th>npartitions=66</th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -1785,8 +1795,6 @@ Wall time: 397 ms
       <td>float64</td>
       <td>object</td>
       <td>float64</td>
-      <td>object</td>
-      <td>float64</td>
       <td>float64</td>
       <td>float64</td>
       <td>object</td>
@@ -1794,8 +1802,6 @@ Wall time: 397 ms
     </tr>
     <tr>
       <th></th>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1899,8 +1905,6 @@ Wall time: 397 ms
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th></th>
@@ -1954,13 +1958,9 @@ Wall time: 397 ms
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th></th>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -2068,17 +2068,17 @@ Dask just construct the task graph of the computation but it will “evaluate”
       <th>YEAR</th>
       <th>MONTH</th>
       <th>DAY</th>
-      <th>TMAX</th>
-      <th>TMAX_FLAGS</th>
-      <th>TMIN</th>
-      <th>TMIN_FLAGS</th>
       <th>PRCP</th>
+      <th>PRCP_FLAGS</th>
+      <th>SNOW</th>
+      <th>SNOW_FLAGS</th>
+      <th>TMAX</th>
       <th>...</th>
       <th>WT06_FLAGS</th>
-      <th>WT07</th>
-      <th>WT07_FLAGS</th>
-      <th>WT05</th>
-      <th>WT05_FLAGS</th>
+      <th>WT04</th>
+      <th>WT04_FLAGS</th>
+      <th>WT14</th>
+      <th>WT14_FLAGS</th>
       <th>LATITUDE</th>
       <th>LONGITUDE</th>
       <th>ELEVATION</th>
@@ -2089,127 +2089,127 @@ Dask just construct the task graph of the computation but it will “evaluate”
   <tbody>
     <tr>
       <th>0</th>
-      <td>1900-12-01</td>
-      <td>USC00058204</td>
-      <td>1900</td>
-      <td>12</td>
+      <td>1893-01-01</td>
+      <td>USC00051564</td>
+      <td>1893</td>
       <td>1</td>
-      <td>11.0</td>
-      <td>XX0</td>
-      <td>-111.0</td>
-      <td>XX0</td>
+      <td>1</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>37.9492</td>
-      <td>-107.8736</td>
-      <td>2635.3</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
       <td>CO</td>
-      <td>TELLURIDE 4WNW</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1900-12-02</td>
-      <td>USC00058204</td>
-      <td>1900</td>
-      <td>12</td>
+      <td>1893-01-02</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
       <td>2</td>
-      <td>78.0</td>
-      <td>XX0</td>
-      <td>-94.0</td>
-      <td>XX0</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>37.9492</td>
-      <td>-107.8736</td>
-      <td>2635.3</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
       <td>CO</td>
-      <td>TELLURIDE 4WNW</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1900-12-03</td>
-      <td>USC00058204</td>
-      <td>1900</td>
-      <td>12</td>
+      <td>1893-01-03</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
       <td>3</td>
-      <td>61.0</td>
-      <td>XX0</td>
-      <td>-100.0</td>
-      <td>XX0</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>37.9492</td>
-      <td>-107.8736</td>
-      <td>2635.3</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
       <td>CO</td>
-      <td>TELLURIDE 4WNW</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1900-12-04</td>
-      <td>USC00058204</td>
-      <td>1900</td>
-      <td>12</td>
+      <td>1893-01-04</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
       <td>4</td>
-      <td>89.0</td>
-      <td>XX0</td>
-      <td>-56.0</td>
-      <td>XX0</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>37.9492</td>
-      <td>-107.8736</td>
-      <td>2635.3</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
       <td>CO</td>
-      <td>TELLURIDE 4WNW</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1900-12-05</td>
-      <td>USC00058204</td>
-      <td>1900</td>
-      <td>12</td>
+      <td>1893-01-05</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
       <td>5</td>
-      <td>56.0</td>
-      <td>XX0</td>
-      <td>-67.0</td>
-      <td>XX0</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>37.9492</td>
-      <td>-107.8736</td>
-      <td>2635.3</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
       <td>CO</td>
-      <td>TELLURIDE 4WNW</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 52 columns</p>
+<p>5 rows × 50 columns</p>
 </div></div></div>
 </div>
 <div class="alert alert-block alert-info" markdown="1">
@@ -2229,8 +2229,8 @@ For example, let’s find the highest number of snow days in Colorado:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 698 ms, sys: 109 ms, total: 807 ms
-Wall time: 11.8 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 635 ms, sys: 53.3 ms, total: 689 ms
+Wall time: 10.6 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -2284,7 +2284,7 @@ dtype: object
             <h4 style="display: inline;">Layer1: read-csv</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            read-csv-3a0220237d43b66b0d1efc4b294e5c51
+            read-csv-08688dc065e35cc6e3cae048087228e1
         </p>
 
         <table>
@@ -2314,7 +2314,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2329,7 +2329,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
@@ -2356,7 +2356,7 @@ dtype: object
             <h4 style="display: inline;">Layer2: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-8caaa6a17d8ae9872002da26fb2ff6b8
+            getitem-99a34e6a73bad94635993f83ff2d0f73
         </p>
 
         <table>
@@ -2383,7 +2383,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
@@ -2410,7 +2410,7 @@ dtype: object
             <h4 style="display: inline;">Layer3: gt</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            gt-0a592f521af18d6a27626d2a771b164f
+            gt-05a3e27faa76dfa13b63af352cd46602
         </p>
 
         <table>
@@ -2437,7 +2437,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-8caaa6a17d8ae9872002da26fb2ff6b8</td>
+                            <td style="text-align: left;">getitem-99a34e6a73bad94635993f83ff2d0f73</td>
                         </tr>
                     
                 
@@ -2464,7 +2464,7 @@ dtype: object
             <h4 style="display: inline;">Layer4: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-9d0d5c4c969ca67f05c7322f56b1999f
+            getitem-0a7799f357307780586a5c49462bd956
         </p>
 
         <table>
@@ -2494,7 +2494,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2509,21 +2509,21 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">gt-0a592f521af18d6a27626d2a771b164f</td>
+                            <td style="text-align: left;">gt-05a3e27faa76dfa13b63af352cd46602</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
@@ -2550,7 +2550,7 @@ dtype: object
             <h4 style="display: inline;">Layer5: dataframe-groupby-size-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            dataframe-groupby-size-chunk-7bb75c3c0865ef8939820e79d7672cb2-5f64bc1907d113f02d9a652daad99457
+            dataframe-groupby-size-chunk-8b6e31d5222944e3253ba98504a9007b-ef186e452abae95709be76eb365f9607
         </p>
 
         <table>
@@ -2577,7 +2577,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-9d0d5c4c969ca67f05c7322f56b1999f</td>
+                            <td style="text-align: left;">getitem-0a7799f357307780586a5c49462bd956</td>
                         </tr>
                     
                 
@@ -2604,7 +2604,7 @@ dtype: object
             <h4 style="display: inline;">Layer6: dataframe-groupby-size-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            dataframe-groupby-size-agg-7bb75c3c0865ef8939820e79d7672cb2
+            dataframe-groupby-size-agg-8b6e31d5222944e3253ba98504a9007b
         </p>
 
         <table>
@@ -2631,7 +2631,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">dataframe-groupby-size-chunk-7bb75c3c0865ef8939820e79d7672cb2-5f64bc1907d113f02d9a652daad99457</td>
+                            <td style="text-align: left;">dataframe-groupby-size-chunk-8b6e31d5222944e3253ba98504a9007b-ef186e452abae95709be76eb365f9607</td>
                         </tr>
                     
                 
@@ -2659,7 +2659,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a743711af2dc0677cef6a0027b62790ec585944d4388ddcae588dfe11ac643fb.png" src="../_images/a743711af2dc0677cef6a0027b62790ec585944d4388ddcae588dfe11ac643fb.png" />
+<img alt="../_images/1109aaed23efb3a77e6fdf46a20d266c131c4cf429fc1ff381404c4518c42d9f.png" src="../_images/1109aaed23efb3a77e6fdf46a20d266c131c4cf429fc1ff381404c4518c42d9f.png" />
 </div>
 </div>
 </div>
@@ -2689,8 +2689,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.41 s, sys: 201 ms, total: 1.61 s
-Wall time: 22.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.33 s, sys: 116 ms, total: 1.44 s
+Wall time: 20.9 s
 </pre></div>
 </div>
 </div>
@@ -2704,8 +2704,8 @@ Wall time: 22.4 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 832 ms, sys: 103 ms, total: 935 ms
-Wall time: 11.6 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 758 ms, sys: 50.7 ms, total: 809 ms
+Wall time: 10.5 s
 </pre></div>
 </div>
 </div>
@@ -2750,7 +2750,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer1: read-csv</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            read-csv-3a0220237d43b66b0d1efc4b294e5c51
+            read-csv-08688dc065e35cc6e3cae048087228e1
         </p>
 
         <table>
@@ -2780,7 +2780,7 @@ Wall time: 11.6 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2795,7 +2795,7 @@ Wall time: 11.6 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
@@ -2822,7 +2822,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer2: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-8caaa6a17d8ae9872002da26fb2ff6b8
+            getitem-99a34e6a73bad94635993f83ff2d0f73
         </p>
 
         <table>
@@ -2849,7 +2849,7 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
@@ -2876,7 +2876,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer3: gt</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            gt-0a592f521af18d6a27626d2a771b164f
+            gt-05a3e27faa76dfa13b63af352cd46602
         </p>
 
         <table>
@@ -2903,7 +2903,7 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-8caaa6a17d8ae9872002da26fb2ff6b8</td>
+                            <td style="text-align: left;">getitem-99a34e6a73bad94635993f83ff2d0f73</td>
                         </tr>
                     
                 
@@ -2930,7 +2930,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer4: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-9d0d5c4c969ca67f05c7322f56b1999f
+            getitem-0a7799f357307780586a5c49462bd956
         </p>
 
         <table>
@@ -2960,7 +2960,7 @@ Wall time: 11.6 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2975,21 +2975,21 @@ Wall time: 11.6 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">gt-0a592f521af18d6a27626d2a771b164f</td>
+                            <td style="text-align: left;">gt-05a3e27faa76dfa13b63af352cd46602</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">read-csv-3a0220237d43b66b0d1efc4b294e5c51</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
@@ -3016,7 +3016,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer5: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-198e6d528d5df74bee6ccd5965d52c39
+            getitem-deffb42121727b2f768558364eb91b65
         </p>
 
         <table>
@@ -3043,7 +3043,7 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-9d0d5c4c969ca67f05c7322f56b1999f</td>
+                            <td style="text-align: left;">getitem-0a7799f357307780586a5c49462bd956</td>
                         </tr>
                     
                 
@@ -3070,7 +3070,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer6: series-count-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-count-chunk-048837e9be5e019f2b338cb4dfcf3160-9940c055f80addd22cc0e663e6554906
+            series-count-chunk-aa3b0b9207b4d3f23bdee534750d1d79-37aef823397842f1163476a2e587d13c
         </p>
 
         <table>
@@ -3097,7 +3097,7 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-198e6d528d5df74bee6ccd5965d52c39</td>
+                            <td style="text-align: left;">getitem-deffb42121727b2f768558364eb91b65</td>
                         </tr>
                     
                 
@@ -3124,7 +3124,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer7: series-count-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-count-agg-048837e9be5e019f2b338cb4dfcf3160
+            series-count-agg-aa3b0b9207b4d3f23bdee534750d1d79
         </p>
 
         <table>
@@ -3151,7 +3151,7 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-count-chunk-048837e9be5e019f2b338cb4dfcf3160-9940c055f80addd22cc0e663e6554906</td>
+                            <td style="text-align: left;">series-count-chunk-aa3b0b9207b4d3f23bdee534750d1d79-37aef823397842f1163476a2e587d13c</td>
                         </tr>
                     
                 
@@ -3178,7 +3178,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer8: series-sum-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-sum-chunk-ae92135bef3c175dbf3231887468d2a3-8daa8a0acd5e39f46f8188684d9dc4b7
+            series-sum-chunk-8562cf34264b5ef7e9611da0f198c386-532432bb11252420549a70d05cbe2e63
         </p>
 
         <table>
@@ -3205,7 +3205,7 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-198e6d528d5df74bee6ccd5965d52c39</td>
+                            <td style="text-align: left;">getitem-deffb42121727b2f768558364eb91b65</td>
                         </tr>
                     
                 
@@ -3232,7 +3232,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer9: series-sum-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-sum-agg-ae92135bef3c175dbf3231887468d2a3
+            series-sum-agg-8562cf34264b5ef7e9611da0f198c386
         </p>
 
         <table>
@@ -3259,7 +3259,7 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-sum-chunk-ae92135bef3c175dbf3231887468d2a3-8daa8a0acd5e39f46f8188684d9dc4b7</td>
+                            <td style="text-align: left;">series-sum-chunk-8562cf34264b5ef7e9611da0f198c386-532432bb11252420549a70d05cbe2e63</td>
                         </tr>
                     
                 
@@ -3286,7 +3286,7 @@ Wall time: 11.6 s
             <h4 style="display: inline;">Layer10: series-mean</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-mean-ad854a414f77189e188bd286856e3bb5-ebbfb64982efc33424f61e9ebd081f00
+            series-mean-ac4fd722174989c65c210f026d52b931-8f11e8c2cd4fac12622f25389effebe2
         </p>
 
         <table>
@@ -3313,14 +3313,14 @@ Wall time: 11.6 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-sum-agg-ae92135bef3c175dbf3231887468d2a3</td>
+                            <td style="text-align: left;">series-sum-agg-8562cf34264b5ef7e9611da0f198c386</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">series-count-agg-048837e9be5e019f2b338cb4dfcf3160</td>
+                            <td style="text-align: left;">series-count-agg-aa3b0b9207b4d3f23bdee534750d1d79</td>
                         </tr>
                     
                 
@@ -3366,8 +3366,8 @@ Wall time: 11.6 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 1.52 s, sys: 192 ms, total: 1.71 s
-Wall time: 22.7 s
+CPU times: user 1.43 s, sys: 104 ms, total: 1.54 s
+Wall time: 21.2 s
 </pre></div>
 </div>
 </div>
@@ -3391,8 +3391,8 @@ Wall time: 22.7 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 1.12 s, sys: 132 ms, total: 1.25 s
-Wall time: 12.1 s
+CPU times: user 880 ms, sys: 64.3 ms, total: 945 ms
+Wall time: 11.3 s
 </pre></div>
 </div>
 </div>
@@ -3508,10 +3508,10 @@ As shown in the above example, the intermediate results can also be shared by ca
             <p class="prev-next-title">Dask Arrays</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="03-dask-xarray.html" title="next page">
+    <a class='right-next' id="next-link" href="04-dask-cluster.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Parallelizing Xarray with Dask</p>
+        <p class="prev-next-title">Dask Schedulers</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -3560,7 +3560,7 @@ As shown in the above example, the intermediate results can also be shared by ca
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 23 June 2023.
+          Last updated on 14 July 2023.
         </p>
       </div>
     </div>
