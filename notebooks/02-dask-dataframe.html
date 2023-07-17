@@ -219,6 +219,13 @@ const thebe_selector_output = ".output, .cell_output"
    Dask DataFrame
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Dask Schedulers
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="04-dask-cluster.html">
    Dask Schedulers
@@ -340,14 +347,26 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#in-this-tutorial-you-learn">
-   In this tutorial, you learn:
+  <a class="reference internal nav-link" href="#overview">
+   Overview
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#related-documentation">
-   Related Documentation
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in-this-tutorial-you-learn">
+     In this tutorial, you learn:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#related-documentation">
+     Related Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prerequisites">
+     Prerequisites
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
@@ -547,8 +566,10 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 Computational &amp; Information Systems Lab (CISL)<br />
 <a class="reference external" href="mailto:negins&#37;&#52;&#48;ucar&#46;edu">negins<span>&#64;</span>ucar<span>&#46;</span>edu</a>, <a class="reference external" href="mailto:vanderwb&#37;&#52;&#48;ucar&#46;edu">vanderwb<span>&#64;</span>ucar<span>&#46;</span>edu</a></p>
 <hr class="docutils" />
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <div class="section" id="in-this-tutorial-you-learn">
-<h2>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<h3>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <ul class="simple">
 <li><p>Basic concepts and features of Dask DataFrames</p></li>
 <li><p>Applications of Dask DataFrames</p></li>
@@ -558,13 +579,38 @@ Computational &amp; Information Systems Lab (CISL)<br />
 </ul>
 </div>
 <div class="section" id="related-documentation">
-<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<h3>Related Documentation<a class="headerlink" href="#related-documentation" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.dask.org/en/latest/dataframe.html">Dask DataFrame documentation</a></p></li>
 <li><p><a class="reference external" href="https://docs.dask.org/en/latest/dataframe-api.html">Dask DataFrame API</a></p></li>
 <li><p><a class="reference external" href="https://examples.dask.org/dataframe.html">Dask DataFrame examples</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/">pandas documentation</a></p></li>
 </ul>
+</div>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepts</p></th>
+<th class="head"><p>Importance</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">Familiarity with Pandas DataFrame</a></p></td>
+<td><p>Necessary</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">Dask Overview</a></p></td>
+<td><p>Necessary</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Time to learn</strong>: 40 minutes</p></li>
+</ul>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="introduction">
@@ -635,7 +681,223 @@ This is an example of a real dataset that is used by NCAR scientists for their r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: ./get_data.sh: Permission denied
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=14doSRn8hT14QYtjZz28GKv14JgdIsbFF
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00023160.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00027281.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00027390.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00030936.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00031596.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00032444.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035186.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035754.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035820.csv
+USC00035908.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00042294.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00044259.csv
+USC00048758.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00050848.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051294.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051528.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051564.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051741.csv
+USC00052184.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052281.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052446.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053005.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053038.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053146.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053662.csv
+USC00053951.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054076.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054770.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054834.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00055322.csv
+USC00055722.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057167.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057337.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=15rCwQUxxpH6angDhpXzlvbe1nGetYHrf
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00057936.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00058204.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00058429.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00059243.csv
+USC00068138.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00080211.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00084731.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00088824.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00098703.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00100010.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00100470.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00105275.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00106152.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00107264.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00108137.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00110338.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112140.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112193.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112348.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112483.csv
+USC00113335.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114108.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114442.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114823.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115079.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115326.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115712.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115768.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115833.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115901.csv
+USC00115943.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00116446.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USW00003017.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=1Tbuom1KMCwHjy7-eexEQcOXSr51i6mae
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/
+data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.205501-206412.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.209501-210012.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.202501-203412.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.204501-205412.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.207501-208412.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.201501-202412.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.206501-207412.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.203501-204412.nc
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.208501-209412.nc
 </pre></div>
 </div>
 </div>
@@ -660,73 +922,6 @@ This is an example of a real dataset that is used by NCAR scientists for their r
 
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">site</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">),</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">site</span> <span class="o">=</span> <span class="s1">&#39;USW00003017&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;../data/&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">site</span><span class="o">+</span><span class="s1">&#39;.csv&#39;</span><span class="p">),</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DATE&#39;</span><span class="p">],</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda3/envs/dask-cookbook-dev/lib/python3.9/site-packages/pandas/io/parsers/readers.py:912,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">899</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">900</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">901</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">909</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">910</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">912</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda3/envs/dask-cookbook-dev/lib/python3.9/site-packages/pandas/io/parsers/readers.py:577,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">577</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File /usr/share/miniconda3/envs/dask-cookbook-dev/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1407,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1404</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1406</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1407</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda3/envs/dask-cookbook-dev/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1661,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1659</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1660</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1661</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1662</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1663</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1664</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1665</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1666</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1667</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1668</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1669</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1670</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1671</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1672</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File /usr/share/miniconda3/envs/dask-cookbook-dev/lib/python3.9/site-packages/pandas/io/common.py:859,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">854</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">857</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">859</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">863</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">867</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../data/USW00003017.csv&#39;
 </pre></div>
 </div>
 </div>
@@ -993,10 +1188,10 @@ This is an example of a real dataset that is used by NCAR scientists for their r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;DATE&#39;, ylabel=&#39;Daily Average Snow Depth [mm]&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;, ylabel=&#39;Daily Average Snow Depth [mm]&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/7751b18eadfefaf0b61c2cf07efcc485f2ca51c67f0b3a7c437bbdc7c51ece72.png" src="../_images/7751b18eadfefaf0b61c2cf07efcc485f2ca51c67f0b3a7c437bbdc7c51ece72.png" />
+<img alt="../_images/f97e9148ade187f975721b84da628cadf73fdaeefbb67bfd313520b88d4d6e1d.png" src="../_images/f97e9148ade187f975721b84da628cadf73fdaeefbb67bfd313520b88d4d6e1d.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1065,7 +1260,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-rw-r--r-- 1 negins ncar 3.6M Feb  5 07:14 ../data/USW00003017.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-rw-r--r-- 1 runner docker 3.6M Feb  5 14:14 ../data/USW00003017.csv
 </pre></div>
 </div>
 </div>
@@ -1117,7 +1312,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>566M	total
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>565M	total
 </pre></div>
 </div>
 </div>
@@ -1133,8 +1328,8 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.9 s, sys: 2.87 s, total: 14.8 s
-Wall time: 19.5 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16 s, sys: 3.99 s, total: 20 s
+Wall time: 20 s
 </pre></div>
 </div>
 </div>
@@ -1171,8 +1366,8 @@ Wall time: 19.5 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
-CPU times: user 4.49 s, sys: 15.4 s, total: 19.9 s
-Wall time: 1min 21s
+CPU times: user 411 ms, sys: 0 ns, total: 411 ms
+Wall time: 411 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -1212,7 +1407,7 @@ dtype: object
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-53ec3d8d-a599-11ed-bb54-3cecef1b11d4</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-1d7f66e2-24c6-11ee-8986-000d3a03c36a</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1225,13 +1420,19 @@ dtype: object
         
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/8787/status</a>
+                    <strong>Dashboard: </strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
                 </td>
                 <td style="text-align: left;"></td>
             </tr>
         
 
         </table>
+
+        
+            <button style="margin-bottom: 12px;" data-commandlinker-command="dask:populate-and-launch-layout" data-commandlinker-args='{"url": "http://127.0.0.1:8787/status" }'>
+                Launch dashboard in JupyterLab
+            </button>
+        
 
         
             <details>
@@ -1241,22 +1442,22 @@ dtype: object
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">2ddb751e</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">145d3f20</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
-                    <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/8787/status</a>
+                    <strong>Dashboard:</strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
                 </td>
                 <td style="text-align: left;">
-                    <strong>Workers:</strong> 4
+                    <strong>Workers:</strong> 2
                 </td>
             </tr>
             <tr>
                 <td style="text-align: left;">
-                    <strong>Total threads:</strong> 4
+                    <strong>Total threads:</strong> 2
                 </td>
                 <td style="text-align: left;">
-                    <strong>Total memory:</strong> 4.00 GiB
+                    <strong>Total memory:</strong> 6.77 GiB
                 </td>
             </tr>
             
@@ -1278,22 +1479,22 @@ dtype: object
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-7ff96b2c-e98a-4ea8-9644-554701393a83</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-110e0a1b-cf2f-4d1a-9e4b-ae96d4a8a34c</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:38113
+                        <strong>Comm:</strong> tcp://127.0.0.1:45277
                     </td>
                     <td style="text-align: left;">
-                        <strong>Workers:</strong> 4
+                        <strong>Workers:</strong> 2
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Dashboard:</strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/8787/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/8787/status</a>
+                        <strong>Dashboard:</strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total threads:</strong> 4
+                        <strong>Total threads:</strong> 2
                     </td>
                 </tr>
                 <tr>
@@ -1301,7 +1502,7 @@ dtype: object
                         <strong>Started:</strong> Just now
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total memory:</strong> 4.00 GiB
+                        <strong>Total memory:</strong> 6.77 GiB
                     </td>
                 </tr>
             </table>
@@ -1324,7 +1525,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:35345
+                            <strong>Comm: </strong> tcp://127.0.0.1:36007
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1332,21 +1533,21 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/40352/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/40352/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:36879/status" target="_blank">http://127.0.0.1:36879/status</a>
                         </td>
                         <td style="text-align: left;">
-                            <strong>Memory: </strong> 1.00 GiB
+                            <strong>Memory: </strong> 3.38 GiB
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:44090
+                            <strong>Nanny: </strong> tcp://127.0.0.1:33541
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/negins/dask-worker-space/worker-5nmxv_zk
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-eb1o2fai
                         </td>
                     </tr>
 
@@ -1369,7 +1570,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:39634
+                            <strong>Comm: </strong> tcp://127.0.0.1:35745
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1377,111 +1578,21 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/46672/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/46672/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:43867/status" target="_blank">http://127.0.0.1:43867/status</a>
                         </td>
                         <td style="text-align: left;">
-                            <strong>Memory: </strong> 1.00 GiB
+                            <strong>Memory: </strong> 3.38 GiB
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:39719
+                            <strong>Nanny: </strong> tcp://127.0.0.1:36659
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/negins/dask-worker-space/worker-f5__nvpk
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 2</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:37524
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/33848/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/33848/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 1.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:37649
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/negins/dask-worker-space/worker-a517utir
-                        </td>
-                    </tr>
-
-                    
-
-                    
-
-                </table>
-            </details>
-            </div>
-        </div>
-        
-        <div style="margin-bottom: 20px;">
-            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
-            <div style="margin-left: 48px;">
-            <details>
-                <summary>
-                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 3</h4>
-                </summary>
-                <table style="width: 100%; text-align: left;">
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:46848
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Total threads: </strong> 1
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/36957/status" target="_blank">https://jupyterhub.hpc.ucar.edu/stable/user/negins/proxy/36957/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 1.00 GiB
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:40787
-                        </td>
-                        <td style="text-align: left;"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /glade/scratch/negins/dask-worker-space/worker-mboofx4v
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-g6vihm9a
                         </td>
                     </tr>
 
@@ -1527,8 +1638,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 462 ms, sys: 123 ms, total: 585 ms
-Wall time: 849 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 318 ms, sys: 25.1 ms, total: 343 ms
+Wall time: 419 ms
 </pre></div>
 </div>
 <div class="output text_html"><div><strong>Dask DataFrame Structure:</strong></div>
@@ -1555,54 +1666,46 @@ Wall time: 849 ms
       <th>YEAR</th>
       <th>MONTH</th>
       <th>DAY</th>
-      <th>TMAX</th>
-      <th>TMAX_FLAGS</th>
-      <th>TMIN</th>
-      <th>TMIN_FLAGS</th>
       <th>PRCP</th>
       <th>PRCP_FLAGS</th>
       <th>SNOW</th>
       <th>SNOW_FLAGS</th>
+      <th>TMAX</th>
+      <th>TMAX_FLAGS</th>
+      <th>TMIN</th>
+      <th>TMIN_FLAGS</th>
       <th>SNWD</th>
       <th>SNWD_FLAGS</th>
-      <th>WT16</th>
-      <th>WT16_FLAGS</th>
-      <th>WT14</th>
-      <th>WT14_FLAGS</th>
-      <th>WT18</th>
-      <th>WT18_FLAGS</th>
       <th>TOBS</th>
       <th>TOBS_FLAGS</th>
-      <th>WT01</th>
-      <th>WT01_FLAGS</th>
-      <th>WT08</th>
-      <th>WT08_FLAGS</th>
-      <th>WT03</th>
-      <th>WT03_FLAGS</th>
-      <th>WT04</th>
-      <th>WT04_FLAGS</th>
-      <th>WT06</th>
-      <th>WT06_FLAGS</th>
-      <th>WT05</th>
-      <th>WT05_FLAGS</th>
       <th>DAPR</th>
       <th>DAPR_FLAGS</th>
       <th>MDPR</th>
       <th>MDPR_FLAGS</th>
+      <th>WT03</th>
+      <th>WT03_FLAGS</th>
       <th>WT11</th>
       <th>WT11_FLAGS</th>
-      <th>SN02</th>
-      <th>SN02_FLAGS</th>
-      <th>SX02</th>
-      <th>SX02_FLAGS</th>
-      <th>SN32</th>
-      <th>SN32_FLAGS</th>
-      <th>SX32</th>
-      <th>SX32_FLAGS</th>
-      <th>SN52</th>
-      <th>SN52_FLAGS</th>
-      <th>SX52</th>
-      <th>SX52_FLAGS</th>
+      <th>WT07</th>
+      <th>WT07_FLAGS</th>
+      <th>DASF</th>
+      <th>DASF_FLAGS</th>
+      <th>MDSF</th>
+      <th>MDSF_FLAGS</th>
+      <th>WT09</th>
+      <th>WT09_FLAGS</th>
+      <th>WT01</th>
+      <th>WT01_FLAGS</th>
+      <th>WT08</th>
+      <th>WT08_FLAGS</th>
+      <th>WT05</th>
+      <th>WT05_FLAGS</th>
+      <th>WT06</th>
+      <th>WT06_FLAGS</th>
+      <th>WT04</th>
+      <th>WT04_FLAGS</th>
+      <th>WT14</th>
+      <th>WT14_FLAGS</th>
       <th>LATITUDE</th>
       <th>LONGITUDE</th>
       <th>ELEVATION</th>
@@ -1611,14 +1714,6 @@ Wall time: 849 ms
     </tr>
     <tr>
       <th>npartitions=66</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -1720,14 +1815,6 @@ Wall time: 849 ms
       <td>float64</td>
       <td>object</td>
       <td>float64</td>
-      <td>object</td>
-      <td>float64</td>
-      <td>object</td>
-      <td>float64</td>
-      <td>object</td>
-      <td>float64</td>
-      <td>object</td>
-      <td>float64</td>
       <td>float64</td>
       <td>float64</td>
       <td>object</td>
@@ -1735,14 +1822,6 @@ Wall time: 849 ms
     </tr>
     <tr>
       <th></th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1846,14 +1925,6 @@ Wall time: 849 ms
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th></th>
@@ -1907,25 +1978,9 @@ Wall time: 849 ms
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
       <th></th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1980,7 +2035,7 @@ Wall time: 849 ms
   </tbody>
 </table>
 </div>
-<div>Dask Name: read-csv, 66 tasks</div></div></div>
+<div>Dask Name: read-csv, 1 graph layer</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2033,17 +2088,17 @@ Dask just construct the task graph of the computation but it will “evaluate”
       <th>YEAR</th>
       <th>MONTH</th>
       <th>DAY</th>
-      <th>TMAX</th>
-      <th>TMAX_FLAGS</th>
-      <th>TMIN</th>
-      <th>TMIN_FLAGS</th>
       <th>PRCP</th>
+      <th>PRCP_FLAGS</th>
+      <th>SNOW</th>
+      <th>SNOW_FLAGS</th>
+      <th>TMAX</th>
       <th>...</th>
-      <th>SX32_FLAGS</th>
-      <th>SN52</th>
-      <th>SN52_FLAGS</th>
-      <th>SX52</th>
-      <th>SX52_FLAGS</th>
+      <th>WT06_FLAGS</th>
+      <th>WT04</th>
+      <th>WT04_FLAGS</th>
+      <th>WT14</th>
+      <th>WT14_FLAGS</th>
       <th>LATITUDE</th>
       <th>LONGITUDE</th>
       <th>ELEVATION</th>
@@ -2054,127 +2109,127 @@ Dask just construct the task graph of the computation but it will “evaluate”
   <tbody>
     <tr>
       <th>0</th>
-      <td>1884-04-01</td>
-      <td>USC00035186</td>
-      <td>1884</td>
-      <td>4</td>
+      <td>1893-01-01</td>
+      <td>USC00051564</td>
+      <td>1893</td>
       <td>1</td>
-      <td>289.0</td>
-      <td>XX6</td>
-      <td>222.0</td>
-      <td>XX6</td>
+      <td>1</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>35.6042</td>
-      <td>-91.2744</td>
-      <td>69.5</td>
-      <td>AR</td>
-      <td>NEWPORT</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
+      <td>CO</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1884-04-02</td>
-      <td>USC00035186</td>
-      <td>1884</td>
-      <td>4</td>
+      <td>1893-01-02</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
       <td>2</td>
-      <td>272.0</td>
-      <td>XX6</td>
-      <td>89.0</td>
-      <td>XX6</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>35.6042</td>
-      <td>-91.2744</td>
-      <td>69.5</td>
-      <td>AR</td>
-      <td>NEWPORT</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
+      <td>CO</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1884-04-03</td>
-      <td>USC00035186</td>
-      <td>1884</td>
-      <td>4</td>
+      <td>1893-01-03</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
       <td>3</td>
-      <td>200.0</td>
-      <td>XX6</td>
-      <td>22.0</td>
-      <td>XX6</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>35.6042</td>
-      <td>-91.2744</td>
-      <td>69.5</td>
-      <td>AR</td>
-      <td>NEWPORT</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
+      <td>CO</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1884-04-04</td>
-      <td>USC00035186</td>
-      <td>1884</td>
+      <td>1893-01-04</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
       <td>4</td>
-      <td>4</td>
-      <td>244.0</td>
-      <td>XX6</td>
-      <td>61.0</td>
-      <td>XX6</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>35.6042</td>
-      <td>-91.2744</td>
-      <td>69.5</td>
-      <td>AR</td>
-      <td>NEWPORT</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
+      <td>CO</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1884-04-08</td>
-      <td>USC00035186</td>
-      <td>1884</td>
-      <td>4</td>
-      <td>8</td>
-      <td>178.0</td>
-      <td>XX6</td>
-      <td>39.0</td>
-      <td>XX6</td>
+      <td>1893-01-05</td>
+      <td>USC00051564</td>
+      <td>1893</td>
+      <td>1</td>
+      <td>5</td>
       <td>0.0</td>
+      <td>PX6</td>
+      <td>0.0</td>
+      <td>XX6</td>
+      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>35.6042</td>
-      <td>-91.2744</td>
-      <td>69.5</td>
-      <td>AR</td>
-      <td>NEWPORT</td>
+      <td>38.8575</td>
+      <td>-102.3328</td>
+      <td>1281.1</td>
+      <td>CO</td>
+      <td>CHEYENNE WELLS 2NE</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 58 columns</p>
+<p>5 rows × 50 columns</p>
 </div></div></div>
 </div>
 <div class="alert alert-block alert-info" markdown="1">
@@ -2192,8 +2247,10 @@ For example, let’s find the highest number of snow days in Colorado:</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
-CPU times: user 236 ms, sys: 54.1 ms, total: 290 ms
-Wall time: 4.62 s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 681 ms, sys: 102 ms, total: 783 ms
+Wall time: 12.1 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -2247,7 +2304,7 @@ dtype: object
             <h4 style="display: inline;">Layer1: read-csv</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            read-csv-5f2d7502b7b2ca095255b707b5fa92b8
+            read-csv-08688dc065e35cc6e3cae048087228e1
         </p>
 
         <table>
@@ -2277,7 +2334,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT18&#x27;, &#x27;WT18_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;SN02&#x27;, &#x27;SN02_FLAGS&#x27;, &#x27;SX02&#x27;, &#x27;SX02_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;SN52&#x27;, &#x27;SN52_FLAGS&#x27;, &#x27;SX52&#x27;, &#x27;SX52_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2292,7 +2349,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT18&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT18_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
@@ -2319,7 +2376,7 @@ dtype: object
             <h4 style="display: inline;">Layer2: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-51dd26ae1d79cd0e667caf194aa506cd
+            getitem-99a34e6a73bad94635993f83ff2d0f73
         </p>
 
         <table>
@@ -2346,7 +2403,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-5f2d7502b7b2ca095255b707b5fa92b8</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
@@ -2373,7 +2430,7 @@ dtype: object
             <h4 style="display: inline;">Layer3: gt</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            gt-4dc2c28c5c6a8a61c8e747e16a43b818
+            gt-05a3e27faa76dfa13b63af352cd46602
         </p>
 
         <table>
@@ -2400,7 +2457,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-51dd26ae1d79cd0e667caf194aa506cd</td>
+                            <td style="text-align: left;">getitem-99a34e6a73bad94635993f83ff2d0f73</td>
                         </tr>
                     
                 
@@ -2427,7 +2484,7 @@ dtype: object
             <h4 style="display: inline;">Layer4: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-92164db053c94adfa8b699f100d8db26
+            getitem-0a7799f357307780586a5c49462bd956
         </p>
 
         <table>
@@ -2457,7 +2514,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT18&#x27;, &#x27;WT18_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;SN02&#x27;, &#x27;SN02_FLAGS&#x27;, &#x27;SX02&#x27;, &#x27;SX02_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;SN52&#x27;, &#x27;SN52_FLAGS&#x27;, &#x27;SX52&#x27;, &#x27;SX52_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2472,21 +2529,21 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT18&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT18_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">gt-4dc2c28c5c6a8a61c8e747e16a43b818</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">read-csv-5f2d7502b7b2ca095255b707b5fa92b8</td>
+                            <td style="text-align: left;">gt-05a3e27faa76dfa13b63af352cd46602</td>
                         </tr>
                     
                 
@@ -2513,7 +2570,7 @@ dtype: object
             <h4 style="display: inline;">Layer5: dataframe-groupby-size-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            dataframe-groupby-size-chunk-b11331e4b541606fb356e0ef3871f13d-785f1ed81a41cfe4eeefc53d30e1ed67
+            dataframe-groupby-size-chunk-8b6e31d5222944e3253ba98504a9007b-ef186e452abae95709be76eb365f9607
         </p>
 
         <table>
@@ -2540,7 +2597,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-92164db053c94adfa8b699f100d8db26</td>
+                            <td style="text-align: left;">getitem-0a7799f357307780586a5c49462bd956</td>
                         </tr>
                     
                 
@@ -2567,7 +2624,7 @@ dtype: object
             <h4 style="display: inline;">Layer6: dataframe-groupby-size-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            dataframe-groupby-size-agg-b11331e4b541606fb356e0ef3871f13d
+            dataframe-groupby-size-agg-8b6e31d5222944e3253ba98504a9007b
         </p>
 
         <table>
@@ -2594,7 +2651,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">dataframe-groupby-size-chunk-b11331e4b541606fb356e0ef3871f13d-785f1ed81a41cfe4eeefc53d30e1ed67</td>
+                            <td style="text-align: left;">dataframe-groupby-size-chunk-8b6e31d5222944e3253ba98504a9007b-ef186e452abae95709be76eb365f9607</td>
                         </tr>
                     
                 
@@ -2622,10 +2679,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-05 14:09:25,213 - distributed.client - ERROR - Failed to reconnect to scheduler after 30.00 seconds, closing client
-</pre></div>
-</div>
-<img alt="../_images/1516d76f4ab66bd22b2a845d8234e256875261351b633d9fd87707bbea77204b.png" src="../_images/1516d76f4ab66bd22b2a845d8234e256875261351b633d9fd87707bbea77204b.png" />
+<img alt="../_images/0f2fd026853c35566298b2af174bde52e52d1f500555afc6d4423e2203e8bfa3.png" src="../_images/0f2fd026853c35566298b2af174bde52e52d1f500555afc6d4423e2203e8bfa3.png" />
 </div>
 </div>
 </div>
@@ -2655,8 +2709,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 24.9 s, sys: 2.12 s, total: 27 s
-Wall time: 15.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.38 s, sys: 196 ms, total: 1.57 s
+Wall time: 23.1 s
 </pre></div>
 </div>
 </div>
@@ -2670,8 +2724,8 @@ Wall time: 15.4 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11.6 s, sys: 770 ms, total: 12.4 s
-Wall time: 7.05 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 810 ms, sys: 96.8 ms, total: 907 ms
+Wall time: 12 s
 </pre></div>
 </div>
 </div>
@@ -2716,7 +2770,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer1: read-csv</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            read-csv-5f2d7502b7b2ca095255b707b5fa92b8
+            read-csv-08688dc065e35cc6e3cae048087228e1
         </p>
 
         <table>
@@ -2746,7 +2800,7 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT18&#x27;, &#x27;WT18_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;SN02&#x27;, &#x27;SN02_FLAGS&#x27;, &#x27;SX02&#x27;, &#x27;SX02_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;SN52&#x27;, &#x27;SN52_FLAGS&#x27;, &#x27;SX52&#x27;, &#x27;SX52_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2761,7 +2815,7 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT18&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT18_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
@@ -2788,7 +2842,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer2: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-51dd26ae1d79cd0e667caf194aa506cd
+            getitem-99a34e6a73bad94635993f83ff2d0f73
         </p>
 
         <table>
@@ -2815,7 +2869,7 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-5f2d7502b7b2ca095255b707b5fa92b8</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
@@ -2842,7 +2896,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer3: gt</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            gt-4dc2c28c5c6a8a61c8e747e16a43b818
+            gt-05a3e27faa76dfa13b63af352cd46602
         </p>
 
         <table>
@@ -2869,7 +2923,7 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-51dd26ae1d79cd0e667caf194aa506cd</td>
+                            <td style="text-align: left;">getitem-99a34e6a73bad94635993f83ff2d0f73</td>
                         </tr>
                     
                 
@@ -2896,7 +2950,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer4: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-92164db053c94adfa8b699f100d8db26
+            getitem-0a7799f357307780586a5c49462bd956
         </p>
 
         <table>
@@ -2926,7 +2980,7 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;WT16&#x27;, &#x27;WT16_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT18&#x27;, &#x27;WT18_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;SN02&#x27;, &#x27;SN02_FLAGS&#x27;, &#x27;SX02&#x27;, &#x27;SX02_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;SN52&#x27;, &#x27;SN52_FLAGS&#x27;, &#x27;SX52&#x27;, &#x27;SX52_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2941,21 +2995,21 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT16&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT16_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT18&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT18_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX02&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX02_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SN52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SX52&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX52_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
                     </tr>
                 
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">gt-4dc2c28c5c6a8a61c8e747e16a43b818</td>
+                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">read-csv-5f2d7502b7b2ca095255b707b5fa92b8</td>
+                            <td style="text-align: left;">gt-05a3e27faa76dfa13b63af352cd46602</td>
                         </tr>
                     
                 
@@ -2982,7 +3036,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer5: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-ae71d69b1bed81ae1d1b31cbde77b2d1
+            getitem-deffb42121727b2f768558364eb91b65
         </p>
 
         <table>
@@ -3009,7 +3063,7 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-92164db053c94adfa8b699f100d8db26</td>
+                            <td style="text-align: left;">getitem-0a7799f357307780586a5c49462bd956</td>
                         </tr>
                     
                 
@@ -3027,7 +3081,7 @@ Wall time: 7.05 s
             <div style="">
     <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
         
-        <circle cx="16" cy="16" r="14" fill="#8F8F8F" style="stroke: var(--jp-ui-font-color2, #1D1D1D);" stroke-width="2"/>
+        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
         
     </svg>
 
@@ -3036,7 +3090,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer6: series-count-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-count-chunk-abb2ff16056a172d5fef3143ffcb9e09-fe4c70e18b085589f8043db033af3fbf
+            series-count-chunk-aa3b0b9207b4d3f23bdee534750d1d79-37aef823397842f1163476a2e587d13c
         </p>
 
         <table>
@@ -3051,7 +3105,7 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">is_materialized</th>
-                        <td style="text-align: left;">True</td>
+                        <td style="text-align: left;">False</td>
                     </tr>
                 
                     <tr>
@@ -3063,7 +3117,7 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-ae71d69b1bed81ae1d1b31cbde77b2d1</td>
+                            <td style="text-align: left;">getitem-deffb42121727b2f768558364eb91b65</td>
                         </tr>
                     
                 
@@ -3081,7 +3135,7 @@ Wall time: 7.05 s
             <div style="">
     <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
         
-        <circle cx="16" cy="16" r="14" fill="#8F8F8F" style="stroke: var(--jp-ui-font-color2, #1D1D1D);" stroke-width="2"/>
+        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
         
     </svg>
 
@@ -3090,7 +3144,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer7: series-count-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-count-agg-abb2ff16056a172d5fef3143ffcb9e09
+            series-count-agg-aa3b0b9207b4d3f23bdee534750d1d79
         </p>
 
         <table>
@@ -3105,7 +3159,7 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">is_materialized</th>
-                        <td style="text-align: left;">True</td>
+                        <td style="text-align: left;">False</td>
                     </tr>
                 
                     <tr>
@@ -3117,7 +3171,7 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-count-chunk-abb2ff16056a172d5fef3143ffcb9e09-fe4c70e18b085589f8043db033af3fbf</td>
+                            <td style="text-align: left;">series-count-chunk-aa3b0b9207b4d3f23bdee534750d1d79-37aef823397842f1163476a2e587d13c</td>
                         </tr>
                     
                 
@@ -3135,7 +3189,7 @@ Wall time: 7.05 s
             <div style="">
     <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
         
-        <circle cx="16" cy="16" r="14" fill="#8F8F8F" style="stroke: var(--jp-ui-font-color2, #1D1D1D);" stroke-width="2"/>
+        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
         
     </svg>
 
@@ -3144,7 +3198,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer8: series-sum-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-sum-chunk-42eb529730624a32128fcee5962b541b-5e7bf346d21035fc08bd8dcd180f8226
+            series-sum-chunk-8562cf34264b5ef7e9611da0f198c386-532432bb11252420549a70d05cbe2e63
         </p>
 
         <table>
@@ -3159,7 +3213,7 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">is_materialized</th>
-                        <td style="text-align: left;">True</td>
+                        <td style="text-align: left;">False</td>
                     </tr>
                 
                     <tr>
@@ -3171,7 +3225,7 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-ae71d69b1bed81ae1d1b31cbde77b2d1</td>
+                            <td style="text-align: left;">getitem-deffb42121727b2f768558364eb91b65</td>
                         </tr>
                     
                 
@@ -3189,7 +3243,7 @@ Wall time: 7.05 s
             <div style="">
     <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
         
-        <circle cx="16" cy="16" r="14" fill="#8F8F8F" style="stroke: var(--jp-ui-font-color2, #1D1D1D);" stroke-width="2"/>
+        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
         
     </svg>
 
@@ -3198,7 +3252,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer9: series-sum-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-sum-agg-42eb529730624a32128fcee5962b541b
+            series-sum-agg-8562cf34264b5ef7e9611da0f198c386
         </p>
 
         <table>
@@ -3213,7 +3267,7 @@ Wall time: 7.05 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">is_materialized</th>
-                        <td style="text-align: left;">True</td>
+                        <td style="text-align: left;">False</td>
                     </tr>
                 
                     <tr>
@@ -3225,7 +3279,7 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-sum-chunk-42eb529730624a32128fcee5962b541b-5e7bf346d21035fc08bd8dcd180f8226</td>
+                            <td style="text-align: left;">series-sum-chunk-8562cf34264b5ef7e9611da0f198c386-532432bb11252420549a70d05cbe2e63</td>
                         </tr>
                     
                 
@@ -3252,7 +3306,7 @@ Wall time: 7.05 s
             <h4 style="display: inline;">Layer10: series-mean</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-mean-ba3bd33250f8158b201e128be511cd80-659f48717192b044106eef74633c1a2c
+            series-mean-ac4fd722174989c65c210f026d52b931-8f11e8c2cd4fac12622f25389effebe2
         </p>
 
         <table>
@@ -3279,14 +3333,14 @@ Wall time: 7.05 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-sum-agg-42eb529730624a32128fcee5962b541b</td>
+                            <td style="text-align: left;">series-count-agg-aa3b0b9207b4d3f23bdee534750d1d79</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">series-count-agg-abb2ff16056a172d5fef3143ffcb9e09</td>
+                            <td style="text-align: left;">series-sum-agg-8562cf34264b5ef7e9611da0f198c386</td>
                         </tr>
                     
                 
@@ -3332,8 +3386,8 @@ Wall time: 7.05 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 23.8 s, sys: 1.94 s, total: 25.7 s
-Wall time: 14.6 s
+CPU times: user 1.63 s, sys: 175 ms, total: 1.81 s
+Wall time: 23.9 s
 </pre></div>
 </div>
 </div>
@@ -3357,8 +3411,8 @@ Wall time: 14.6 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 51.9 ms, sys: 4.82 ms, total: 56.7 ms
-Wall time: 53.7 ms
+CPU times: user 935 ms, sys: 104 ms, total: 1.04 s
+Wall time: 12.4 s
 </pre></div>
 </div>
 </div>
@@ -3410,6 +3464,7 @@ As shown in the above example, the intermediate results can also be shared by ca
 </div>
 </div>
 </div>
+<hr class="docutils" />
 <div class="section" id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>In this notebook, we have learned about:</p>
@@ -3525,7 +3580,7 @@ As shown in the above example, the intermediate results can also be shared by ca
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 5 July 2023.
+          Last updated on 17 July 2023.
         </p>
       </div>
     </div>
