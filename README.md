@@ -2,8 +2,8 @@
 
 # NCAR Dask Tutorial
 
-[![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
-[![Binder](https://mybinder.org/badge_logo.svg)](http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks)
+[![nightly-build](https://github.com/ProjectPythia/dask-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/dask-cookbook/actions/workflows/nightly-build.yaml)
+[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks)
 [![DOI](https://zenodo.org/badge/610934658.svg)](https://zenodo.org/badge/latestdoi/610934658)
 
 This Project Pythia Cookbook provides a comprehensive guide to understanding the basic concepts and collections of Dask as well as its integration with Xarray.
@@ -39,12 +39,12 @@ Finally, we will discuss some best practices regarding Dask + Xarray.
 
 ## Running the Notebooks
 
-You can either run the notebook using [Binder](https://mybinder.org/) or on your local machine.
+You can either run the notebook using [Binder](https://binder.projectpythia.org/) or on your local machine.
 
 ### Running on Binder
 
 The simplest way to interact with a Jupyter Notebook is through
-[Binder](https://mybinder.org/), which enables the execution of a
+[Binder](https://binder.projectpythia.org/), which enables the execution of a
 [Jupyter Book](https://jupyterbook.org) in the cloud. The details of how this works are not
 important for now. All you need to know is how to launch a Pythia
 Cookbooks chapter via Binder. Simply navigate your mouse to
@@ -78,7 +78,7 @@ If you are interested in running this material locally on your computer, you wil
 
    ```bash
    conda env create -f environment.yml
-   conda activate dask-cookbook-example
+   conda activate dask-cookbook-dev
    ```
 
 1. Move into the `notebooks` directory and start up Jupyterlab
