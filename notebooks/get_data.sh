@@ -50,4 +50,3 @@ do
       # Clean up by removing the tar file
       rm data.tar.gz
 done
-
