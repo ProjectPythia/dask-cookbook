@@ -182,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   NCAR Dask Tutorial
+   Dask Cookbook
   </a>
  </li>
 </ul>
@@ -211,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="01-dask-array.html">
-   Dask Arrays
+   Dask Array
   </a>
  </li>
  <li class="toctree-l1">
@@ -297,14 +297,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/negin513/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/ProjectPythia/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/negin513/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/04-dask-cluster.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ProjectPythia/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/04-dask-cluster.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/negin513/dask-cookbook.git/edit/main/notebooks/04-dask-cluster.ipynb"><button
+        <a class="edit-button" href="https://github.com/ProjectPythia/dask-cookbook.git/edit/main/notebooks/04-dask-cluster.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -324,7 +324,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="http://binder.mypythia.org/v2/gh/negin513/dask-cookbook.git/main?urlpath=lab/tree/notebooks/04-dask-cluster.ipynb"><button type="button"
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/04-dask-cluster.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -384,11 +384,6 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distributed-clusters">
-     Distributed Clusters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#distributed-scheduler">
      2. Distributed scheduler
     </a>
@@ -408,8 +403,8 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dask-distributed-cluster">
-     Dask Distributed (Cluster)
+    <a class="reference internal nav-link" href="#dask-distributed-cluster-managers">
+     Dask Distributed (Cluster Managers)
     </a>
    </li>
   </ul>
@@ -425,14 +420,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <p><a class="reference internal" href="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png"><img alt="NCAR logo" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png" style="width: 750px;" /></a></p>
+  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="30%" /></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="dask-schedulers">
 <h1>Dask Schedulers<a class="headerlink" href="#dask-schedulers" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<p><strong>ESDS dask tutorial | 06 February, 2023</strong></p>
-<p>Negin Sobhani, Brian Vanderwende, Deepak Cherian, Ben Kirk<br />
-Computational &amp; Information Systems Lab (CISL)<br />
-<a class="reference external" href="mailto:negins&#37;&#52;&#48;ucar&#46;edu">negins<span>&#64;</span>ucar<span>&#46;</span>edu</a>, <a class="reference external" href="mailto:vanderwb&#37;&#52;&#48;ucar&#46;edu">vanderwb<span>&#64;</span>ucar<span>&#46;</span>edu</a></p>
-<hr class="docutils" />
 <div class="section" id="in-this-tutorial-you-learn">
 <h2>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
@@ -442,9 +432,9 @@ Computational &amp; Information Systems Lab (CISL)<br />
 </ul>
 <p><strong>Related Documentation</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.dask.org/en/latest/scheduling.html">Dask Scheduling</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/scheduling.html">Dask Scheduling</a></p></li>
 <li><p><a class="reference external" href="https://docs.dask.org/en/stable/deploying-python.html">Dask Local Cluster</a></p></li>
-<li><p><a class="reference external" href="https://docs.dask.org/en/latest/deploying-python.html">Dask Cluster manager</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/deploying.html">Deploying Dask Cluster Manager</a></p></li>
 </ul>
 </div>
 <div class="section" id="introduction">
@@ -460,19 +450,20 @@ Computational &amp; Information Systems Lab (CISL)<br />
 <h2>The Dask scheduler - our task orchestrator<a class="headerlink" href="#the-dask-scheduler-our-task-orchestrator" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">Dask.distributed</span></code> task <em>scheduler</em> is a centralized, dynamic system that coordinates the efforts of various dask <em>worker</em> processes spread accross different machines.</p>
 <p>When a computational task is submitted, the Dask distributed <em>scheduler</em> sends it off to a Dask <em>cluster</em> - simply a collection of Dask <em>workers</em>. A worker is typically a separate Python process on either the local host or a remote machine.</p>
-<div class="alert alert-success" markdown="1">
+<p>To perform work, a scheduler must be assigned resources in the form of a Dask cluster. The cluster consists of the following components:</p>
 <ul class="simple">
-<li><p><strong>worker</strong> - a Python interpretor which will perform work on a subset of our dataset.</p></li>
-<li><p><strong>cluster</strong> - an object containing instructions for starting and talking to workers.</p></li>
-<li><p><strong>scheduler</strong> - sends tasks from our task graph to workers.</p></li>
-<li><p><strong>client</strong> - a local object that points to the scheduler (<em>often local but not always</em>). </div></p></li>
+<li><p><strong>scheduler</strong> : A scheduler creates and manages task graphs and distributes tasks to workers.</p></li>
+<li><p><strong>workers</strong> : A worker is typically a separate Python process on either the local host or a remote machine. A Dask <strong>cluster</strong> usually consists of many workers. Basically, a worker is a Python interpretor which will perform work on a subset of our dataset.</p></li>
+<li><p><strong>client</strong> - A high-level interface that points to the scheduler (often local but not always). A client serves as the entry point for interacting with a Dask scheduler.</p></li>
 </ul>
-<a class="reference internal image-reference" href="https://docs.mlrun.org/en/stable/_images/dask_dist.png"><img alt="https://docs.mlrun.org/en/stable/_images/dask_dist.png" src="https://docs.mlrun.org/en/stable/_images/dask_dist.png" style="width: 700px;" /></a>
+<p><a class="reference internal" href="https://tutorial.dask.org/_images/distributed-overview.png"><img alt="Dask Distributed Cluster" src="https://tutorial.dask.org/_images/distributed-overview.png" style="width: 75%;" /></a></p>
+<p><em>Image credit: Dask Contributors</em></p>
 </div>
 <div class="section" id="schedulers">
 <h2>Schedulers<a class="headerlink" href="#schedulers" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>Dask essentially offers two types of schedulers:</p>
-<a class="reference internal image-reference" href="https://docs.mlrun.org/en/stable/_images/dask-overview.svg"><img alt="https://docs.mlrun.org/en/stable/_images/dask-overview.svg" src="https://docs.mlrun.org/en/stable/_images/dask-overview.svg" width="700px" /></a>
+<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-overview.svg"><img alt="High level collections are used to generate task graphs which can be executed by schedulers on a single machine or a cluster." src="https://docs.dask.org/en/stable/_images/dask-overview.svg" width="75%" /></a>
+<p><em>Image credit: Dask Contributors</em></p>
 <div class="section" id="single-machine-scheduler">
 <h3>1. Single machine scheduler<a class="headerlink" href="#single-machine-scheduler" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <ul class="simple">
@@ -503,10 +494,6 @@ This is the default scheduler for Dask, and is suitable for most use cases on a 
 </div>
 <p>Multi-processing works well for pure Python code - <em>delayed</em> functions and operations on Dask Bags.</p>
 <p>Let’s compare the performance of each of these single-machine schedulers:</p>
-</div>
-</div>
-<div class="section" id="distributed-clusters">
-<h3>Distributed Clusters<a class="headerlink" href="#distributed-clusters" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -526,12 +513,12 @@ This is the default scheduler for Dask, and is suitable for most use cases on a 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13.1 s, sys: 847 ms, total: 13.9 s
-Wall time: 13.9 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 10.6 s, sys: 684 ms, total: 11.3 s
+Wall time: 11.3 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99980544,  9.99956009, 10.00005558, ..., 10.00024702,
-       10.00037663,  9.99951659])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99906772,  9.99973757,  9.99947898, ..., 10.00127456,
+       10.00021317,  9.99985475])
 </pre></div>
 </div>
 </div>
@@ -547,12 +534,12 @@ Wall time: 13.9 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13.6 s, sys: 47.9 ms, total: 13.7 s
-Wall time: 6.97 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 11 s, sys: 55.5 ms, total: 11 s
+Wall time: 5.84 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.00045778,  9.99956561, 10.0014157 , ..., 10.00099631,
-        9.99879723,  9.99954062])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99971445, 10.00021562,  9.99952092, ..., 10.0008636 ,
+        9.99885944, 10.00058048])
 </pre></div>
 </div>
 </div>
@@ -570,13 +557,13 @@ Wall time: 6.97 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> threading :  6.7796 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> threading :  5.5805 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> processes :  7.6813 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> processes :  6.3084 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      sync :  13.2504 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      sync :  10.7883 s
 </pre></div>
 </div>
 </div>
@@ -620,7 +607,7 @@ Wall time: 6.97 s
             <h4 style="display: inline;">Layer1: normal</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            normal-593d5610c08dbc90de83bf049195bbf5
+            normal-29532f99a9b5cc82c7e3d64ba58442e2
         </p>
 
         <table>
@@ -726,7 +713,7 @@ Wall time: 6.97 s
             <h4 style="display: inline;">Layer2: mean_chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_chunk-d58d5112690513ef65e0ef8e8d274b48
+            mean_chunk-3ba7708f376d62f0157c45d019f003a7
         </p>
 
         <table>
@@ -778,7 +765,7 @@ Wall time: 6.97 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">normal-593d5610c08dbc90de83bf049195bbf5</td>
+                            <td style="text-align: left;">normal-29532f99a9b5cc82c7e3d64ba58442e2</td>
                         </tr>
                     
                 
@@ -839,7 +826,7 @@ Wall time: 6.97 s
             <h4 style="display: inline;">Layer3: mean_combine-partial</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_combine-partial-bc847799047b26c8db26298f3123f014
+            mean_combine-partial-ec04367d6cb479ddf7f4d5bcccd709fa
         </p>
 
         <table>
@@ -891,7 +878,7 @@ Wall time: 6.97 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">mean_chunk-d58d5112690513ef65e0ef8e8d274b48</td>
+                            <td style="text-align: left;">mean_chunk-3ba7708f376d62f0157c45d019f003a7</td>
                         </tr>
                     
                 
@@ -945,7 +932,7 @@ Wall time: 6.97 s
             <h4 style="display: inline;">Layer4: mean_agg-aggregate</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_agg-aggregate-dfdf404f534c9392b932a20ad6d946f9
+            mean_agg-aggregate-c32bd57b2d30725ee6599f2140daacac
         </p>
 
         <table>
@@ -997,7 +984,7 @@ Wall time: 6.97 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">mean_combine-partial-bc847799047b26c8db26298f3123f014</td>
+                            <td style="text-align: left;">mean_combine-partial-ec04367d6cb479ddf7f4d5bcccd709fa</td>
                         </tr>
                     
                 
@@ -1121,6 +1108,7 @@ Wall time: 6.97 s
 <p>If you use the multiprocessing backend, all communication between processes still needs to pass through the main process because processes are isolated from other processes. This introduces a large overhead.</p>
 <p><strong>The Dask developers recommend using the Dask Distributed Scheduler which we will cover now.</strong></p>
 </div>
+</div>
 <div class="section" id="distributed-scheduler">
 <h3>2. Distributed scheduler<a class="headerlink" href="#distributed-scheduler" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <ul class="simple">
@@ -1150,7 +1138,7 @@ Wall time: 6.97 s
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-997972c6-24c6-11ee-8a6d-000d3a03c36a</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-1a977e45-62e4-11ee-907f-6045bd7f0ab1</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1185,7 +1173,7 @@ Wall time: 6.97 s
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">0160738d</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">d0363b3b</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -1200,7 +1188,7 @@ Wall time: 6.97 s
                     <strong>Total threads:</strong> 2
                 </td>
                 <td style="text-align: left;">
-                    <strong>Total memory:</strong> 6.77 GiB
+                    <strong>Total memory:</strong> 6.76 GiB
                 </td>
             </tr>
             
@@ -1222,11 +1210,11 @@ Wall time: 6.97 s
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-63b884a6-001f-42c5-a9cb-728ef27e74ae</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-866597a4-b31b-4bf4-9109-cd7f49547819</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:33353
+                        <strong>Comm:</strong> tcp://127.0.0.1:35541
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -1245,7 +1233,7 @@ Wall time: 6.97 s
                         <strong>Started:</strong> Just now
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total memory:</strong> 6.77 GiB
+                        <strong>Total memory:</strong> 6.76 GiB
                     </td>
                 </tr>
             </table>
@@ -1268,7 +1256,7 @@ Wall time: 6.97 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:43011
+                            <strong>Comm: </strong> tcp://127.0.0.1:40147
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1276,7 +1264,7 @@ Wall time: 6.97 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:37557/status" target="_blank">http://127.0.0.1:37557/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45633/status" target="_blank">http://127.0.0.1:45633/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1284,13 +1272,13 @@ Wall time: 6.97 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:34507
+                            <strong>Nanny: </strong> tcp://127.0.0.1:46707
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-6221ltdb
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-dceh_x5k
                         </td>
                     </tr>
 
@@ -1313,7 +1301,7 @@ Wall time: 6.97 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:46627
+                            <strong>Comm: </strong> tcp://127.0.0.1:44719
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1321,7 +1309,7 @@ Wall time: 6.97 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38517/status" target="_blank">http://127.0.0.1:38517/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41093/status" target="_blank">http://127.0.0.1:41093/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1329,13 +1317,13 @@ Wall time: 6.97 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:41441
+                            <strong>Nanny: </strong> tcp://127.0.0.1:40713
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-yxgv_pvp
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-__dyr2ue
                         </td>
                     </tr>
 
@@ -1364,7 +1352,7 @@ Wall time: 6.97 s
 <p>☝️ Click the Dashboard link above.</p>
 <p>👈 Or click the “Search” 🔍 button in the dask-labextension dashboard.</p>
 <p>If no arguments are specified in <code class="docutils literal notranslate"><span class="pre">LocalCluster</span></code> it will automatically detect the number of CPU cores your system has and the amount of memory and create workers to appropriately fill that.</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">LocalCluster</span></code> will use the full resources of the current JupyterLab session.  For example, if you used NCAR JupyterHub, it will use the number of CPUs selected.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">LocalCluster</span></code> will use the full resources of the current JupyterLab session.  For example, if you used BinderHub, it will use the number of CPUs selected.</p>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">LocalCluster()</span></code> takes a lot of optional arguments, allowing you to configure the number of processes/threads, memory limits and other settings.</p>
 <p>You can also find your cluster dashboard link using :</p>
 <div class="cell docutils container">
@@ -1390,12 +1378,12 @@ Wall time: 6.97 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 915 ms, sys: 133 ms, total: 1.05 s
-Wall time: 17.8 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 767 ms, sys: 56.6 ms, total: 824 ms
+Wall time: 14.5 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99993741, 10.00074009, 10.00053667, ...,  9.9997661 ,
-       10.00120902,  9.99940817])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.00030163,  9.99996315,  9.99921624, ...,  9.9991636 ,
+        9.99948973,  9.99918791])
 </pre></div>
 </div>
 </div>
@@ -1411,12 +1399,15 @@ Wall time: 17.8 s
 </div>
 </div>
 </div>
-<div class="section" id="dask-distributed-cluster">
-<h3>Dask Distributed (Cluster)<a class="headerlink" href="#dask-distributed-cluster" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<div class="section" id="dask-distributed-cluster-managers">
+<h3>Dask Distributed (Cluster Managers)<a class="headerlink" href="#dask-distributed-cluster-managers" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
 <p>So far we have talked about running a job on a local machine.</p>
 <p>Dask can be deployed on distributed infrastructure, such as a an HPC system or a cloud computing system.</p>
-<p>Dask Clusters have different names corresponding to different computing environments. Some examples are <code class="docutils literal notranslate"><span class="pre">dask-jobqueue</span></code> for your HPC systems (including <code class="docutils literal notranslate"><span class="pre">PBSCluster</span></code>) or Kubernetes Cluster for machines on the Cloud.</p>
-<p>In section 5, we will talk more about Dask on HPC Systems.</p>
+<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-cluster-manager.svg"><img alt="High level collections are used to generate task graphs which can be executed by schedulers on a single machine or a cluster." src="https://docs.dask.org/en/stable/_images/dask-cluster-manager.svg" width="75%" /></a>
+<p><em>Image credit: Dask Contributors</em></p>
+<p>Dask Cluster Managers have different names corresponding to different computing environments. Some examples are <code class="docutils literal notranslate"><span class="pre">dask-jobqueue</span></code> for your HPC systems (including <code class="docutils literal notranslate"><span class="pre">PBSCluster</span></code>) or Kubernetes Cluster for machines on the Cloud.</p>
+<p>The NCAR tutorial series includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC. For the complete set of NCAR tutorial materials, please refer to the main NCAR tutorial content available <a class="reference external" href="https://ncar.github.io/dask-tutorial/README.html">here</a>.</p>
+<p>For more information visit the <a class="reference external" href="https://docs.dask.org/en/stable/deploying.html">Dask Docs</a>.</p>
 </div>
 </div>
 </div>
@@ -1503,7 +1494,7 @@ Wall time: 17.8 s
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 17 July 2023.
+          Last updated on 4 October 2023.
         </p>
       </div>
     </div>

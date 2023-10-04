@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NCAR Dask Tutorial &#8212; Dask Cookbook</title>
+    <title>Dask Cookbook &#8212; Dask Cookbook</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -181,7 +181,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1 current">
   <a class="reference internal" href="#">
-   NCAR Dask Tutorial
+   Dask Cookbook
   </a>
  </li>
 </ul>
@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="notebooks/01-dask-array.html">
-   Dask Arrays
+   Dask Array
   </a>
  </li>
  <li class="toctree-l1">
@@ -296,14 +296,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/negin513/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/ProjectPythia/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/negin513/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ProjectPythia/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2FREADME.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/negin513/dask-cookbook.git/edit/main/README.md"><button
+        <a class="edit-button" href="https://github.com/ProjectPythia/dask-cookbook.git/edit/main/README.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -388,9 +388,8 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <img alt="NCAR CISL logo" src="_images/NCAR_CISL_NSF_banner.jpeg" />
-<div class="tex2jax_ignore mathjax_ignore section" id="ncar-dask-tutorial">
-<h1>NCAR Dask Tutorial<a class="headerlink" href="#ncar-dask-tutorial" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="dask-cookbook">
+<h1>Dask Cookbook<a class="headerlink" href="#dask-cookbook" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
 <p><a class="reference external" href="https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml"><img alt="nightly-build" src="https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg" /></a>
 <a class="reference external" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a>
 <a class="reference external" href="https://zenodo.org/badge/latestdoi/610934658"><img alt="DOI" src="https://zenodo.org/badge/610934658.svg" /></a></p>
@@ -411,17 +410,21 @@ Dask is a parallel computing library that allows you to scale your computations 
 <a href="https://github.com/benkirk/demo_containers/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=benkirk/demo_containers" />
 </a>
+<a href="https://github.com/ProjectPythia/dask-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ProjectPythia/dask-cookbook" />
+</a>
 </div>
 </div>
 <div class="section" id="note-on-content-origin">
 <h2>Note on Content Origin<a class="headerlink" href="#note-on-content-origin" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p>This cookbook is part of the extensive material used in our NCAR tutorial, <a class="reference external" href="https://github.com/NCAR/dask-tutorial.git">“Using Dask on HPC systems”</a>, which was held in February 2023. The complete tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC . For the complete set of materials, including these additional insights on Dask on HPC, please refer to the main tutorial content available <a class="reference external" href="https://ncar.github.io/dask-tutorial/README.html">here</a>.</p>
+<p>This cookbook is derived from the extensive material used in the NCAR tutorial, <a class="reference external" href="https://github.com/NCAR/dask-tutorial.git">“Using Dask on HPC systems”</a>, which was held in February 2023. The NCAR tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC. For the complete set of NCAR tutorial materials, including these additional insights
+on Dask on HPC, please refer to the main NCAR tutorial content available <a class="reference external" href="https://ncar.github.io/dask-tutorial/README.html">here</a>.</p>
 </div>
 <div class="section" id="structure">
 <h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>In the first chapter of this cookbook, we provide step-by-step tutorials on the basic concepts of Dask, including Dask arrays and Dask dataframes, which are powerful tools for parallel computing and distributed data processing. We explain the key differences between these Dask data structures and their counterparts in NumPy and Pandas.</p>
 <p>In the second chapter of the repository, we move on to more advanced topics, such as distributed computing and Dask+Xarray integration. We provide examples of how to use Dask+Xarray to efficiently work with large, labelled multi-dimensional datasets.
-Finally, we will discuss some best practices regarding Dask + Xarray.</p>
+Finally, we will discuss some best practices regarding Dask+Xarray.</p>
 </div>
 <div class="section" id="running-the-notebooks">
 <h2>Running the Notebooks<a class="headerlink" href="#running-the-notebooks" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
@@ -459,7 +462,7 @@ Jupyter</a>.</p>
 </li>
 <li><p>Create and activate your conda environment from the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
-conda<span class="w"> </span>activate<span class="w"> </span>dask-cookbook-example
+conda<span class="w"> </span>activate<span class="w"> </span>dask-cookbook
 </pre></div>
 </div>
 </li>
@@ -564,7 +567,7 @@ jupyter<span class="w"> </span>lab
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 17 July 2023.
+          Last updated on 4 October 2023.
         </p>
       </div>
     </div>

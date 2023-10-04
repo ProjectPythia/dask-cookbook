@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Dask Schedulers" href="04-dask-cluster.html" />
-    <link rel="prev" title="Dask Arrays" href="01-dask-array.html" />
+    <link rel="prev" title="Dask Array" href="01-dask-array.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -182,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   NCAR Dask Tutorial
+   Dask Cookbook
   </a>
  </li>
 </ul>
@@ -211,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="01-dask-array.html">
-   Dask Arrays
+   Dask Array
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -297,14 +297,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/negin513/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/ProjectPythia/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/negin513/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02-dask-dataframe.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ProjectPythia/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/02-dask-dataframe.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/negin513/dask-cookbook.git/edit/main/notebooks/02-dask-dataframe.ipynb"><button
+        <a class="edit-button" href="https://github.com/ProjectPythia/dask-cookbook.git/edit/main/notebooks/02-dask-dataframe.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -324,7 +324,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="http://binder.mypythia.org/v2/gh/negin513/dask-cookbook.git/main?urlpath=lab/tree/notebooks/02-dask-dataframe.ipynb"><button type="button"
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/02-dask-dataframe.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -347,26 +347,19 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#overview">
-   Overview
+  <a class="reference internal nav-link" href="#in-this-tutorial-you-learn">
+   In this tutorial, you learn:
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#in-this-tutorial-you-learn">
-     In this tutorial, you learn:
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#related-documentation">
-     Related Documentation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prerequisites">
-     Prerequisites
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#related-documentation">
+   Related Documentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
@@ -558,18 +551,11 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <p><a class="reference internal" href="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png"><img alt="NCAR logo" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png" style="width: 750px;" /></a></p>
+  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="30%" /></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="dask-dataframe">
 <h1>Dask DataFrame<a class="headerlink" href="#dask-dataframe" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<p><strong>ESDS dask tutorial | 06 February, 2023</strong></p>
-<p>Negin Sobhani, Brian Vanderwende, Deepak Cherian, Ben Kirk<br />
-Computational &amp; Information Systems Lab (CISL)<br />
-<a class="reference external" href="mailto:negins&#37;&#52;&#48;ucar&#46;edu">negins<span>&#64;</span>ucar<span>&#46;</span>edu</a>, <a class="reference external" href="mailto:vanderwb&#37;&#52;&#48;ucar&#46;edu">vanderwb<span>&#64;</span>ucar<span>&#46;</span>edu</a></p>
-<hr class="docutils" />
-<div class="section" id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <div class="section" id="in-this-tutorial-you-learn">
-<h3>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<h2>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
 <li><p>Basic concepts and features of Dask DataFrames</p></li>
 <li><p>Applications of Dask DataFrames</p></li>
@@ -579,16 +565,16 @@ Computational &amp; Information Systems Lab (CISL)<br />
 </ul>
 </div>
 <div class="section" id="related-documentation">
-<h3>Related Documentation<a class="headerlink" href="#related-documentation" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.dask.org/en/latest/dataframe.html">Dask DataFrame documentation</a></p></li>
-<li><p><a class="reference external" href="https://docs.dask.org/en/latest/dataframe-api.html">Dask DataFrame API</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/dataframe.html">Dask DataFrame documentation</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/dataframe-api.html">Dask DataFrame API</a></p></li>
 <li><p><a class="reference external" href="https://examples.dask.org/dataframe.html">Dask DataFrame examples</a></p></li>
 <li><p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/">pandas documentation</a></p></li>
 </ul>
 </div>
 <div class="section" id="prerequisites">
-<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Concepts</p></th>
@@ -611,11 +597,11 @@ Computational &amp; Information Systems Lab (CISL)<br />
 <li><p><strong>Time to learn</strong>: 40 minutes</p></li>
 </ul>
 </div>
-</div>
 <hr class="docutils" />
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/dask_dataframe.png"><img alt="Dask DataFrame is composed of pandas DataFrames" class="align-right" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/dask_dataframe.png" style="width: 530px;" /></a></p>
+<p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask-dataframe.svg"><img alt="Dask DataFrame is composed of pandas DataFrames" class="align-right" src="https://docs.dask.org/en/stable/_images/dask-dataframe.svg" width="530px" /></a></p>
+<p><em>Image credit: Dask Contributors</em></p>
 <p>pandas is a very popular tool for working with <strong>tabular datasets</strong>, but the dataset needs to <strong>fit into the memory</strong>.</p>
 <p>pandas operates best with smaller datasets, and if you have a large dataset, you’ll receive an out of memory error using pandas. A general rule of thumb for pandas is:</p>
 <blockquote>
@@ -691,9 +677,7 @@ This is an example of a real dataset that is used by NCAR scientists for their r
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00027390.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00030936.csv
+USC00030936.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00031596.csv
@@ -703,29 +687,27 @@ This is an example of a real dataset that is used by NCAR scientists for their r
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035186.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035754.csv
+USC00035754.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035820.csv
-USC00035908.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00042294.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00035908.csv
+USC00042294.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00044259.csv
-USC00048758.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00048758.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00050848.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051294.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051528.csv
+USC00051528.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00051564.csv
@@ -739,25 +721,21 @@ USC00052184.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00052446.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053005.csv
+USC00053005.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053038.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053146.csv
+USC00053662.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053662.csv
-USC00053951.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00053951.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054076.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054770.csv
+USC00054770.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00054834.csv
@@ -780,25 +758,21 @@ USC00055722.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00058204.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00058429.csv
+USC00058429.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00059243.csv
-USC00068138.csv
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00080211.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00068138.csv
+USC00080211.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00084731.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00088824.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00098703.csv
+USC00098703.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00100010.csv
@@ -808,9 +782,7 @@ USC00068138.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00105275.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00106152.csv
+USC00106152.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00107264.csv
@@ -820,9 +792,7 @@ USC00068138.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00110338.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112140.csv
+USC00112140.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00112193.csv
@@ -842,31 +812,27 @@ USC00113335.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00114823.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115079.csv
+USC00115079.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115326.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115712.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115768.csv
+USC00115768.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115833.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115901.csv
-USC00115943.csv
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00115943.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USC00116446.csv
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>USW00003017.csv
+USW00003017.csv
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading https://docs.google.com/uc?export=download&amp;id=1Tbuom1KMCwHjy7-eexEQcOXSr51i6mae
@@ -1191,7 +1157,7 @@ data_for_cesm/b.e21.BSSP370smbb.f09_g17.LE2-1301.013.cam.h0.TREFHT.205501-206412
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;DATE&#39;, ylabel=&#39;Daily Average Snow Depth [mm]&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/f97e9148ade187f975721b84da628cadf73fdaeefbb67bfd313520b88d4d6e1d.png" src="../_images/f97e9148ade187f975721b84da628cadf73fdaeefbb67bfd313520b88d4d6e1d.png" />
+<img alt="../_images/ef20c4e03ed57efe0aa75a5a8520c0e5c1a5729bdafea28942725cd9862bc0bb.png" src="../_images/ef20c4e03ed57efe0aa75a5a8520c0e5c1a5729bdafea28942725cd9862bc0bb.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1224,7 +1190,7 @@ dtype: int64
 </div>
 <p>Or for a more complex analysis:</p>
 <p>For example, we have heard that this could be Denver’s first January in 13 years with no 60-degree days.</p>
-<p><img alt="Dask DataFrame is composed of pandas DataFrames" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/denver2.png" /></p>
+<p><img alt="News article showing that this January is abnormally warm" src="https://raw.githubusercontent.com/ProjectPythia/dask-cookbook/main/notebooks/images/denver.png" /></p>
 <p>Below, we show all days with high temperature above 60°F (155.5°C/10) since 2010:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1260,7 +1226,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-rw-r--r-- 1 runner docker 3.6M Feb  5 14:14 ../data/USW00003017.csv
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-rw-r--r-- 1 runner docker 3.6M Feb  5  2023 ../data/USW00003017.csv
 </pre></div>
 </div>
 </div>
@@ -1285,6 +1251,9 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Size of variable: 33.21 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -1328,8 +1297,8 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 16 s, sys: 3.99 s, total: 20 s
-Wall time: 20 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14.6 s, sys: 3.6 s, total: 18.1 s
+Wall time: 18.2 s
 </pre></div>
 </div>
 </div>
@@ -1366,8 +1335,8 @@ Wall time: 20 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
-CPU times: user 411 ms, sys: 0 ns, total: 411 ms
-Wall time: 411 ms
+CPU times: user 405 ms, sys: 22 µs, total: 405 ms
+Wall time: 406 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -1407,7 +1376,7 @@ dtype: object
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-1d7f66e2-24c6-11ee-8986-000d3a03c36a</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-4c03adc8-62e3-11ee-8e89-6045bd7f0ab1</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1442,7 +1411,7 @@ dtype: object
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">145d3f20</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">f774e9f0</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -1457,7 +1426,7 @@ dtype: object
                     <strong>Total threads:</strong> 2
                 </td>
                 <td style="text-align: left;">
-                    <strong>Total memory:</strong> 6.77 GiB
+                    <strong>Total memory:</strong> 6.76 GiB
                 </td>
             </tr>
             
@@ -1479,11 +1448,11 @@ dtype: object
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-110e0a1b-cf2f-4d1a-9e4b-ae96d4a8a34c</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-a12069f2-7148-475c-92ae-c2dc96b3925b</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:45277
+                        <strong>Comm:</strong> tcp://127.0.0.1:39085
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -1502,7 +1471,7 @@ dtype: object
                         <strong>Started:</strong> Just now
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total memory:</strong> 6.77 GiB
+                        <strong>Total memory:</strong> 6.76 GiB
                     </td>
                 </tr>
             </table>
@@ -1525,7 +1494,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:36007
+                            <strong>Comm: </strong> tcp://127.0.0.1:34243
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1533,7 +1502,7 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:36879/status" target="_blank">http://127.0.0.1:36879/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:46181/status" target="_blank">http://127.0.0.1:46181/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1541,13 +1510,13 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:33541
+                            <strong>Nanny: </strong> tcp://127.0.0.1:40143
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-eb1o2fai
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-e4erk9vd
                         </td>
                     </tr>
 
@@ -1570,7 +1539,7 @@ dtype: object
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:35745
+                            <strong>Comm: </strong> tcp://127.0.0.1:44457
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1578,7 +1547,7 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:43867/status" target="_blank">http://127.0.0.1:43867/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:37977/status" target="_blank">http://127.0.0.1:37977/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -1586,13 +1555,13 @@ dtype: object
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:36659
+                            <strong>Nanny: </strong> tcp://127.0.0.1:40169
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-g6vihm9a
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-f6svaw8t
                         </td>
                     </tr>
 
@@ -1638,8 +1607,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 318 ms, sys: 25.1 ms, total: 343 ms
-Wall time: 419 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 266 ms, sys: 43.5 ms, total: 309 ms
+Wall time: 358 ms
 </pre></div>
 </div>
 <div class="output text_html"><div><strong>Dask DataFrame Structure:</strong></div>
@@ -1666,34 +1635,26 @@ Wall time: 419 ms
       <th>YEAR</th>
       <th>MONTH</th>
       <th>DAY</th>
+      <th>TMIN</th>
+      <th>TMIN_FLAGS</th>
       <th>PRCP</th>
       <th>PRCP_FLAGS</th>
       <th>SNOW</th>
       <th>SNOW_FLAGS</th>
-      <th>TMAX</th>
-      <th>TMAX_FLAGS</th>
-      <th>TMIN</th>
-      <th>TMIN_FLAGS</th>
       <th>SNWD</th>
       <th>SNWD_FLAGS</th>
-      <th>TOBS</th>
-      <th>TOBS_FLAGS</th>
+      <th>TMAX</th>
+      <th>TMAX_FLAGS</th>
+      <th>WT03</th>
+      <th>WT03_FLAGS</th>
+      <th>WT04</th>
+      <th>WT04_FLAGS</th>
       <th>DAPR</th>
       <th>DAPR_FLAGS</th>
       <th>MDPR</th>
       <th>MDPR_FLAGS</th>
-      <th>WT03</th>
-      <th>WT03_FLAGS</th>
-      <th>WT11</th>
-      <th>WT11_FLAGS</th>
-      <th>WT07</th>
-      <th>WT07_FLAGS</th>
-      <th>DASF</th>
-      <th>DASF_FLAGS</th>
-      <th>MDSF</th>
-      <th>MDSF_FLAGS</th>
-      <th>WT09</th>
-      <th>WT09_FLAGS</th>
+      <th>WT14</th>
+      <th>WT14_FLAGS</th>
       <th>WT01</th>
       <th>WT01_FLAGS</th>
       <th>WT08</th>
@@ -1702,10 +1663,22 @@ Wall time: 419 ms
       <th>WT05_FLAGS</th>
       <th>WT06</th>
       <th>WT06_FLAGS</th>
-      <th>WT04</th>
-      <th>WT04_FLAGS</th>
-      <th>WT14</th>
-      <th>WT14_FLAGS</th>
+      <th>TOBS</th>
+      <th>TOBS_FLAGS</th>
+      <th>WT11</th>
+      <th>WT11_FLAGS</th>
+      <th>WT07</th>
+      <th>WT07_FLAGS</th>
+      <th>WT10</th>
+      <th>WT10_FLAGS</th>
+      <th>DASF</th>
+      <th>DASF_FLAGS</th>
+      <th>MDSF</th>
+      <th>MDSF_FLAGS</th>
+      <th>SN32</th>
+      <th>SN32_FLAGS</th>
+      <th>SX32</th>
+      <th>SX32_FLAGS</th>
       <th>LATITUDE</th>
       <th>LONGITUDE</th>
       <th>ELEVATION</th>
@@ -1764,64 +1737,76 @@ Wall time: 419 ms
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th></th>
       <td>datetime64[ns]</td>
-      <td>object</td>
+      <td>string</td>
       <td>int64</td>
       <td>int64</td>
       <td>int64</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
       <td>float64</td>
-      <td>object</td>
+      <td>string</td>
+      <td>float64</td>
+      <td>string</td>
+      <td>float64</td>
+      <td>string</td>
       <td>float64</td>
       <td>float64</td>
       <td>float64</td>
-      <td>object</td>
-      <td>object</td>
+      <td>string</td>
+      <td>string</td>
     </tr>
     <tr>
       <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1925,55 +1910,6 @@ Wall time: 419 ms
       <td>...</td>
       <td>...</td>
       <td>...</td>
-    </tr>
-    <tr>
-      <th></th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -1981,6 +1917,67 @@ Wall time: 419 ms
     </tr>
     <tr>
       <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -2035,7 +2032,7 @@ Wall time: 419 ms
   </tbody>
 </table>
 </div>
-<div>Dask Name: read-csv, 1 graph layer</div></div></div>
+<div>Dask Name: to_pyarrow_string, 2 graph layers</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2088,17 +2085,17 @@ Dask just construct the task graph of the computation but it will “evaluate”
       <th>YEAR</th>
       <th>MONTH</th>
       <th>DAY</th>
+      <th>TMIN</th>
+      <th>TMIN_FLAGS</th>
       <th>PRCP</th>
       <th>PRCP_FLAGS</th>
       <th>SNOW</th>
-      <th>SNOW_FLAGS</th>
-      <th>TMAX</th>
       <th>...</th>
-      <th>WT06_FLAGS</th>
-      <th>WT04</th>
-      <th>WT04_FLAGS</th>
-      <th>WT14</th>
-      <th>WT14_FLAGS</th>
+      <th>MDSF_FLAGS</th>
+      <th>SN32</th>
+      <th>SN32_FLAGS</th>
+      <th>SX32</th>
+      <th>SX32_FLAGS</th>
       <th>LATITUDE</th>
       <th>LONGITUDE</th>
       <th>ELEVATION</th>
@@ -2109,127 +2106,127 @@ Dask just construct the task graph of the computation but it will “evaluate”
   <tbody>
     <tr>
       <th>0</th>
-      <td>1893-01-01</td>
-      <td>USC00051564</td>
-      <td>1893</td>
-      <td>1</td>
-      <td>1</td>
+      <td>1890-05-20</td>
+      <td>USC00032444</td>
+      <td>1890</td>
+      <td>5</td>
+      <td>20</td>
+      <td>172.0</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>PX6</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>XX6</td>
-      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>38.8575</td>
-      <td>-102.3328</td>
-      <td>1281.1</td>
-      <td>CO</td>
-      <td>CHEYENNE WELLS 2NE</td>
+      <td>36.1011</td>
+      <td>-94.1736</td>
+      <td>387.1</td>
+      <td>AR</td>
+      <td>FAYETTEVILLE EXP STN</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1893-01-02</td>
-      <td>USC00051564</td>
-      <td>1893</td>
+      <td>1892-01-02</td>
+      <td>USC00032444</td>
+      <td>1892</td>
       <td>1</td>
       <td>2</td>
+      <td>-78.0</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>PX6</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>XX6</td>
-      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>38.8575</td>
-      <td>-102.3328</td>
-      <td>1281.1</td>
-      <td>CO</td>
-      <td>CHEYENNE WELLS 2NE</td>
+      <td>36.1011</td>
+      <td>-94.1736</td>
+      <td>387.1</td>
+      <td>AR</td>
+      <td>FAYETTEVILLE EXP STN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1893-01-03</td>
-      <td>USC00051564</td>
-      <td>1893</td>
+      <td>1892-01-03</td>
+      <td>USC00032444</td>
+      <td>1892</td>
       <td>1</td>
       <td>3</td>
+      <td>-72.0</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>PX6</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>XX6</td>
-      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>38.8575</td>
-      <td>-102.3328</td>
-      <td>1281.1</td>
-      <td>CO</td>
-      <td>CHEYENNE WELLS 2NE</td>
+      <td>36.1011</td>
+      <td>-94.1736</td>
+      <td>387.1</td>
+      <td>AR</td>
+      <td>FAYETTEVILLE EXP STN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1893-01-04</td>
-      <td>USC00051564</td>
-      <td>1893</td>
+      <td>1892-01-04</td>
+      <td>USC00032444</td>
+      <td>1892</td>
       <td>1</td>
       <td>4</td>
+      <td>39.0</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>PX6</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>XX6</td>
-      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>38.8575</td>
-      <td>-102.3328</td>
-      <td>1281.1</td>
-      <td>CO</td>
-      <td>CHEYENNE WELLS 2NE</td>
+      <td>36.1011</td>
+      <td>-94.1736</td>
+      <td>387.1</td>
+      <td>AR</td>
+      <td>FAYETTEVILLE EXP STN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1893-01-05</td>
-      <td>USC00051564</td>
-      <td>1893</td>
+      <td>1892-01-05</td>
+      <td>USC00032444</td>
+      <td>1892</td>
       <td>1</td>
       <td>5</td>
+      <td>-6.0</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>PX6</td>
+      <td>XX0</td>
       <td>0.0</td>
-      <td>XX6</td>
-      <td>NaN</td>
       <td>...</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
       <td>NaN</td>
       <td>XXX</td>
-      <td>38.8575</td>
-      <td>-102.3328</td>
-      <td>1281.1</td>
-      <td>CO</td>
-      <td>CHEYENNE WELLS 2NE</td>
+      <td>36.1011</td>
+      <td>-94.1736</td>
+      <td>387.1</td>
+      <td>AR</td>
+      <td>FAYETTEVILLE EXP STN</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 50 columns</p>
+<p>5 rows × 54 columns</p>
 </div></div></div>
 </div>
 <div class="alert alert-block alert-info" markdown="1">
@@ -2249,8 +2246,8 @@ For example, let’s find the highest number of snow days in Colorado:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This site has the highest number of snow days in a year : 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 681 ms, sys: 102 ms, total: 783 ms
-Wall time: 12.1 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 540 ms, sys: 108 ms, total: 648 ms
+Wall time: 13.1 s
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>idxmax    (USC00052281, 1983)
@@ -2289,7 +2286,7 @@ dtype: object
         <div style="margin-left: 64px;">
             <h3 style="margin-bottom: 0px;">HighLevelGraph</h3>
             <p style="color: var(--jp-ui-font-color2, #5D5851); margin-bottom:0px;">
-                HighLevelGraph with 6 layers and 331 keys from all layers.
+                HighLevelGraph with 7 layers and 397 keys from all layers.
             </p>
             
             <div style="">
@@ -2304,7 +2301,7 @@ dtype: object
             <h4 style="display: inline;">Layer1: read-csv</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            read-csv-08688dc065e35cc6e3cae048087228e1
+            read-csv-1d528c7d5527edefddfd43c8981c2fa5
         </p>
 
         <table>
@@ -2334,7 +2331,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT10&#x27;, &#x27;WT10_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2349,7 +2346,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: string[pyarrow], &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: string[pyarrow], &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: string[pyarrow], &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: string[pyarrow], &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: string[pyarrow], &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: string[pyarrow], &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: string[pyarrow], &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: string[pyarrow], &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: string[pyarrow], &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: string[pyarrow], &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: string[pyarrow], &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: string[pyarrow], &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: string[pyarrow], &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: string[pyarrow], &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: string[pyarrow], &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: string[pyarrow], &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: string[pyarrow], &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: string[pyarrow], &#x27;WT10&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT10_FLAGS&#x27;: string[pyarrow], &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: string[pyarrow], &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: string[pyarrow], &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: string[pyarrow], &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: string[pyarrow], &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: string[pyarrow], &#x27;STATION&#x27;: string[pyarrow]}</td>
                     </tr>
                 
                 
@@ -2373,118 +2370,10 @@ dtype: object
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer2: getitem</h4>
+            <h4 style="display: inline;">Layer2: to_pyarrow_string</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-99a34e6a73bad94635993f83ff2d0f73
-        </p>
-
-        <table>
-        <tr>
-            <td>
-                <table>
-                
-                    <tr>
-                        <th style="text-align: left; width: 150px;">layer_type</th>
-                        <td style="text-align: left;">Blockwise</td>
-                    </tr>
-                
-                    <tr>
-                        <th style="text-align: left; width: 150px;">is_materialized</th>
-                        <td style="text-align: left;">False</td>
-                    </tr>
-                
-                    <tr>
-                        <th style="text-align: left; width: 150px;">number of outputs</th>
-                        <td style="text-align: left;">66</td>
-                    </tr>
-                
-                
-                    
-                        <tr>
-                            <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
-                        </tr>
-                    
-                
-                </table>
-            </td>
-            <td>
-                
-            </td>
-        </tr>
-        </table>
-
-    </details>
-</div>
-            
-            <div style="">
-    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
-        
-        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
-        
-    </svg>
-
-    <details style="margin-left: 32px;">
-        <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer3: gt</h4>
-        </summary>
-        <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            gt-05a3e27faa76dfa13b63af352cd46602
-        </p>
-
-        <table>
-        <tr>
-            <td>
-                <table>
-                
-                    <tr>
-                        <th style="text-align: left; width: 150px;">layer_type</th>
-                        <td style="text-align: left;">Blockwise</td>
-                    </tr>
-                
-                    <tr>
-                        <th style="text-align: left; width: 150px;">is_materialized</th>
-                        <td style="text-align: left;">False</td>
-                    </tr>
-                
-                    <tr>
-                        <th style="text-align: left; width: 150px;">number of outputs</th>
-                        <td style="text-align: left;">66</td>
-                    </tr>
-                
-                
-                    
-                        <tr>
-                            <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-99a34e6a73bad94635993f83ff2d0f73</td>
-                        </tr>
-                    
-                
-                </table>
-            </td>
-            <td>
-                
-            </td>
-        </tr>
-        </table>
-
-    </details>
-</div>
-            
-            <div style="">
-    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
-        
-        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
-        
-    </svg>
-
-    <details style="margin-left: 32px;">
-        <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer4: getitem</h4>
-        </summary>
-        <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-0a7799f357307780586a5c49462bd956
+            to_pyarrow_string-79e40de483ec47ea37ab1d876b138bd2
         </p>
 
         <table>
@@ -2514,7 +2403,7 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT10&#x27;, &#x27;WT10_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2529,21 +2418,14 @@ dtype: object
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: string[pyarrow], &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: string[pyarrow], &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: string[pyarrow], &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: string[pyarrow], &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: string[pyarrow], &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: string[pyarrow], &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: string[pyarrow], &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: string[pyarrow], &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: string[pyarrow], &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: string[pyarrow], &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: string[pyarrow], &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: string[pyarrow], &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: string[pyarrow], &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: string[pyarrow], &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: string[pyarrow], &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: string[pyarrow], &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: string[pyarrow], &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: string[pyarrow], &#x27;WT10&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT10_FLAGS&#x27;: string[pyarrow], &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: string[pyarrow], &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: string[pyarrow], &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: string[pyarrow], &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: string[pyarrow], &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: string[pyarrow], &#x27;STATION&#x27;: string[pyarrow]}</td>
                     </tr>
                 
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
-                        </tr>
-                    
-                
-                    
-                        <tr>
-                            <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">gt-05a3e27faa76dfa13b63af352cd46602</td>
+                            <td style="text-align: left;">read-csv-1d528c7d5527edefddfd43c8981c2fa5</td>
                         </tr>
                     
                 
@@ -2567,10 +2449,10 @@ dtype: object
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer5: dataframe-groupby-size-chunk</h4>
+            <h4 style="display: inline;">Layer3: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            dataframe-groupby-size-chunk-8b6e31d5222944e3253ba98504a9007b-ef186e452abae95709be76eb365f9607
+            getitem-dcb7dd8641f3d2e3df1e730e4f0454cd
         </p>
 
         <table>
@@ -2597,7 +2479,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-0a7799f357307780586a5c49462bd956</td>
+                            <td style="text-align: left;">to_pyarrow_string-79e40de483ec47ea37ab1d876b138bd2</td>
                         </tr>
                     
                 
@@ -2621,10 +2503,204 @@ dtype: object
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer6: dataframe-groupby-size-agg</h4>
+            <h4 style="display: inline;">Layer4: gt</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            dataframe-groupby-size-agg-8b6e31d5222944e3253ba98504a9007b
+            gt-40b9f9e69a08b2df88b05b714d2fbca6
+        </p>
+
+        <table>
+        <tr>
+            <td>
+                <table>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">layer_type</th>
+                        <td style="text-align: left;">Blockwise</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">is_materialized</th>
+                        <td style="text-align: left;">False</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">number of outputs</th>
+                        <td style="text-align: left;">66</td>
+                    </tr>
+                
+                
+                    
+                        <tr>
+                            <th style="text-align: left; width: 150px;"> depends on </th>
+                            <td style="text-align: left;">getitem-dcb7dd8641f3d2e3df1e730e4f0454cd</td>
+                        </tr>
+                    
+                
+                </table>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        </table>
+
+    </details>
+</div>
+            
+            <div style="">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
+        
+        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
+        
+    </svg>
+
+    <details style="margin-left: 32px;">
+        <summary style="margin-bottom: 10px; margin-top: 10px;">
+            <h4 style="display: inline;">Layer5: getitem</h4>
+        </summary>
+        <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
+            getitem-e3ed7dba73e58fd04680769ffcdbe54f
+        </p>
+
+        <table>
+        <tr>
+            <td>
+                <table>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">layer_type</th>
+                        <td style="text-align: left;">Blockwise</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">is_materialized</th>
+                        <td style="text-align: left;">False</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">number of outputs</th>
+                        <td style="text-align: left;">66</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">npartitions</th>
+                        <td style="text-align: left;">66</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">columns</th>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT10&#x27;, &#x27;WT10_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">type</th>
+                        <td style="text-align: left;">dask.dataframe.core.DataFrame</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">dataframe_type</th>
+                        <td style="text-align: left;">pandas.core.frame.DataFrame</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">series_dtypes</th>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: string[pyarrow], &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: string[pyarrow], &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: string[pyarrow], &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: string[pyarrow], &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: string[pyarrow], &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: string[pyarrow], &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: string[pyarrow], &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: string[pyarrow], &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: string[pyarrow], &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: string[pyarrow], &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: string[pyarrow], &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: string[pyarrow], &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: string[pyarrow], &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: string[pyarrow], &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: string[pyarrow], &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: string[pyarrow], &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: string[pyarrow], &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: string[pyarrow], &#x27;WT10&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT10_FLAGS&#x27;: string[pyarrow], &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: string[pyarrow], &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: string[pyarrow], &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: string[pyarrow], &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: string[pyarrow], &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: string[pyarrow], &#x27;STATION&#x27;: string[pyarrow]}</td>
+                    </tr>
+                
+                
+                    
+                        <tr>
+                            <th style="text-align: left; width: 150px;"> depends on </th>
+                            <td style="text-align: left;">to_pyarrow_string-79e40de483ec47ea37ab1d876b138bd2</td>
+                        </tr>
+                    
+                
+                    
+                        <tr>
+                            <th style="text-align: left; width: 150px;"></th>
+                            <td style="text-align: left;">gt-40b9f9e69a08b2df88b05b714d2fbca6</td>
+                        </tr>
+                    
+                
+                </table>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        </table>
+
+    </details>
+</div>
+            
+            <div style="">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
+        
+        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
+        
+    </svg>
+
+    <details style="margin-left: 32px;">
+        <summary style="margin-bottom: 10px; margin-top: 10px;">
+            <h4 style="display: inline;">Layer6: dataframe-groupby-size-chunk</h4>
+        </summary>
+        <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
+            dataframe-groupby-size-chunk-e657b5501bb4b118924250c4eb971102-1656012465f47786dcf4a05f202e4fa7
+        </p>
+
+        <table>
+        <tr>
+            <td>
+                <table>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">layer_type</th>
+                        <td style="text-align: left;">Blockwise</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">is_materialized</th>
+                        <td style="text-align: left;">False</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">number of outputs</th>
+                        <td style="text-align: left;">66</td>
+                    </tr>
+                
+                
+                    
+                        <tr>
+                            <th style="text-align: left; width: 150px;"> depends on </th>
+                            <td style="text-align: left;">getitem-e3ed7dba73e58fd04680769ffcdbe54f</td>
+                        </tr>
+                    
+                
+                </table>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        </table>
+
+    </details>
+</div>
+            
+            <div style="">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
+        
+        <circle cx="16" cy="16" r="14" style="stroke: var(--jp-ui-font-color2, #1D1D1D); fill: var(--jp-layout-color1, #F2F2F2);" stroke-width="2" />
+        
+    </svg>
+
+    <details style="margin-left: 32px;">
+        <summary style="margin-bottom: 10px; margin-top: 10px;">
+            <h4 style="display: inline;">Layer7: dataframe-groupby-size-agg</h4>
+        </summary>
+        <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
+            dataframe-groupby-size-agg-e657b5501bb4b118924250c4eb971102
         </p>
 
         <table>
@@ -2651,7 +2727,7 @@ dtype: object
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">dataframe-groupby-size-chunk-8b6e31d5222944e3253ba98504a9007b-ef186e452abae95709be76eb365f9607</td>
+                            <td style="text-align: left;">dataframe-groupby-size-chunk-e657b5501bb4b118924250c4eb971102-1656012465f47786dcf4a05f202e4fa7</td>
                         </tr>
                     
                 
@@ -2679,7 +2755,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0f2fd026853c35566298b2af174bde52e52d1f500555afc6d4423e2203e8bfa3.png" src="../_images/0f2fd026853c35566298b2af174bde52e52d1f500555afc6d4423e2203e8bfa3.png" />
+<img alt="../_images/e515b975794e39f7bf7fb7ef0c3ff199a5fcbb4261434a61d2e62b0402bc4ccf.png" src="../_images/e515b975794e39f7bf7fb7ef0c3ff199a5fcbb4261434a61d2e62b0402bc4ccf.png" />
 </div>
 </div>
 </div>
@@ -2709,8 +2785,8 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.38 s, sys: 196 ms, total: 1.57 s
-Wall time: 23.1 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.09 s, sys: 218 ms, total: 1.31 s
+Wall time: 25.5 s
 </pre></div>
 </div>
 </div>
@@ -2724,8 +2800,8 @@ Wall time: 23.1 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 810 ms, sys: 96.8 ms, total: 907 ms
-Wall time: 12 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 785 ms, sys: 112 ms, total: 897 ms
+Wall time: 13.2 s
 </pre></div>
 </div>
 </div>
@@ -2755,7 +2831,7 @@ Wall time: 12 s
         <div style="margin-left: 64px;">
             <h3 style="margin-bottom: 0px;">HighLevelGraph</h3>
             <p style="color: var(--jp-ui-font-color2, #5D5851); margin-bottom:0px;">
-                HighLevelGraph with 10 layers and 465 keys from all layers.
+                HighLevelGraph with 11 layers and 531 keys from all layers.
             </p>
             
             <div style="">
@@ -2770,7 +2846,7 @@ Wall time: 12 s
             <h4 style="display: inline;">Layer1: read-csv</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            read-csv-08688dc065e35cc6e3cae048087228e1
+            read-csv-1d528c7d5527edefddfd43c8981c2fa5
         </p>
 
         <table>
@@ -2800,7 +2876,7 @@ Wall time: 12 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT10&#x27;, &#x27;WT10_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2815,9 +2891,88 @@ Wall time: 12 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: string[pyarrow], &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: string[pyarrow], &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: string[pyarrow], &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: string[pyarrow], &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: string[pyarrow], &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: string[pyarrow], &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: string[pyarrow], &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: string[pyarrow], &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: string[pyarrow], &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: string[pyarrow], &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: string[pyarrow], &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: string[pyarrow], &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: string[pyarrow], &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: string[pyarrow], &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: string[pyarrow], &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: string[pyarrow], &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: string[pyarrow], &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: string[pyarrow], &#x27;WT10&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT10_FLAGS&#x27;: string[pyarrow], &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: string[pyarrow], &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: string[pyarrow], &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: string[pyarrow], &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: string[pyarrow], &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: string[pyarrow], &#x27;STATION&#x27;: string[pyarrow]}</td>
                     </tr>
                 
+                
+                </table>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        </table>
+
+    </details>
+</div>
+            
+            <div style="">
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="position: absolute;">
+        
+        <circle cx="16" cy="16" r="14" fill="#8F8F8F" style="stroke: var(--jp-ui-font-color2, #1D1D1D);" stroke-width="2"/>
+        
+    </svg>
+
+    <details style="margin-left: 32px;">
+        <summary style="margin-bottom: 10px; margin-top: 10px;">
+            <h4 style="display: inline;">Layer2: to_pyarrow_string</h4>
+        </summary>
+        <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
+            to_pyarrow_string-79e40de483ec47ea37ab1d876b138bd2
+        </p>
+
+        <table>
+        <tr>
+            <td>
+                <table>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">layer_type</th>
+                        <td style="text-align: left;">Blockwise</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">is_materialized</th>
+                        <td style="text-align: left;">True</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">number of outputs</th>
+                        <td style="text-align: left;">66</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">npartitions</th>
+                        <td style="text-align: left;">66</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">columns</th>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT10&#x27;, &#x27;WT10_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">type</th>
+                        <td style="text-align: left;">dask.dataframe.core.DataFrame</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">dataframe_type</th>
+                        <td style="text-align: left;">pandas.core.frame.DataFrame</td>
+                    </tr>
+                
+                    <tr>
+                        <th style="text-align: left; width: 150px;">series_dtypes</th>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: string[pyarrow], &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: string[pyarrow], &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: string[pyarrow], &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: string[pyarrow], &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: string[pyarrow], &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: string[pyarrow], &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: string[pyarrow], &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: string[pyarrow], &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: string[pyarrow], &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: string[pyarrow], &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: string[pyarrow], &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: string[pyarrow], &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: string[pyarrow], &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: string[pyarrow], &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: string[pyarrow], &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: string[pyarrow], &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: string[pyarrow], &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: string[pyarrow], &#x27;WT10&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT10_FLAGS&#x27;: string[pyarrow], &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: string[pyarrow], &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: string[pyarrow], &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: string[pyarrow], &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: string[pyarrow], &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: string[pyarrow], &#x27;STATION&#x27;: string[pyarrow]}</td>
+                    </tr>
+                
+                
+                    
+                        <tr>
+                            <th style="text-align: left; width: 150px;"> depends on </th>
+                            <td style="text-align: left;">read-csv-1d528c7d5527edefddfd43c8981c2fa5</td>
+                        </tr>
+                    
                 
                 </table>
             </td>
@@ -2839,10 +2994,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer2: getitem</h4>
+            <h4 style="display: inline;">Layer3: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-99a34e6a73bad94635993f83ff2d0f73
+            getitem-dcb7dd8641f3d2e3df1e730e4f0454cd
         </p>
 
         <table>
@@ -2869,7 +3024,7 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
+                            <td style="text-align: left;">to_pyarrow_string-79e40de483ec47ea37ab1d876b138bd2</td>
                         </tr>
                     
                 
@@ -2893,10 +3048,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer3: gt</h4>
+            <h4 style="display: inline;">Layer4: gt</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            gt-05a3e27faa76dfa13b63af352cd46602
+            gt-40b9f9e69a08b2df88b05b714d2fbca6
         </p>
 
         <table>
@@ -2923,7 +3078,7 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-99a34e6a73bad94635993f83ff2d0f73</td>
+                            <td style="text-align: left;">getitem-dcb7dd8641f3d2e3df1e730e4f0454cd</td>
                         </tr>
                     
                 
@@ -2947,10 +3102,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer4: getitem</h4>
+            <h4 style="display: inline;">Layer5: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-0a7799f357307780586a5c49462bd956
+            getitem-e3ed7dba73e58fd04680769ffcdbe54f
         </p>
 
         <table>
@@ -2980,7 +3135,7 @@ Wall time: 12 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">columns</th>
-                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;WT09&#x27;, &#x27;WT09_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
+                        <td style="text-align: left;">[&#x27;DATE&#x27;, &#x27;ID&#x27;, &#x27;YEAR&#x27;, &#x27;MONTH&#x27;, &#x27;DAY&#x27;, &#x27;TMIN&#x27;, &#x27;TMIN_FLAGS&#x27;, &#x27;PRCP&#x27;, &#x27;PRCP_FLAGS&#x27;, &#x27;SNOW&#x27;, &#x27;SNOW_FLAGS&#x27;, &#x27;SNWD&#x27;, &#x27;SNWD_FLAGS&#x27;, &#x27;TMAX&#x27;, &#x27;TMAX_FLAGS&#x27;, &#x27;WT03&#x27;, &#x27;WT03_FLAGS&#x27;, &#x27;WT04&#x27;, &#x27;WT04_FLAGS&#x27;, &#x27;DAPR&#x27;, &#x27;DAPR_FLAGS&#x27;, &#x27;MDPR&#x27;, &#x27;MDPR_FLAGS&#x27;, &#x27;WT14&#x27;, &#x27;WT14_FLAGS&#x27;, &#x27;WT01&#x27;, &#x27;WT01_FLAGS&#x27;, &#x27;WT08&#x27;, &#x27;WT08_FLAGS&#x27;, &#x27;WT05&#x27;, &#x27;WT05_FLAGS&#x27;, &#x27;WT06&#x27;, &#x27;WT06_FLAGS&#x27;, &#x27;TOBS&#x27;, &#x27;TOBS_FLAGS&#x27;, &#x27;WT11&#x27;, &#x27;WT11_FLAGS&#x27;, &#x27;WT07&#x27;, &#x27;WT07_FLAGS&#x27;, &#x27;WT10&#x27;, &#x27;WT10_FLAGS&#x27;, &#x27;DASF&#x27;, &#x27;DASF_FLAGS&#x27;, &#x27;MDSF&#x27;, &#x27;MDSF_FLAGS&#x27;, &#x27;SN32&#x27;, &#x27;SN32_FLAGS&#x27;, &#x27;SX32&#x27;, &#x27;SX32_FLAGS&#x27;, &#x27;LATITUDE&#x27;, &#x27;LONGITUDE&#x27;, &#x27;ELEVATION&#x27;, &#x27;STATE&#x27;, &#x27;STATION&#x27;]</td>
                     </tr>
                 
                     <tr>
@@ -2995,21 +3150,21 @@ Wall time: 12 s
                 
                     <tr>
                         <th style="text-align: left; width: 150px;">series_dtypes</th>
-                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: dtype(&#x27;O&#x27;), &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT09&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT09_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: dtype(&#x27;O&#x27;), &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: dtype(&#x27;O&#x27;), &#x27;STATION&#x27;: dtype(&#x27;O&#x27;)}</td>
+                        <td style="text-align: left;">{&#x27;DATE&#x27;: dtype(&#x27;&lt;M8[ns]&#x27;), &#x27;ID&#x27;: string[pyarrow], &#x27;YEAR&#x27;: dtype(&#x27;int64&#x27;), &#x27;MONTH&#x27;: dtype(&#x27;int64&#x27;), &#x27;DAY&#x27;: dtype(&#x27;int64&#x27;), &#x27;TMIN&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMIN_FLAGS&#x27;: string[pyarrow], &#x27;PRCP&#x27;: dtype(&#x27;float64&#x27;), &#x27;PRCP_FLAGS&#x27;: string[pyarrow], &#x27;SNOW&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNOW_FLAGS&#x27;: string[pyarrow], &#x27;SNWD&#x27;: dtype(&#x27;float64&#x27;), &#x27;SNWD_FLAGS&#x27;: string[pyarrow], &#x27;TMAX&#x27;: dtype(&#x27;float64&#x27;), &#x27;TMAX_FLAGS&#x27;: string[pyarrow], &#x27;WT03&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT03_FLAGS&#x27;: string[pyarrow], &#x27;WT04&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT04_FLAGS&#x27;: string[pyarrow], &#x27;DAPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;DAPR_FLAGS&#x27;: string[pyarrow], &#x27;MDPR&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDPR_FLAGS&#x27;: string[pyarrow], &#x27;WT14&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT14_FLAGS&#x27;: string[pyarrow], &#x27;WT01&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT01_FLAGS&#x27;: string[pyarrow], &#x27;WT08&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT08_FLAGS&#x27;: string[pyarrow], &#x27;WT05&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT05_FLAGS&#x27;: string[pyarrow], &#x27;WT06&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT06_FLAGS&#x27;: string[pyarrow], &#x27;TOBS&#x27;: dtype(&#x27;float64&#x27;), &#x27;TOBS_FLAGS&#x27;: string[pyarrow], &#x27;WT11&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT11_FLAGS&#x27;: string[pyarrow], &#x27;WT07&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT07_FLAGS&#x27;: string[pyarrow], &#x27;WT10&#x27;: dtype(&#x27;float64&#x27;), &#x27;WT10_FLAGS&#x27;: string[pyarrow], &#x27;DASF&#x27;: dtype(&#x27;float64&#x27;), &#x27;DASF_FLAGS&#x27;: string[pyarrow], &#x27;MDSF&#x27;: dtype(&#x27;float64&#x27;), &#x27;MDSF_FLAGS&#x27;: string[pyarrow], &#x27;SN32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SN32_FLAGS&#x27;: string[pyarrow], &#x27;SX32&#x27;: dtype(&#x27;float64&#x27;), &#x27;SX32_FLAGS&#x27;: string[pyarrow], &#x27;LATITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;LONGITUDE&#x27;: dtype(&#x27;float64&#x27;), &#x27;ELEVATION&#x27;: dtype(&#x27;float64&#x27;), &#x27;STATE&#x27;: string[pyarrow], &#x27;STATION&#x27;: string[pyarrow]}</td>
                     </tr>
                 
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">read-csv-08688dc065e35cc6e3cae048087228e1</td>
+                            <td style="text-align: left;">to_pyarrow_string-79e40de483ec47ea37ab1d876b138bd2</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">gt-05a3e27faa76dfa13b63af352cd46602</td>
+                            <td style="text-align: left;">gt-40b9f9e69a08b2df88b05b714d2fbca6</td>
                         </tr>
                     
                 
@@ -3033,10 +3188,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer5: getitem</h4>
+            <h4 style="display: inline;">Layer6: getitem</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            getitem-deffb42121727b2f768558364eb91b65
+            getitem-51a7d3819037098744861c3a1a77e853
         </p>
 
         <table>
@@ -3063,7 +3218,7 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-0a7799f357307780586a5c49462bd956</td>
+                            <td style="text-align: left;">getitem-e3ed7dba73e58fd04680769ffcdbe54f</td>
                         </tr>
                     
                 
@@ -3087,10 +3242,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer6: series-count-chunk</h4>
+            <h4 style="display: inline;">Layer7: series-count-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-count-chunk-aa3b0b9207b4d3f23bdee534750d1d79-37aef823397842f1163476a2e587d13c
+            series-count-chunk-fcd354190bfc78379462c584cbc9370e-e023c706d39dce73c2db730a6e96552b
         </p>
 
         <table>
@@ -3117,7 +3272,7 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-deffb42121727b2f768558364eb91b65</td>
+                            <td style="text-align: left;">getitem-51a7d3819037098744861c3a1a77e853</td>
                         </tr>
                     
                 
@@ -3141,10 +3296,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer7: series-count-agg</h4>
+            <h4 style="display: inline;">Layer8: series-count-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-count-agg-aa3b0b9207b4d3f23bdee534750d1d79
+            series-count-agg-fcd354190bfc78379462c584cbc9370e
         </p>
 
         <table>
@@ -3171,7 +3326,7 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-count-chunk-aa3b0b9207b4d3f23bdee534750d1d79-37aef823397842f1163476a2e587d13c</td>
+                            <td style="text-align: left;">series-count-chunk-fcd354190bfc78379462c584cbc9370e-e023c706d39dce73c2db730a6e96552b</td>
                         </tr>
                     
                 
@@ -3195,10 +3350,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer8: series-sum-chunk</h4>
+            <h4 style="display: inline;">Layer9: series-sum-chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-sum-chunk-8562cf34264b5ef7e9611da0f198c386-532432bb11252420549a70d05cbe2e63
+            series-sum-chunk-72c811251d18a4021cc9cd824a02a28f-7e018785e69636b02c65546b26c5a14e
         </p>
 
         <table>
@@ -3225,7 +3380,7 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">getitem-deffb42121727b2f768558364eb91b65</td>
+                            <td style="text-align: left;">getitem-51a7d3819037098744861c3a1a77e853</td>
                         </tr>
                     
                 
@@ -3249,10 +3404,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer9: series-sum-agg</h4>
+            <h4 style="display: inline;">Layer10: series-sum-agg</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-sum-agg-8562cf34264b5ef7e9611da0f198c386
+            series-sum-agg-72c811251d18a4021cc9cd824a02a28f
         </p>
 
         <table>
@@ -3279,7 +3434,7 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-sum-chunk-8562cf34264b5ef7e9611da0f198c386-532432bb11252420549a70d05cbe2e63</td>
+                            <td style="text-align: left;">series-sum-chunk-72c811251d18a4021cc9cd824a02a28f-7e018785e69636b02c65546b26c5a14e</td>
                         </tr>
                     
                 
@@ -3303,10 +3458,10 @@ Wall time: 12 s
 
     <details style="margin-left: 32px;">
         <summary style="margin-bottom: 10px; margin-top: 10px;">
-            <h4 style="display: inline;">Layer10: series-mean</h4>
+            <h4 style="display: inline;">Layer11: series-mean</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            series-mean-ac4fd722174989c65c210f026d52b931-8f11e8c2cd4fac12622f25389effebe2
+            series-mean-030c938b33cbed7218375387e7ceb24f-fcff2bc406d6dda16db386acc5820ffc
         </p>
 
         <table>
@@ -3333,14 +3488,14 @@ Wall time: 12 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">series-count-agg-aa3b0b9207b4d3f23bdee534750d1d79</td>
+                            <td style="text-align: left;">series-count-agg-fcd354190bfc78379462c584cbc9370e</td>
                         </tr>
                     
                 
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"></th>
-                            <td style="text-align: left;">series-sum-agg-8562cf34264b5ef7e9611da0f198c386</td>
+                            <td style="text-align: left;">series-sum-agg-72c811251d18a4021cc9cd824a02a28f</td>
                         </tr>
                     
                 
@@ -3386,8 +3541,8 @@ Wall time: 12 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 1.63 s, sys: 175 ms, total: 1.81 s
-Wall time: 23.9 s
+CPU times: user 1.18 s, sys: 178 ms, total: 1.36 s
+Wall time: 25.7 s
 </pre></div>
 </div>
 </div>
@@ -3411,8 +3566,8 @@ Wall time: 23.9 s
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-74.82074711099168 37.419103836866114
-CPU times: user 935 ms, sys: 104 ms, total: 1.04 s
-Wall time: 12.4 s
+CPU times: user 781 ms, sys: 102 ms, total: 883 ms
+Wall time: 13.3 s
 </pre></div>
 </div>
 </div>
@@ -3525,7 +3680,7 @@ As shown in the above example, the intermediate results can also be shared by ca
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Dask Arrays</p>
+            <p class="prev-next-title">Dask Array</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="04-dask-cluster.html" title="next page">
@@ -3580,7 +3735,7 @@ As shown in the above example, the intermediate results can also be shared by ca
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 17 July 2023.
+          Last updated on 4 October 2023.
         </p>
       </div>
     </div>

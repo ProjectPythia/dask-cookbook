@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dask Arrays &#8212; Dask Cookbook</title>
+    <title>Dask Array &#8212; Dask Cookbook</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -182,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   NCAR Dask Tutorial
+   Dask Cookbook
   </a>
  </li>
 </ul>
@@ -211,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Dask Arrays
+   Dask Array
   </a>
  </li>
  <li class="toctree-l1">
@@ -297,14 +297,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/negin513/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/ProjectPythia/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/negin513/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/01-dask-array.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ProjectPythia/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/01-dask-array.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/negin513/dask-cookbook.git/edit/main/notebooks/01-dask-array.ipynb"><button
+        <a class="edit-button" href="https://github.com/ProjectPythia/dask-cookbook.git/edit/main/notebooks/01-dask-array.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -324,7 +324,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="http://binder.mypythia.org/v2/gh/negin513/dask-cookbook.git/main?urlpath=lab/tree/notebooks/01-dask-array.ipynb"><button type="button"
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/01-dask-array.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -352,7 +352,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
+  <a class="reference internal nav-link" href="#dask-arrays">
    Dask Arrays
   </a>
  </li>
@@ -419,14 +419,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <p><a class="reference internal" href="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png"><img alt="NCAR logo" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png" style="width: 750px;" /></a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="dask-arrays">
-<h1>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<p><strong>ESDS Dask Tutorial | 06 February, 2023</strong></p>
-<p>Negin Sobhani, Brian Vanderwende, Deepak Cherian, Ben Kirk<br />
-Computational &amp; Information Systems Lab (CISL)<br />
-<a class="reference external" href="mailto:negins&#37;&#52;&#48;ucar&#46;edu">negins<span>&#64;</span>ucar<span>&#46;</span>edu</a>, <a class="reference external" href="mailto:vanderwb&#37;&#52;&#48;ucar&#46;edu">vanderwb<span>&#64;</span>ucar<span>&#46;</span>edu</a></p>
-<hr class="docutils" />
+  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="30%" /></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="dask-array">
+<h1>Dask Array<a class="headerlink" href="#dask-array" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
 <div class="section" id="in-this-tutorial-you-learn">
 <h2>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
@@ -436,16 +431,16 @@ Computational &amp; Information Systems Lab (CISL)<br />
 </ul>
 <p><strong>Related Dask Array Documentation</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://docs.dask.org/en/latest/array.html">Dask Array documentation</a></p></li>
-<li><p><a class="reference external" href="https://docs.dask.org/en/latest/array-api.html">Dask Array API</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/array.html">Dask Array documentation</a></p></li>
+<li><p><a class="reference external" href="https://docs.dask.org/en/stable/array-api.html">Dask Array API</a></p></li>
 <li><p><a class="reference external" href="https://examples.dask.org/array.html">Dask Array examples</a></p></li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h2>Dask Arrays<a class="headerlink" href="#id1" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<div class="section" id="dask-arrays">
+<h2>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>Dask Arrays are basically parallelized version of NumPy arrays for processing <em>larger-than-memory data sets</em>.</p>
 <a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-array.svg"><img alt="https://docs.dask.org/en/stable/_images/dask-array.svg" src="https://docs.dask.org/en/stable/_images/dask-array.svg" width="500px" /></a>
-<p><em>Image credit: Anaconda, Inc. and contributors</em></p>
+<p><em>Image credit: Dask Contributors</em></p>
 <p>Dask Array can be used as a drop-in replacement for NumPy arrays, with a similar API and support for a subset of NumPy functions.</p>
 <p>Dask effectively reduces the memory footprint of large array computations by dividing the arrays into smaller pieces (called <strong>chunks</strong>) that can fit into memory and stream the data from disk.</p>
 <p><strong>Dask Arrays are lazy:</strong> Unlike Numpy, operations on Dask arrays are not computed until you explicitly request them.</p>
@@ -473,7 +468,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-ca1463c3-24c5-11ee-8920-000d3a03c36a</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-fccaa25a-62e2-11ee-8dfa-6045bd7f0ab1</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -508,7 +503,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">ab86ac48</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">e29f08ad</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -523,7 +518,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     <strong>Total threads:</strong> 2
                 </td>
                 <td style="text-align: left;">
-                    <strong>Total memory:</strong> 6.77 GiB
+                    <strong>Total memory:</strong> 6.76 GiB
                 </td>
             </tr>
             
@@ -545,11 +540,11 @@ Computational &amp; Information Systems Lab (CISL)<br />
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-70d8849e-fa98-4951-9b39-f276a230b3a6</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-42065e18-0158-4503-a605-df7f74f1232d</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:43247
+                        <strong>Comm:</strong> tcp://127.0.0.1:40625
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 2
@@ -568,7 +563,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                         <strong>Started:</strong> Just now
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total memory:</strong> 6.77 GiB
+                        <strong>Total memory:</strong> 6.76 GiB
                     </td>
                 </tr>
             </table>
@@ -591,7 +586,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:34829
+                            <strong>Comm: </strong> tcp://127.0.0.1:41231
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -599,7 +594,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38187/status" target="_blank">http://127.0.0.1:38187/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45765/status" target="_blank">http://127.0.0.1:45765/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -607,13 +602,13 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:40371
+                            <strong>Nanny: </strong> tcp://127.0.0.1:33555
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-9r66k2mc
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-v_aybmpi
                         </td>
                     </tr>
 
@@ -636,7 +631,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:38375
+                            <strong>Comm: </strong> tcp://127.0.0.1:39051
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -644,7 +639,7 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:42481/status" target="_blank">http://127.0.0.1:42481/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38467/status" target="_blank">http://127.0.0.1:38467/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.38 GiB
@@ -652,13 +647,13 @@ Computational &amp; Information Systems Lab (CISL)<br />
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:40423
+                            <strong>Nanny: </strong> tcp://127.0.0.1:39037
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-g4k9ecci
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-qdhyzu5d
                         </td>
                     </tr>
 
@@ -956,8 +951,8 @@ For example, <code class="docutils literal notranslate"><span class="pre">chunks
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 89.6 ms, sys: 204 µs, total: 89.8 ms
-Wall time: 83 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 85.5 ms, sys: 455 µs, total: 86 ms
+Wall time: 82.7 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
@@ -974,8 +969,8 @@ Wall time: 83 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.61 ms, sys: 248 µs, total: 1.86 ms
-Wall time: 1.87 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.25 ms, sys: 414 µs, total: 1.66 ms
+Wall time: 1.65 ms
 </pre></div>
 </div>
 </div>
@@ -997,8 +992,8 @@ Wall time: 1.87 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 33.9 ms, sys: 5.9 ms, total: 39.8 ms
-Wall time: 527 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 18.1 ms, sys: 4.75 ms, total: 22.8 ms
+Wall time: 193 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
@@ -1249,8 +1244,8 @@ Let’s try an example using bigger data and bigger calculations:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 348 ms, sys: 43.9 ms, total: 392 ms
-Wall time: 2.59 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 285 ms, sys: 29.7 ms, total: 314 ms
+Wall time: 2.28 s
 </pre></div>
 </div>
 </div>
@@ -1450,8 +1445,8 @@ Wall time: 2.59 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 23.4 s, sys: 1.32 s, total: 24.8 s
-Wall time: 53.8 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 19.2 s, sys: 1.06 s, total: 20.2 s
+Wall time: 46.3 s
 </pre></div>
 </div>
 </div>
@@ -1578,8 +1573,8 @@ Wall time: 53.8 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.36 s, sys: 185 ms, total: 1.54 s
-Wall time: 17.4 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.26 s, sys: 105 ms, total: 1.36 s
+Wall time: 18.3 s
 </pre></div>
 </div>
 </div>
@@ -1715,7 +1710,7 @@ Wall time: 17.4 s
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 17 July 2023.
+          Last updated on 4 October 2023.
         </p>
       </div>
     </div>

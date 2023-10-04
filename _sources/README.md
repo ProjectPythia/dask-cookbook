@@ -1,6 +1,4 @@
-<img src="notebooks/images/NCAR_CISL_NSF_banner.jpeg" alt="NCAR CISL logo" />
-
-# NCAR Dask Tutorial
+# Dask Cookbook
 
 [![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
 [![Binder](https://mybinder.org/badge_logo.svg)](http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks)
@@ -25,17 +23,21 @@ The motivation behind this repository is to provide a clear and concise resource
 <a href="https://github.com/benkirk/demo_containers/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=benkirk/demo_containers" />
 </a>
+<a href="https://github.com/ProjectPythia/dask-cookbook/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ProjectPythia/dask-cookbook" />
+</a>
 
 ## Note on Content Origin
 
-This cookbook is part of the extensive material used in our NCAR tutorial, ["Using Dask on HPC systems"](https://github.com/NCAR/dask-tutorial.git), which was held in February 2023. The complete tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC . For the complete set of materials, including these additional insights on Dask on HPC, please refer to the main tutorial content available [here](https://ncar.github.io/dask-tutorial/README.html).
+This cookbook is derived from the extensive material used in the NCAR tutorial, ["Using Dask on HPC systems"](https://github.com/NCAR/dask-tutorial.git), which was held in February 2023. The NCAR tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC. For the complete set of NCAR tutorial materials, including these additional insights
+on Dask on HPC, please refer to the main NCAR tutorial content available [here](https://ncar.github.io/dask-tutorial/README.html).
 
 ## Structure
 
 In the first chapter of this cookbook, we provide step-by-step tutorials on the basic concepts of Dask, including Dask arrays and Dask dataframes, which are powerful tools for parallel computing and distributed data processing. We explain the key differences between these Dask data structures and their counterparts in NumPy and Pandas.
 
 In the second chapter of the repository, we move on to more advanced topics, such as distributed computing and Dask+Xarray integration. We provide examples of how to use Dask+Xarray to efficiently work with large, labelled multi-dimensional datasets.
-Finally, we will discuss some best practices regarding Dask + Xarray.
+Finally, we will discuss some best practices regarding Dask+Xarray.
 
 ## Running the Notebooks
 
@@ -78,7 +80,7 @@ If you are interested in running this material locally on your computer, you wil
 
    ```bash
    conda env create -f environment.yml
-   conda activate dask-cookbook-example
+   conda activate dask-cookbook
    ```
 
 1. Move into the `notebooks` directory and start up Jupyterlab

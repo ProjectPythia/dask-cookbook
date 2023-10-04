@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Dask Arrays" href="01-dask-array.html" />
+    <link rel="next" title="Dask Array" href="01-dask-array.html" />
     <link rel="prev" title="How to Cite This Cookbook" href="how-to-cite.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -182,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../README.html">
-   NCAR Dask Tutorial
+   Dask Cookbook
   </a>
  </li>
 </ul>
@@ -211,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="01-dask-array.html">
-   Dask Arrays
+   Dask Array
   </a>
  </li>
  <li class="toctree-l1">
@@ -297,14 +297,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://github.com/negin513/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/ProjectPythia/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/negin513/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/00-dask-overview.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/ProjectPythia/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/00-dask-overview.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/negin513/dask-cookbook.git/edit/main/notebooks/00-dask-overview.ipynb"><button
+        <a class="edit-button" href="https://github.com/ProjectPythia/dask-cookbook.git/edit/main/notebooks/00-dask-overview.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -324,7 +324,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="http://binder.mypythia.org/v2/gh/negin513/dask-cookbook.git/main?urlpath=lab/tree/notebooks/00-dask-overview.ipynb"><button type="button"
+        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/00-dask-overview.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -346,6 +346,11 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#in-this-tutorial-you-learn">
+   In this tutorial, you learn:
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
    Introduction
@@ -450,21 +455,18 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
               
               <div>
                 
-  <p><a class="reference internal" href="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png"><img alt="NCAR logo" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/NCAR-contemp-logo-blue.png" style="width: 750px;" /></a></p>
+  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="30%" /></a></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="dask-overview">
 <h1>Dask Overview<a class="headerlink" href="#dask-overview" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<p><strong>ESDS Dask Tutorial | 06 February, 2023</strong></p>
-<p>Negin Sobhani, Brian Vanderwende, Deepak Cherian, Ben Kirk<br />
-Computational &amp; Information Systems Lab (CISL)<br />
-<a class="reference external" href="mailto:negins&#37;&#52;&#48;ucar&#46;edu">negins<span>&#64;</span>ucar<span>&#46;</span>edu</a>, <a class="reference external" href="mailto:vanderwb&#37;&#52;&#48;ucar&#46;edu">vanderwb<span>&#64;</span>ucar<span>&#46;</span>edu</a></p>
-<hr class="docutils" />
-<p><strong>In this tutorial, you learn:</strong></p>
+<div class="section" id="in-this-tutorial-you-learn">
+<h2>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
 <li><p>What is Dask?</p></li>
 <li><p>Why Dask in Geosciences?</p></li>
 <li><p>Dask Data Structures and Schedulers</p></li>
 <li><p>When to use Dask?</p></li>
 </ul>
+</div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
 <p>Complex data structures enable data science in Python. For example:</p>
@@ -477,7 +479,6 @@ Computational &amp; Information Systems Lab (CISL)<br />
 </div>
 <div class="section" id="what-is-dask">
 <h2>What is Dask?<a class="headerlink" href="#what-is-dask" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/dask_horizontal.svg"><img alt="NCAR logo" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/dask_horizontal.svg" width="500px" /></a></p>
 <ul class="simple">
 <li><p>Dask is an open-source Python library for parallel and distributed computing that scales the existing Python ecosystem.</p></li>
 <li><p>Dask was developed to scale Python packages such as Numpy, Pandas, and Xarray to multi-core machines and distributed clusters when datasets exceed memory.</p></li>
@@ -523,7 +524,7 @@ In some cases, using Dask may introduce additional complexity and overhead, with
     <li> Read in a subset of data to gain the insight you need</li>
 </ul>
 And keep in mind - all of the above steps improve your code whether you end up using Dask or not!</br></br>
-<img src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/dask_twitter.png"
+<img src="https://raw.githubusercontent.com/ProjectPythia/dask-cookbook/main/notebooks/images/dask_twitter.png"
      width="500px"/>
 </div>
 </div>
@@ -588,8 +589,8 @@ And keep in mind - all of the above steps improve your code whether you end up u
 <li><p><strong>futures</strong> - similar to delayed but allows for concurrent commands in the client script (think backgrounded processes)</p></li>
 </ul>
 <p>These are very powerfull tools, but it is easy to write something using a delayed function that could be executed faster and more simply using a high-level collection</p>
-<p><a class="reference internal" href="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/high_vs_low_level_coll_analogy.png"><img alt="Dask Collections" src="https://raw.githubusercontent.com/NCAR/dask-tutorial/main/images/high_vs_low_level_coll_analogy.png" style="width: 83%;" /></a></p>
-<p><em>Image credit: Anaconda, Inc. and contributors</em></p>
+<p><a class="reference internal" href="https://raw.githubusercontent.com/ProjectPythia/dask-cookbook/main/notebooks/images/high_vs_low_level_coll_analogy.png"><img alt="Dask Collections" src="https://raw.githubusercontent.com/ProjectPythia/dask-cookbook/main/notebooks/images/high_vs_low_level_coll_analogy.png" style="width: 83%;" /></a></p>
+<p><em>Image credit: Dask Contributors</em></p>
 </div>
 </div>
 <div class="section" id="dynamic-task-scheduling">
@@ -603,7 +604,7 @@ And keep in mind - all of the above steps improve your code whether you end up u
 <li><p><strong>client</strong> - A high-level interface that points to the scheduler (often local but not always). A client serves as the entry point for interacting with a Dask scheduler.</p></li>
 </ul>
 <p><a class="reference internal" href="https://tutorial.dask.org/_images/distributed-overview.png"><img alt="Dask Distributed Cluster" src="https://tutorial.dask.org/_images/distributed-overview.png" style="width: 75%;" /></a></p>
-<p><em>Image credit: Anaconda, Inc. and contributors</em></p>
+<p><em>Image credit: Dask Contributors</em></p>
 <p>We will learn more about Dask Collections and Dynamic Task Scheduling in the next tutorials.</p>
 </div>
 </div>
@@ -662,7 +663,7 @@ And keep in mind - all of the above steps improve your code whether you end up u
     <a class='right-next' id="next-link" href="01-dask-array.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dask Arrays</p>
+        <p class="prev-next-title">Dask Array</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -711,7 +712,7 @@ And keep in mind - all of the above steps improve your code whether you end up u
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 17 July 2023.
+          Last updated on 4 October 2023.
         </p>
       </div>
     </div>
