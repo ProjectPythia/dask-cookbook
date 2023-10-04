@@ -1,4 +1,4 @@
-name: dask-cookbook-dev
+name: dask-cookbook
 channels:
   - conda-forge
   - nodefaults
