@@ -26,7 +26,7 @@ dependencies:
   - pre-commit
   - pydap
   - python-graphviz
-  - python=3.9
+  - python=3.10
   - scipy
   - xarray>=2022.3.0
   - pip
