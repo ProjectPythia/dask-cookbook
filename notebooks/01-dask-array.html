@@ -1,103 +1,133 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Dask Array &#8212; Dask Cookbook</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
-      
-
-    
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-pythia-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-pythia-theme.min.css?v=e502140d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d0efeab3" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-T52X8HNYE8"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-T52X8HNYE8');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-T52X8HNYE8');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/01-dask-array';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Dask DataFrame" href="02-dask-dataframe.html" />
     <link rel="prev" title="Dask Overview" href="00-dask-overview.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-T52X8HNYE8"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-T52X8HNYE8');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="30 March 2024"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="132">
-    <div class="container-fluid" id="shim"></div>
-    <div class="container-fluid" id="banner"></div>
-    <nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main"><div class="container-xl">
-
-  <div id="navbar-start">
-    
-    
-
-<a class="navbar-brand" href="https://projectpythia.org">
-  <img src="../_static/pythia_logo-white-rtext.svg" class="logo" alt="logo">
-</a>
-
-
-    
-  </div>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
   
-  <div id="navbar-collapsible" class=" collapse navbar-collapse">
-    <div id="navbar-center" class="mr-auto">
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+
+  
+  <div class="pst-scroll-pixel-helper"></div>
+    <header class="bd-header navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+   
+
+<a class="navbar-brand logo" href="https://projectpythia.org">
+  
+  
+  
+  
+  
+    
+    
       
-      <div class="navbar-center-item">
-        <ul id="navbar-main-elements" class="navbar-nav">
+    
+    
+    <img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-light" alt="Dask Cookbook - Home"/>
+    <script>document.write(`<img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-dark" alt="Dask Cookbook - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
   
   <li class="nav-item">
     
@@ -135,295 +165,251 @@ const thebe_selector_output = ".output, .cell_output"
   </li>
   
   
-</ul>
-      </div>
+</ul></div>
       
     </div>
-
-    <div id="navbar-end">
-      
-      <div class="navbar-end-item">
-        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
-        <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ProjectPythia" rel="noopener" target="_blank" title="GitHub">
-            <span><i class="fab fa-github-square"></i></span>
-            <label class="sr-only">GitHub</label>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://twitter.com/project_pythia" rel="noopener" target="_blank" title="Twitter">
-            <span><i class="fab fa-twitter-square"></i></span>
-            <label class="sr-only">Twitter</label>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" rel="noopener" target="_blank" title="YouTube">
-            <span><i class="fab fa-youtube-square"></i></span>
-            <label class="sr-only">YouTube</label>
-          </a>
-        </li>
-      </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
-    </nav>
-    <div class="container-xl">
-      <div class="row">
-        
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
-        <form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../README.html">
-   Dask Cookbook
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Preamble
- </span>
-</p>
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">YouTube</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+        
+        
+        
+        <div class="bd-sidebar-primary bd-sidebar">
+          
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><ul id="navbar-main-elements" class="navbar-nav">
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org">Home</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://foundations.projectpythia.org">Foundations</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://cookbooks.projectpythia.org">Cookbooks</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/resource-gallery.html">Resources</a>
+  </li>
+  
+  <li class="nav-item">
+    
+    
+    
+    <a class="nav-link nav-internal" href="https://projectpythia.org/index.html#join-us">Community</a>
+  </li>
+  
+  
+</ul></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">YouTube</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Dask Cookbook
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Preamble</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="how-to-cite.html">
-   How to Cite This Cookbook
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="how-to-cite.html">How to Cite This Cookbook</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introductions to Dask
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introductions to Dask</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00-dask-overview.html">
-   Dask Overview
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Dask Array
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02-dask-dataframe.html">
-   Dask DataFrame
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="00-dask-overview.html">Dask Overview</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dask Array</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-dask-dataframe.html">Dask DataFrame</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Dask Schedulers
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dask Schedulers</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="04-dask-cluster.html">
-   Dask Schedulers
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="04-dask-cluster.html">Dask Schedulers</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Dask and Xarray
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dask and Xarray</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03-dask-xarray.html">
-   Parallelizing Xarray with Dask
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="03-dask-xarray.html">Parallelizing Xarray with Dask</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by <a href="https://projectpythia.org">Project Pythia</a>.<br><br>
-All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code content is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons BY 4.0 (CC BY 4.0)</a>.<br><br>
-
-</div>
-
-</div>
-
-        
-
-        <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main"><div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notebooks/01-dask-array.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+</nav></div>
     </div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ProjectPythia/dask-cookbook.git"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ProjectPythia/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/01-dask-array.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/ProjectPythia/dask-cookbook.git/edit/main/notebooks/01-dask-array.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/01-dask-array.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
 
         </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> On this page
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#in-this-tutorial-you-learn">
-   In this tutorial, you learn:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dask-arrays">
-   Dask Arrays
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setup-start-a-dask-client">
-   Setup: Start a Dask Client
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#blocked-algorithms">
-   Blocked Algorithms
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#task-graph">
-   Task Graph
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chunks">
-   Chunks
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#chunking-an-array">
-     Chunking an array
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#performance-comparison">
-   Performance Comparison
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#larger-data">
-   Larger Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#supplementary-material-rechunking-arrays">
-   Supplementary Material: Rechunking Arrays
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary:
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#resources-and-references">
-   Resources and references
-  </a>
- </li>
-</ul>
+        
+        <main id="main-content" class="bd-main" role="main">
+          
 
-            </nav>
-        </div>
-    </div>
-</div>
-          <div id="main-content" class="row">
-            <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-              
-              <div>
+            <div class="bd-content">
+
+              <div class="bd-article-container">
+
                 
+                  
+                  
+<div id="searchbox"></div>
+                  <article class="bd-article">
+                    
   <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="30%" /></a></p>
-<div class="tex2jax_ignore mathjax_ignore section" id="dask-array">
-<h1>Dask Array<a class="headerlink" href="#dask-array" title="Permalink to this headline"><i class="fas fa-link"></i></a></h1>
-<div class="section" id="in-this-tutorial-you-learn">
-<h2>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+<section class="tex2jax_ignore mathjax_ignore" id="dask-array">
+<h1>Dask Array<a class="headerlink" href="#dask-array" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
+<section id="in-this-tutorial-you-learn">
+<h2>In this tutorial, you learn:<a class="headerlink" href="#in-this-tutorial-you-learn" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
 <li><p>What is a Dask Array?</p></li>
 <li><p>Basic concepts and features of Dask Arrays</p></li>
@@ -435,9 +421,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <li><p><a class="reference external" href="https://docs.dask.org/en/stable/array-api.html">Dask Array API</a></p></li>
 <li><p><a class="reference external" href="https://examples.dask.org/array.html">Dask Array examples</a></p></li>
 </ul>
-</div>
-<div class="section" id="dask-arrays">
-<h2>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="dask-arrays">
+<h2>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>Dask Arrays are basically parallelized version of NumPy arrays for processing <em>larger-than-memory data sets</em>.</p>
 <a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-array.svg"><img alt="https://docs.dask.org/en/stable/_images/dask-array.svg" src="https://docs.dask.org/en/stable/_images/dask-array.svg" width="500px" /></a>
 <p><em>Image credit: Dask Contributors</em></p>
@@ -450,9 +436,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 <p>Dask Arrays don’t directly hold any data. Instead, they provide <strong>a symbolic representation of the necessary computations</strong> to generate the data. We will explain this more below.</p>
 <p>Let’s start exploring Dask Arrays:</p>
-</div>
-<div class="section" id="setup-start-a-dask-client">
-<h2>Setup: Start a Dask Client<a class="headerlink" href="#setup-start-a-dask-client" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="setup-start-a-dask-client">
+<h2>Setup: Start a Dask Client<a class="headerlink" href="#setup-start-a-dask-client" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>We will talk in-depth about Dask Cluster and Dask Clients later in this tutorial. Here we just created a local cluster and attached a client to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -468,7 +454,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-c7223d36-6ecf-11ee-8999-6045bdae3175</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-dfc8c2e0-ee7b-11ee-8a0e-0022482fad09</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -503,22 +489,22 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">9469855e</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">eb31fb09</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
                     <strong>Dashboard:</strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
                 </td>
                 <td style="text-align: left;">
-                    <strong>Workers:</strong> 2
+                    <strong>Workers:</strong> 4
                 </td>
             </tr>
             <tr>
                 <td style="text-align: left;">
-                    <strong>Total threads:</strong> 2
+                    <strong>Total threads:</strong> 4
                 </td>
                 <td style="text-align: left;">
-                    <strong>Total memory:</strong> 6.76 GiB
+                    <strong>Total memory:</strong> 15.61 GiB
                 </td>
             </tr>
             
@@ -540,14 +526,14 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-68602411-e34f-41ee-9083-83335e06e65d</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-bba7f0fd-9fa8-4d3a-841e-0ef3d65a7478</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:36935
+                        <strong>Comm:</strong> tcp://127.0.0.1:44363
                     </td>
                     <td style="text-align: left;">
-                        <strong>Workers:</strong> 2
+                        <strong>Workers:</strong> 4
                     </td>
                 </tr>
                 <tr>
@@ -555,7 +541,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                         <strong>Dashboard:</strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total threads:</strong> 2
+                        <strong>Total threads:</strong> 4
                     </td>
                 </tr>
                 <tr>
@@ -563,7 +549,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                         <strong>Started:</strong> Just now
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total memory:</strong> 6.76 GiB
+                        <strong>Total memory:</strong> 15.61 GiB
                     </td>
                 </tr>
             </table>
@@ -586,7 +572,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:35565
+                            <strong>Comm: </strong> tcp://127.0.0.1:34041
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -594,21 +580,21 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:36353/status" target="_blank">http://127.0.0.1:36353/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:40617/status" target="_blank">http://127.0.0.1:40617/status</a>
                         </td>
                         <td style="text-align: left;">
-                            <strong>Memory: </strong> 3.38 GiB
+                            <strong>Memory: </strong> 3.90 GiB
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:38367
+                            <strong>Nanny: </strong> tcp://127.0.0.1:33937
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-aovasm0u
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-_yqz7e3j
                         </td>
                     </tr>
 
@@ -631,7 +617,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:41835
+                            <strong>Comm: </strong> tcp://127.0.0.1:45979
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -639,21 +625,111 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38463/status" target="_blank">http://127.0.0.1:38463/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:35549/status" target="_blank">http://127.0.0.1:35549/status</a>
                         </td>
                         <td style="text-align: left;">
-                            <strong>Memory: </strong> 3.38 GiB
+                            <strong>Memory: </strong> 3.90 GiB
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:39327
+                            <strong>Nanny: </strong> tcp://127.0.0.1:34617
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-uhwmau1j
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-auttwpke
+                        </td>
+                    </tr>
+
+                    
+
+                    
+
+                </table>
+            </details>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 2</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:33451
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39199/status" target="_blank">http://127.0.0.1:39199/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 3.90 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:37143
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-fnwrxj5v
+                        </td>
+                    </tr>
+
+                    
+
+                    
+
+                </table>
+            </details>
+            </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 3</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:36123
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 1
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39063/status" target="_blank">http://127.0.0.1:39063/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 3.90 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:38647
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-wywz0ouz
                         </td>
                     </tr>
 
@@ -679,9 +755,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
     </div>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="blocked-algorithms">
-<h2>Blocked Algorithms<a class="headerlink" href="#blocked-algorithms" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="blocked-algorithms">
+<h2>Blocked Algorithms<a class="headerlink" href="#blocked-algorithms" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>Dask Arrays use blocked algorithms to split large computations into smaller computations which operate on subsets of the data (called <strong>chunks</strong>).</p>
 <p>Let’s see what this means in an example:</p>
 <div class="cell docutils container">
@@ -708,9 +784,9 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 <p>When you take the sum of the Dask array, Dask first takes the sum of each chunk and only after each of those is completed, takes the sum of the results from each chunk.</p>
 <a class="reference internal image-reference" href="https://d33wubrfki0l68.cloudfront.net/f7bf6ca40c8f217386f83795b36e0c964c6a9d2b/ad6da/images/blog/what-is-dask-blockwise-sum.jpg"><img alt="https://d33wubrfki0l68.cloudfront.net/f7bf6ca40c8f217386f83795b36e0c964c6a9d2b/ad6da/images/blog/what-is-dask-blockwise-sum.jpg" src="https://d33wubrfki0l68.cloudfront.net/f7bf6ca40c8f217386f83795b36e0c964c6a9d2b/ad6da/images/blog/what-is-dask-blockwise-sum.jpg" style="width: 500px;" /></a>
 <p><em>Image adapted from saturncloud.io</em></p>
-</div>
-<div class="section" id="task-graph">
-<h2>Task Graph<a class="headerlink" href="#task-graph" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="task-graph">
+<h2>Task Graph<a class="headerlink" href="#task-graph" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>The Dask Task Graph serves as a <strong>blueprint</strong> for executing the computations.</p>
 <p>The Task Graph defines the (1) relationships between tasks, and (2) the order in which they should be executed.</p>
 <p>In a task graph each node in the graph represents a task and lines represent the dependencies/relationships between tasks.</p>
@@ -722,7 +798,7 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/13585ba5c7b942934e8b7bb4e873c0ad8ee067c823917fee80ffa0713fead5b1.png" src="../_images/13585ba5c7b942934e8b7bb4e873c0ad8ee067c823917fee80ffa0713fead5b1.png" />
+<img alt="../_images/83660aa4bd67dd0f3c771b18bca5d13a5a04dcf92dab958f2e1c569662d35e10.png" src="../_images/83660aa4bd67dd0f3c771b18bca5d13a5a04dcf92dab958f2e1c569662d35e10.png" />
 </div>
 </div>
 <p>It is generally good practice to look at the task graph before executing the computation. By looking at the task graph, you can learn about potential bottlenecks where parallelism is not possible.</p>
@@ -833,12 +909,12 @@ All code in Pythia Cookbooks is licensed under Apache 2.0. All other non-code co
 This is a symbolic representation; no data has actually been generated yet.</p>
 <p>As we discussed previously, this mode of operation is called “lazy”.</p>
 <p>This allows the user to build up a series of computations or tasks before being passed to the scheduler for execution.</p>
-</div>
-<div class="section" id="chunks">
-<h2>Chunks<a class="headerlink" href="#chunks" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="chunks">
+<h2>Chunks<a class="headerlink" href="#chunks" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>When checking the Dask array, the symbolic representation illustrates the concept of chunks. Dask arrays split the data into <strong>sub-arrays</strong> (or <strong>chunks</strong>) to optimize computation with large arrays.</p>
-<div class="section" id="chunking-an-array">
-<h3>Chunking an array<a class="headerlink" href="#chunking-an-array" title="Permalink to this headline"><i class="fas fa-link"></i></a></h3>
+<section id="chunking-an-array">
+<h3>Chunking an array<a class="headerlink" href="#chunking-an-array" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 <p><strong>The way that arrays are chunked can significantly affect total performance.</strong></p>
 <p>For specifying the chunking of an array, we use the <code class="docutils literal notranslate"><span class="pre">chunks</span></code> argument when creating our <code class="docutils literal notranslate"><span class="pre">dask.array</span></code>.</p>
 <div class="alert alert-block alert-warning">
@@ -937,10 +1013,10 @@ For example, <code class="docutils literal notranslate"><span class="pre">chunks
 </table></div></div>
 </div>
 <p>You can see in the above dask array representation that we now have 6 chunks, each of shape (5000,4000) and size of ~ 160.0 MiB.</p>
-</div>
-</div>
-<div class="section" id="performance-comparison">
-<h2>Performance Comparison<a class="headerlink" href="#performance-comparison" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+</section>
+<section id="performance-comparison">
+<h2>Performance Comparison<a class="headerlink" href="#performance-comparison" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>To compare the performance between a NumPy array and an equivalent Dask array, let’s calculate the mean.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -951,8 +1027,8 @@ For example, <code class="docutils literal notranslate"><span class="pre">chunks
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 79.3 ms, sys: 906 µs, total: 80.2 ms
-Wall time: 77.5 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 45.5 ms, sys: 701 µs, total: 46.2 ms
+Wall time: 43.7 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
@@ -969,8 +1045,8 @@ Wall time: 77.5 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.43 ms, sys: 28 µs, total: 1.46 ms
-Wall time: 1.48 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.47 ms, sys: 0 ns, total: 1.47 ms
+Wall time: 1.45 ms
 </pre></div>
 </div>
 </div>
@@ -992,8 +1068,8 @@ Wall time: 1.48 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 21.2 ms, sys: 2.94 ms, total: 24.1 ms
-Wall time: 191 ms
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 22.6 ms, sys: 6.44 ms, total: 29 ms
+Wall time: 223 ms
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
@@ -1027,7 +1103,7 @@ Wall time: 191 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18ec61fa7fc878ea1494d4b8f09a869fe91f5d7685a339c801b700b94c95ea05.png" src="../_images/18ec61fa7fc878ea1494d4b8f09a869fe91f5d7685a339c801b700b94c95ea05.png" />
+<img alt="../_images/6dff64d47f06d6421a7c515c458f4f122bd5d7209ce6955d73c9f86e296d29a3.png" src="../_images/6dff64d47f06d6421a7c515c458f4f122bd5d7209ce6955d73c9f86e296d29a3.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1081,9 +1157,9 @@ Memory size of dask array in MB  : 0.00 MiB
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="larger-data">
-<h2>Larger Data<a class="headerlink" href="#larger-data" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="larger-data">
+<h2>Larger Data<a class="headerlink" href="#larger-data" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>The previous example illustrated how Dask works, but using Dask is not really necessary (nor advisable) for an array of size 915.53 MiB.<br />
 Let’s try an example using bigger data and bigger calculations:</p>
 <div class="cell docutils container">
@@ -1244,8 +1320,8 @@ Let’s try an example using bigger data and bigger calculations:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 250 ms, sys: 20.3 ms, total: 270 ms
-Wall time: 2.21 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 253 ms, sys: 29.8 ms, total: 283 ms
+Wall time: 968 ms
 </pre></div>
 </div>
 </div>
@@ -1262,9 +1338,9 @@ Wall time: 2.21 s
 <p>All the usual NumPy functions work on dask arrays, though the computations will remain lazy until you either call <code class="docutils literal notranslate"><span class="pre">.compute()</span></code>, <code class="docutils literal notranslate"><span class="pre">.load()</span></code> or your want to plot the data.</p>
 <p>As we discussed above, the way that Dask arrays are chunked can significantly affect the performance. In the remainder of this notebook, let’s do a similar calculation using a different <code class="docutils literal notranslate"><span class="pre">chunks</span></code> size.</p>
 <p>We will learn more about best practices regarding <code class="docutils literal notranslate"><span class="pre">chunk</span></code> size later during the tutorial.</p>
-</div>
-<div class="section" id="supplementary-material-rechunking-arrays">
-<h2>Supplementary Material: Rechunking Arrays<a class="headerlink" href="#supplementary-material-rechunking-arrays" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="supplementary-material-rechunking-arrays">
+<h2>Supplementary Material: Rechunking Arrays<a class="headerlink" href="#supplementary-material-rechunking-arrays" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>We can change the chunking of a Dask array, using the <code class="docutils literal notranslate"><span class="pre">rechunk</span></code> method. Please note that rechunking Dask arrays can be very expensive, so choosing an appropriate chunk size initially is ideal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1445,8 +1521,8 @@ Wall time: 2.21 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 17.2 s, sys: 730 ms, total: 17.9 s
-Wall time: 41.1 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 14.7 s, sys: 669 ms, total: 15.3 s
+Wall time: 24.3 s
 </pre></div>
 </div>
 </div>
@@ -1573,8 +1649,8 @@ Wall time: 41.1 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.01 s, sys: 55.1 ms, total: 1.07 s
-Wall time: 12.5 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 766 ms, sys: 87.4 ms, total: 854 ms
+Wall time: 4.03 s
 </pre></div>
 </div>
 </div>
@@ -1589,9 +1665,9 @@ Wall time: 12.5 s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="summary">
-<h2>Summary:<a class="headerlink" href="#summary" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="summary">
+<h2>Summary:<a class="headerlink" href="#summary" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
 <li><p>Dask Array provides parallel computing capabilities by dividing arrays into smaller pieces called chunks.</p></li>
 <li><p>Blocked algorithms split large computations into smaller computations which operate on subsets of the array.</p></li>
@@ -1599,9 +1675,9 @@ Wall time: 12.5 s
 <li><p>Dask Array can be used as a drop-in replacement for NumPy ndarray, with a similar API and support for a subset of NumPy functions.</p></li>
 <li><p>The way that arrays are chunked can significantly affect total performance. Poor chunking can singifincantly worsen performance of Dask compared to NumPy.</p></li>
 </ul>
-</div>
-<div class="section" id="resources-and-references">
-<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Permalink to this headline"><i class="fas fa-link"></i></a></h2>
+</section>
+<section id="resources-and-references">
+<h2>Resources and references<a class="headerlink" href="#resources-and-references" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <ul class="simple">
 <li><p>Reference</p>
 <ul>
@@ -1625,8 +1701,8 @@ Wall time: 12.5 s
 </ul>
 </li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1648,43 +1724,342 @@ Wall time: 12.5 s
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="00-dask-overview.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Dask Overview</p>
-        </div>
+                  </article>
+
+                
+                
+
+                
+                
+                  <footer class="prev-next-footer">
+                    
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00-dask-overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dask Overview</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="02-dask-dataframe.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="02-dask-dataframe.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Dask DataFrame</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </div>
-          </div>
-        </main>
+                  </footer>
+                
+              </div>
 
-      </div>
+              
+              
+                
+                  <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-this-tutorial-you-learn">In this tutorial, you learn:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dask-arrays">Dask Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-start-a-dask-client">Setup: Start a Dask Client</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blocked-algorithms">Blocked Algorithms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task-graph">Task Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chunks">Chunks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chunking-an-array">Chunking an array</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-comparison">Performance Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#larger-data">Larger Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supplementary-material-rechunking-arrays">Supplementary Material: Rechunking Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-and-references">Resources and references</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+                
+              
+
+
+                
+                <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
-
-<footer class="footer">
-  <div class="container-fluid m-0 p-0">
   
-    <div class="footer-item">
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/01-dask-array.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/ProjectPythia/dask-cookbook.git" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ProjectPythia/dask-cookbook.git/edit/main/notebooks/01-dask-array.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/ProjectPythia/dask-cookbook.git/issues/new?title=Issue%20on%20page%20%2Fnotebooks/01-dask-array.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/01-dask-array.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+            </div>
+
+            <footer class="bd-footer-content">
+              
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
     
+<p class="component-author">
+By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    <p class="last-updated">
+  Last updated on 30 March 2024.
+  <br/>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+            </footer>
+
+        </main>
+    </div>
+  </div>
+    
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+     
+  
+  
+  
+  
+    <div class="footer-items__start">
+      <div class="container-fluid m-0 p-0">
+      
+        <div class="footer-item">
   <div class="container-fluid footer-logos">
     <div class="container-xl">
       <div class="row d-flex flex-wrap align-items-center">
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
-          <img alt="NCAR" src="../_images/NCAR-contemp-logo-blue.svg" style="width: 100%">
+          <img alt="NCAR" src="../_images/NSF-NCAR_Lockup-UCAR-Dark_102523.svg" style="width: 100%">
         </div>
         <div class="d-flex col-lg-3 col-md-4 col-sm-6 p-2 mx-auto">
           <img alt="Unidata" src="../_images/Unidata_logo_horizontal_1200x300.svg" style="width: 100%">
@@ -1694,34 +2069,26 @@ Wall time: 12.5 s
         </div>
       </div>
     </div>
-  </div>
-    </div>
-  
-    <div class="footer-item">
-    
-    </div>
-  
-    <div class="footer-item">
-      <div class="container-fluid footer-info">
+  </div></div>
+      
+        <div class="footer-item">  <div class="container-fluid footer-info">
     <div class="container-xl">
       <div class="d-flex justify-content-center">
         <p class="py-1 m-0">
-            &copy;&nbsp;2023.
+            &copy;&nbsp;2024.
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 19 October 2023.
+          Last updated on 30 March 2024.
         </p>
       </div>
     </div>
-  </div>
+  </div></div>
+      
+      </div>
     </div>
   
-    <div class="footer-item">
-    
-    </div>
-  
-  </div>
-</footer>
+
+  </footer>
   </body>
 </html>
