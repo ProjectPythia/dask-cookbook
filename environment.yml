@@ -1,11 +1,11 @@
-name: dask-cookbook-dev
+name: dask-cookbook
 channels:
   - conda-forge
   - nodefaults
 
 dependencies:
   - jupyter-book
-  - jupyterlab>=3
+  - jupyterlab >=3
   - jupyter_server
   - cfgrib
   - cftime
@@ -22,13 +22,9 @@ dependencies:
   - netcdf4
   - nodejs
   - pandas
-  - pip
   - pre-commit
   - pydap
   - python-graphviz
-  - python=3.9
   - scipy
-  - xarray>=2022.3.0
-  - pip
-  - pip:
-      - sphinx-pythia-theme
+  - sphinx-pythia-theme
+  - xarray
