@@ -27,6 +27,7 @@ parse:
 
 sphinx:
   config:
+    linkcheck_ignore: ["https://www.ncdc.noaa.gov/cdo-web/search?*"] # don't run link checker on NOAA CDO search link
     html_favicon: notebooks/images/icons/favicon.ico
     html_last_updated_fmt: "%-d %B %Y"
     html_theme: sphinx_pythia_theme
