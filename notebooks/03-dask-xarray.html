@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-pythia-theme.min.css?v=ba7ce088" />
@@ -34,26 +36,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d0efeab3" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-T52X8HNYE8"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -78,7 +81,8 @@
     <link rel="prev" title="Dask Schedulers" href="04-dask-cluster.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="5 June 2024"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="4 December 2024"/>
   </head>
   
   
@@ -92,7 +96,7 @@
   <div class="pst-scroll-pixel-helper"></div>
     <header class="bd-header navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -101,7 +105,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://projectpythia.org">
   
@@ -115,7 +121,7 @@
     
     
     <img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-light" alt="Dask Cookbook - Home"/>
-    <script>document.write(`<img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-dark" alt="Dask Cookbook - Home"/>`);</script>
+    <img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-dark pst-js-only" alt="Dask Cookbook - Home"/>
   
   
 </a></div>
@@ -172,7 +178,7 @@
     <div class="navbar-header-items__end">
       
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -183,7 +189,7 @@
           
           
           
-          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -195,7 +201,7 @@
           
           
           
-          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -207,7 +213,7 @@
           
           
           
-          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i>
             <span class="sr-only">YouTube</span></a>
         </li>
 </ul></div>
@@ -219,7 +225,7 @@
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -289,7 +295,7 @@
     
       <div class="sidebar-header-items__end">
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -300,7 +306,7 @@
           
           
           
-          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -312,7 +318,7 @@
           
           
           
-          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -324,7 +330,7 @@
           
           
           
-          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i>
             <span class="sr-only">YouTube</span></a>
         </li>
 </ul></div>
@@ -342,7 +348,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -407,7 +412,7 @@
 <div id="searchbox"></div>
                   <article class="bd-article">
                     
-  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="30%" /></a>
+  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" style="width: 30%;" /></a>
 <a class="reference internal" href="https://docs.xarray.dev/en/latest/_images/dataset-diagram.png"><img alt="Xarray" class="align-right" src="https://docs.xarray.dev/en/latest/_images/dataset-diagram.png" style="width: 30%;" /></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="parallelizing-xarray-with-dask">
 <h1>Parallelizing Xarray with Dask<a class="headerlink" href="#parallelizing-xarray-with-dask" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
@@ -617,13 +622,14 @@
   --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
 }
 
-html[theme=dark],
-body[data-theme=dark],
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #1f1f1f;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -668,7 +674,7 @@ body.vscode-dark {
 .xr-sections {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
 }
 
 .xr-section-item {
@@ -676,7 +682,9 @@ body.vscode-dark {
 }
 
 .xr-section-item input {
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  height: 0;
 }
 
 .xr-section-item input + label {
@@ -686,6 +694,10 @@ body.vscode-dark {
 .xr-section-item input:enabled + label {
   cursor: pointer;
   color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
 }
 
 .xr-section-item input:enabled + label:hover {
@@ -709,7 +721,7 @@ body.vscode-dark {
 
 .xr-section-summary-in + label:before {
   display: inline-block;
-  content: '►';
+  content: "►";
   font-size: 11px;
   width: 15px;
   text-align: center;
@@ -720,7 +732,7 @@ body.vscode-dark {
 }
 
 .xr-section-summary-in:checked + label:before {
-  content: '▼';
+  content: "▼";
 }
 
 .xr-section-summary-in:checked + label > span {
@@ -792,15 +804,15 @@ body.vscode-dark {
 }
 
 .xr-dim-list:before {
-  content: '(';
+  content: "(";
 }
 
 .xr-dim-list:after {
-  content: ')';
+  content: ")";
 }
 
 .xr-dim-list li:not(:last-child):after {
-  content: ',';
+  content: ",";
   padding-right: 5px;
 }
 
@@ -950,10 +962,10 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;array-12d2afe3430b19b7e82e98a4206ab3c1&#x27; (dim_0: 300,
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;array-78a94c834c23a2f2908cf15dcc2995f8&#x27; (dim_0: 300,
                                                             dim_1: 450)&gt; Size: 1MB
 dask.array&lt;chunksize=(300, 450), meta=np.ndarray&gt;
-Dimensions without coordinates: dim_0, dim_1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'array-12d2afe3430b19b7e82e98a4206ab3c1'</div><ul class='xr-dim-list'><li><span>dim_0</span>: 300</li><li><span>dim_1</span>: 450</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e099434e-0f16-400e-bd26-a88bd1e3b320' class='xr-array-in' type='checkbox' ><label for='section-e099434e-0f16-400e-bd26-a88bd1e3b320' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(300, 450), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+Dimensions without coordinates: dim_0, dim_1</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'array-78a94c834c23a2f2908cf15dcc2995f8'</div><ul class='xr-dim-list'><li><span>dim_0</span>: 300</li><li><span>dim_1</span>: 450</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-68d4a5ae-030a-43f1-bf18-c895c95cc481' class='xr-array-in' type='checkbox' ><label for='section-68d4a5ae-030a-43f1-bf18-c895c95cc481' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(300, 450), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1008,7 +1020,7 @@ Dimensions without coordinates: dim_0, dim_1</pre><div class='xr-wrap' style='di
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-63342b5b-f2f4-4d4e-b461-5d8ac9c00417' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-63342b5b-f2f4-4d4e-b461-5d8ac9c00417' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-d1e78552-64f4-4a38-9f7d-575b8a055372' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d1e78552-64f4-4a38-9f7d-575b8a055372' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-2aed237d-7079-4b34-8e26-518a4858c314' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2aed237d-7079-4b34-8e26-518a4858c314' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</table></div></div></li><li class='xr-section-item'><input id='section-97ceba8f-ddf7-4140-9c8b-5d6e25b5d399' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-97ceba8f-ddf7-4140-9c8b-5d6e25b5d399' class='xr-section-summary'  title='Expand/collapse section'>Coordinates: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-1dfd2ee3-9f4e-4d8a-a045-05ce00ac7e92' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1dfd2ee3-9f4e-4d8a-a045-05ce00ac7e92' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-73d1f454-00ad-4b32-b7b0-3bc843a8e1f8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-73d1f454-00ad-4b32-b7b0-3bc843a8e1f8' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>A simple DataArray without dimensions or coordinates isn’t much use.</p>
 <div class="cell docutils container">
@@ -1075,13 +1087,14 @@ Dimensions without coordinates: dim_0, dim_1</pre><div class='xr-wrap' style='di
   --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
 }
 
-html[theme=dark],
-body[data-theme=dark],
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #1f1f1f;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -1126,7 +1139,7 @@ body.vscode-dark {
 .xr-sections {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
 }
 
 .xr-section-item {
@@ -1134,7 +1147,9 @@ body.vscode-dark {
 }
 
 .xr-section-item input {
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  height: 0;
 }
 
 .xr-section-item input + label {
@@ -1144,6 +1159,10 @@ body.vscode-dark {
 .xr-section-item input:enabled + label {
   cursor: pointer;
   color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
 }
 
 .xr-section-item input:enabled + label:hover {
@@ -1167,7 +1186,7 @@ body.vscode-dark {
 
 .xr-section-summary-in + label:before {
   display: inline-block;
-  content: '►';
+  content: "►";
   font-size: 11px;
   width: 15px;
   text-align: center;
@@ -1178,7 +1197,7 @@ body.vscode-dark {
 }
 
 .xr-section-summary-in:checked + label:before {
-  content: '▼';
+  content: "▼";
 }
 
 .xr-section-summary-in:checked + label > span {
@@ -1250,15 +1269,15 @@ body.vscode-dark {
 }
 
 .xr-dim-list:before {
-  content: '(';
+  content: "(";
 }
 
 .xr-dim-list:after {
-  content: ')';
+  content: ")";
 }
 
 .xr-dim-list li:not(:last-child):after {
-  content: ',';
+  content: ",";
   padding-right: 5px;
 }
 
@@ -1408,14 +1427,14 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;array-12d2afe3430b19b7e82e98a4206ab3c1&#x27; (lat: 300, lon: 450)&gt; Size: 1MB
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;array-78a94c834c23a2f2908cf15dcc2995f8&#x27; (lat: 300, lon: 450)&gt; Size: 1MB
 dask.array&lt;chunksize=(300, 450), meta=np.ndarray&gt;
 Coordinates:
-  * lat      (lat) float64 2kB -21.06 -63.38 39.26 -51.91 ... -84.44 -47.61 39.6
-  * lon      (lon) float64 4kB 139.8 -109.3 161.9 109.7 ... -146.2 54.31 -11.43
+  * lat      (lat) float64 2kB 16.89 34.44 18.2 6.045 ... -38.8 26.6 -43.23
+  * lon      (lon) float64 4kB -81.82 -132.8 16.8 7.126 ... -61.19 -160.0 148.8
 Attributes:
     description:  Sea Surface Temperature.
-    units:        degC</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'array-12d2afe3430b19b7e82e98a4206ab3c1'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 300</li><li><span class='xr-has-index'>lon</span>: 450</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c00901bc-33c9-4405-9709-3a760d59b552' class='xr-array-in' type='checkbox' ><label for='section-c00901bc-33c9-4405-9709-3a760d59b552' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(300, 450), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    units:        degC</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'array-78a94c834c23a2f2908cf15dcc2995f8'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 300</li><li><span class='xr-has-index'>lon</span>: 450</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e0b59806-4707-4b31-bb20-93d3766a570c' class='xr-array-in' type='checkbox' ><label for='section-e0b59806-4707-4b31-bb20-93d3766a570c' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(300, 450), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1470,27 +1489,27 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-82b711f0-83db-4300-be71-9136b10cc58e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-82b711f0-83db-4300-be71-9136b10cc58e' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-21.06 -63.38 39.26 ... -47.61 39.6</div><input id='attrs-49376a23-3eee-4529-b953-54502c56c86b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-49376a23-3eee-4529-b953-54502c56c86b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9376091f-a490-4bdc-b115-e8d16f6f2cfd' class='xr-var-data-in' type='checkbox'><label for='data-9376091f-a490-4bdc-b115-e8d16f6f2cfd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-21.061581, -63.383535,  39.258335, ..., -84.438938, -47.614241,
-        39.598935])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>139.8 -109.3 161.9 ... 54.31 -11.43</div><input id='attrs-5496123b-3e02-40dc-9279-3c4ec2d5ee86' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5496123b-3e02-40dc-9279-3c4ec2d5ee86' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-99b9670e-e1da-4c79-a607-7f746af0ea6c' class='xr-var-data-in' type='checkbox'><label for='data-99b9670e-e1da-4c79-a607-7f746af0ea6c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 139.766615, -109.311815,  161.891828, ..., -146.157871,   54.305285,
-        -11.428764])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d876d207-64ee-483e-a12f-867f1ba2b664' class='xr-section-summary-in' type='checkbox'  ><label for='section-d876d207-64ee-483e-a12f-867f1ba2b664' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a38fb75f-78e6-4f14-b2c9-b85e0a3851c3' class='xr-index-data-in' type='checkbox'/><label for='index-a38fb75f-78e6-4f14-b2c9-b85e0a3851c3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-21.061581374979767,   -63.3835345530145,   39.25833478406619,
-       -51.908252972588386,  14.805637971285222,  37.792493190324805,
-        21.429514405114546,  19.524255553266755,  12.449406001014182,
-        -35.58680146360908,
+</table></div></div></li><li class='xr-section-item'><input id='section-11b9dd4a-5300-4b06-b8db-fc4a3050f8bd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-11b9dd4a-5300-4b06-b8db-fc4a3050f8bd' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>16.89 34.44 18.2 ... 26.6 -43.23</div><input id='attrs-6d0291e5-a484-45ff-8597-3e065a238bf9' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6d0291e5-a484-45ff-8597-3e065a238bf9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bba7ccc3-35cd-4983-9df3-663843ad1fd6' class='xr-var-data-in' type='checkbox'><label for='data-bba7ccc3-35cd-4983-9df3-663843ad1fd6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 16.88992 ,  34.442049,  18.196008, ..., -38.804323,  26.602904,
+       -43.230275])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-81.82 -132.8 16.8 ... -160.0 148.8</div><input id='attrs-1c69aee9-e257-45a6-9fc9-e26214f80186' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1c69aee9-e257-45a6-9fc9-e26214f80186' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-47cb5b83-9c20-4761-a828-f474c6359ef8' class='xr-var-data-in' type='checkbox'><label for='data-47cb5b83-9c20-4761-a828-f474c6359ef8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ -81.815836, -132.79427 ,   16.802226, ...,  -61.194269, -159.974391,
+        148.849081])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a69e3536-90ac-46a0-9718-8aa16e801cd8' class='xr-section-summary-in' type='checkbox'  ><label for='section-a69e3536-90ac-46a0-9718-8aa16e801cd8' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-4fcae3e7-cbf4-475e-b6b5-28664ce0cb8c' class='xr-index-data-in' type='checkbox'/><label for='index-4fcae3e7-cbf4-475e-b6b5-28664ce0cb8c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([   16.88991953873864,   34.442048936741216,    18.19600760778117,
+          6.044687649770438,   1.0495913242372126,   -86.46126821834628,
+        -16.887570276741187,   22.077841013276853,    57.20535974313512,
+        -14.559158506336288,
        ...
-        -45.11683794005836, -60.163098622187334,  -56.44302477955905,
-         82.67506565844363, -36.927901785273605, -17.791900557773346,
-         51.83881972385623,  -84.43893757409366, -47.614241158343496,
-          39.5989353497865],
-      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;, length=300))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ea22545d-1357-452c-8b78-3a3f31d5706d' class='xr-index-data-in' type='checkbox'/><label for='index-ea22545d-1357-452c-8b78-3a3f31d5706d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 139.76661510503618, -109.31181542837083,   161.8918281682582,
-        109.66396454526159, -166.00282514175996,  115.17509445702922,
-        37.463520392720056,  113.45731507312354, -58.592404676428245,
-        155.23302175922282,
+          70.38759403563202,   -18.94648547911474,   -72.26901425600443,
+       -0.18823276424713242,    37.42620171605486,   -76.01486994953997,
+         -58.42529149135352,   -38.80432344318843,   26.602903886478913,
+          -43.2302751077664],
+      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;, length=300))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-1ab7f940-2418-4bb8-bc7b-307005dc60cb' class='xr-index-data-in' type='checkbox'/><label for='index-1ab7f940-2418-4bb8-bc7b-307005dc60cb' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -81.81583615065193, -132.79426966805892,  16.802226045754423,
+         7.126233601732878,  125.19300779233788,  -51.33993562337457,
+        -7.175954308900515,   80.95314816346468,  159.55076900858683,
+        -75.41620263938202,
        ...
-       -31.261699757886788, -157.39490718156557, -53.759494547525236,
-       -112.11525509602994,  -1.210534765438581,   41.04999486732794,
-        -34.85535048754795, -146.15787063796904,  54.305284873050425,
-       -11.428764045263392],
-      dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=450))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8f066dfa-ecaa-4243-a486-e14291a8f5b4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8f066dfa-ecaa-4243-a486-e14291a8f5b4' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Sea Surface Temperature.</dd><dt><span>units :</span></dt><dd>degC</dd></dl></div></li></ul></div></div></div></div>
+       -102.37716568844523,   60.26388675275609,   94.92104606074946,
+        136.58607780807677,  165.00505763506203, -117.50719279321774,
+        34.140009096101664, -61.194268502861206, -159.97439084694304,
+         148.8490813469595],
+      dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=450))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b2e196cb-6a27-4232-8eae-908dd033c202' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b2e196cb-6a27-4232-8eae-908dd033c202' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Sea Surface Temperature.</dd><dt><span>units :</span></dt><dd>degC</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Xarray data structures are a very powerful tool that allows us to use metadata to express different analysis patterns (slicing, selecting, groupby, averaging, and many other things).</p>
 <div class="alert alert-success fade show" markdown="1">
@@ -1516,7 +1535,7 @@ Attributes:
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-a8aa6105-2371-11ef-8abe-00224802c87d</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-e6fc269e-b27f-11ef-8b06-000d3a3c95f2</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1551,7 +1570,7 @@ Attributes:
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">43b94dc1</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">4843ea4e</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -1588,11 +1607,11 @@ Attributes:
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-bcb97345-7a69-4503-a4c2-d440431f835b</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-f7c44e4f-a111-4966-859b-ec114a050c8a</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:36727
+                        <strong>Comm:</strong> tcp://127.0.0.1:46879
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 4
@@ -1634,7 +1653,7 @@ Attributes:
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:39111
+                            <strong>Comm: </strong> tcp://127.0.0.1:43037
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1642,7 +1661,7 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:35231/status" target="_blank">http://127.0.0.1:35231/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:46683/status" target="_blank">http://127.0.0.1:46683/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1650,13 +1669,13 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:43871
+                            <strong>Nanny: </strong> tcp://127.0.0.1:35933
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-qj81sza8
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-5kcasjoe
                         </td>
                     </tr>
 
@@ -1679,7 +1698,7 @@ Attributes:
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:41281
+                            <strong>Comm: </strong> tcp://127.0.0.1:34377
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1687,7 +1706,7 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45221/status" target="_blank">http://127.0.0.1:45221/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41209/status" target="_blank">http://127.0.0.1:41209/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1695,13 +1714,13 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:35451
+                            <strong>Nanny: </strong> tcp://127.0.0.1:41439
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-gjkjhc0e
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-vktp06dt
                         </td>
                     </tr>
 
@@ -1724,7 +1743,7 @@ Attributes:
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:40583
+                            <strong>Comm: </strong> tcp://127.0.0.1:44543
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1732,7 +1751,7 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39341/status" target="_blank">http://127.0.0.1:39341/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:42941/status" target="_blank">http://127.0.0.1:42941/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1740,13 +1759,13 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:35831
+                            <strong>Nanny: </strong> tcp://127.0.0.1:45769
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-_24zlwrt
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-askl11my
                         </td>
                     </tr>
 
@@ -1769,7 +1788,7 @@ Attributes:
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:34689
+                            <strong>Comm: </strong> tcp://127.0.0.1:38669
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1777,7 +1796,7 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41413/status" target="_blank">http://127.0.0.1:41413/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38895/status" target="_blank">http://127.0.0.1:38895/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1785,13 +1804,13 @@ Attributes:
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:35567
+                            <strong>Nanny: </strong> tcp://127.0.0.1:46035
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-tgjyvch5
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-gmlz1xy3
                         </td>
                     </tr>
 
@@ -1904,12 +1923,12 @@ tar: Error is not recoverable: exiting now
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
 <span class="n">File</span> <span class="o">&lt;</span><span class="n">timed</span> <span class="n">exec</span><span class="o">&gt;</span><span class="p">:</span><span class="mi">1</span>
 
-<span class="nn">File ~/miniconda3/envs/dask-cookbook/lib/python3.10/site-packages/xarray/backends/api.py:1019,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1016</span> <span class="n">paths</span> <span class="o">=</span> <span class="n">_find_absolute_paths</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1018</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1019</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;no files to open&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1021</span> <span class="k">if</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;nested&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">concat_dim</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">))</span> <span class="ow">or</span> <span class="n">concat_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">File ~/miniconda3/envs/dask-cookbook/lib/python3.10/site-packages/xarray/backends/api.py:1541,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1538</span> <span class="n">paths</span> <span class="o">=</span> <span class="n">_find_absolute_paths</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1540</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1541</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;no files to open&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1543</span> <span class="n">paths1d</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="n">ReadBuffer</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1544</span> <span class="k">if</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;nested&quot;</span><span class="p">:</span>
 
 <span class="ne">OSError</span>: no files to open
 </pre></div>
@@ -2250,7 +2269,7 @@ With large arrays (10+ GB), the cost of queuing up Dask operations can be notice
 <li><p><a class="reference external" href="https://github.com/dask/dask/">Dask Code</a></p></li>
 <li><p><a class="reference external" href="https://blog.dask.org/">Dask Blog</a></p></li>
 <li><p><a class="reference external" href="https://xarray.pydata.org/">Xarray Docs</a></p></li>
-<li><p><a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html">Xarray + Dask docs</a>, particularly the <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html#optimization-tips">optimization tips</a></p></li>
+<li><p><a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html">Xarray + Dask docs</a>, particularly the <a class="reference external" href="https://docs.xarray.dev/en/stable/user-guide/dask.html#best-practices">best practices</a></p></li>
 <li><p><a class="reference external" href="https://tutorial.xarray.dev/intro.html">Xarray Tutorial material</a></p></li>
 </ul>
 </section>
@@ -2373,9 +2392,9 @@ With large arrays (10+ GB), the cost of queuing up Dask operations can be notice
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -2400,14 +2419,14 @@ With large arrays (10+ GB), the cost of queuing up Dask operations can be notice
       
       <li><a href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/03-dask-xarray.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -2546,27 +2565,19 @@ With large arrays (10+ GB), the cost of queuing up Dask operations can be notice
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -2601,7 +2612,7 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on 5 June 2024.
+  Last updated on 4 December 2024.
   <br/>
 </p>
   </div>
@@ -2618,8 +2629,8 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
   </div>
     
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
      
@@ -2655,7 +2666,7 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 5 June 2024.
+          Last updated on 4 December 2024.
         </p>
       </div>
     </div>

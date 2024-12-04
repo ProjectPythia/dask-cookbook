@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-pythia-theme.min.css?v=ba7ce088" />
@@ -34,26 +36,27 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=d0efeab3" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-T52X8HNYE8"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -79,7 +82,8 @@
     <link rel="prev" title="Dask DataFrame" href="02-dask-dataframe.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="5 June 2024"/>
+  <meta name="docsearch:version" content="" />
+    <meta name="docbuild:last-update" content="4 December 2024"/>
   </head>
   
   
@@ -93,7 +97,7 @@
   <div class="pst-scroll-pixel-helper"></div>
     <header class="bd-header navbar navbar-dark navbar-expand-lg bg-dark fixed-top bd-navbar shadow" id="navbar-main">
 <div class="bd-header__inner bd-page-width">
-  <button class="sidebar-toggle primary-toggle" aria-label="Site navigation">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
   </button>
   
@@ -102,7 +106,9 @@
     
       <div class="navbar-item">
 
-   
+  
+     
+  
 
 <a class="navbar-brand logo" href="https://projectpythia.org">
   
@@ -116,7 +122,7 @@
     
     
     <img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-light" alt="Dask Cookbook - Home"/>
-    <script>document.write(`<img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-dark" alt="Dask Cookbook - Home"/>`);</script>
+    <img src="../_static/pythia_logo-white-rtext.svg" class="logo__image only-dark pst-js-only" alt="Dask Cookbook - Home"/>
   
   
 </a></div>
@@ -173,7 +179,7 @@
     <div class="navbar-header-items__end">
       
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -184,7 +190,7 @@
           
           
           
-          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -196,7 +202,7 @@
           
           
           
-          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -208,7 +214,7 @@
           
           
           
-          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i>
             <span class="sr-only">YouTube</span></a>
         </li>
 </ul></div>
@@ -220,7 +226,7 @@
   
 
   
-    <button class="sidebar-toggle secondary-toggle" aria-label="On this page">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
     </button>
   
@@ -290,7 +296,7 @@
     
       <div class="sidebar-header-items__end">
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -301,7 +307,7 @@
           
           
           
-          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/ProjectPythia" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -313,7 +319,7 @@
           
           
           
-          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i></span>
+          <a href="https://twitter.com/project_pythia" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-twitter fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Twitter</span></a>
         </li>
         <li class="nav-item">
@@ -325,7 +331,7 @@
           
           
           
-          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i></span>
+          <a href="https://www.youtube.com/channel/UCoZPBqJal5uKpO8ZiwzavCw" title="YouTube" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-youtube-square fa-lg" aria-hidden="true"></i>
             <span class="sr-only">YouTube</span></a>
         </li>
 </ul></div>
@@ -343,7 +349,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -408,7 +413,7 @@
 <div id="searchbox"></div>
                   <article class="bd-article">
                     
-  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" width="30%" /></a></p>
+  <p><a class="reference internal" href="https://docs.dask.org/en/stable/_images/dask_horizontal.svg"><img alt="Dask logo" class="align-right" src="https://docs.dask.org/en/stable/_images/dask_horizontal.svg" style="width: 30%;" /></a></p>
 <section class="tex2jax_ignore mathjax_ignore" id="dask-schedulers">
 <h1>Dask Schedulers<a class="headerlink" href="#dask-schedulers" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
 <section id="in-this-tutorial-you-learn">
@@ -450,7 +455,7 @@
 <section id="schedulers">
 <h2>Schedulers<a class="headerlink" href="#schedulers" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
 <p>Dask essentially offers two types of schedulers:</p>
-<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-overview.svg"><img alt="High level collections are used to generate task graphs which can be executed by schedulers on a single machine or a cluster." src="https://docs.dask.org/en/stable/_images/dask-overview.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-overview.svg"><img alt="High level collections are used to generate task graphs which can be executed by schedulers on a single machine or a cluster." src="https://docs.dask.org/en/stable/_images/dask-overview.svg" style="width: 75%;" /></a>
 <p><em>Image credit: Dask Contributors</em></p>
 <section id="single-machine-scheduler">
 <h3>1. Single machine scheduler<a class="headerlink" href="#single-machine-scheduler" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
@@ -501,12 +506,12 @@ This is the default scheduler for Dask, and is suitable for most use cases on a 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.43 s, sys: 236 ms, total: 8.66 s
-Wall time: 8.66 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.31 s, sys: 405 ms, total: 8.71 s
+Wall time: 8.71 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99980945, 10.00060965, 10.00059974, ...,  9.99946232,
-        9.99989715,  9.99832153])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.99974235,  9.9993073 ,  9.9996082 , ...,  9.99970638,
+       10.00141041, 10.00024556])
 </pre></div>
 </div>
 </div>
@@ -522,12 +527,12 @@ Wall time: 8.66 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13.2 s, sys: 63.8 ms, total: 13.3 s
-Wall time: 3.48 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 13.3 s, sys: 47.8 ms, total: 13.3 s
+Wall time: 3.47 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.00046386, 10.00048034, 10.00063128, ...,  9.99887649,
-       10.00112084,  9.99934577])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 9.9995875 , 10.00020844, 10.00084019, ..., 10.00005563,
+       10.00057094,  9.99968437])
 </pre></div>
 </div>
 </div>
@@ -545,13 +550,13 @@ Wall time: 3.48 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> threading :  3.3297 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> threading :  3.3172 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> processes :  4.1177 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> processes :  4.2358 s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      sync :  8.5334 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      sync :  8.5315 s
 </pre></div>
 </div>
 </div>
@@ -595,7 +600,7 @@ Wall time: 3.48 s
             <h4 style="display: inline;">Layer1: normal</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            normal-da61db80bcb20bfe79923f180a2d2379
+            normal-7cee9dc739e9e2ee8b24ad3ab648a9af
         </p>
 
         <table>
@@ -701,7 +706,7 @@ Wall time: 3.48 s
             <h4 style="display: inline;">Layer2: mean_chunk</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_chunk-461d4f1a565829a12a3bacc02e00fbd3
+            mean_chunk-8a8294105b490b4504df17d9e9cbd76d
         </p>
 
         <table>
@@ -753,7 +758,7 @@ Wall time: 3.48 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">normal-da61db80bcb20bfe79923f180a2d2379</td>
+                            <td style="text-align: left;">normal-7cee9dc739e9e2ee8b24ad3ab648a9af</td>
                         </tr>
                     
                 
@@ -814,7 +819,7 @@ Wall time: 3.48 s
             <h4 style="display: inline;">Layer3: mean_combine-partial</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_combine-partial-7550d65f4d76ee03c4b5a7331a31dc46
+            mean_combine-partial-047e576146f71acaa956a48b1c4387c6
         </p>
 
         <table>
@@ -866,7 +871,7 @@ Wall time: 3.48 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">mean_chunk-461d4f1a565829a12a3bacc02e00fbd3</td>
+                            <td style="text-align: left;">mean_chunk-8a8294105b490b4504df17d9e9cbd76d</td>
                         </tr>
                     
                 
@@ -920,7 +925,7 @@ Wall time: 3.48 s
             <h4 style="display: inline;">Layer4: mean_agg-aggregate</h4>
         </summary>
         <p style="color: var(--jp-ui-font-color2, #5D5851); margin: -0.25em 0px 0px 0px;">
-            mean_agg-aggregate-f6d36d2bf420e465a25b41909702a11e
+            mean_agg-aggregate-c103383ba45ac8ad38cb1e37ba79a21b
         </p>
 
         <table>
@@ -972,7 +977,7 @@ Wall time: 3.48 s
                     
                         <tr>
                             <th style="text-align: left; width: 150px;"> depends on </th>
-                            <td style="text-align: left;">mean_combine-partial-7550d65f4d76ee03c4b5a7331a31dc46</td>
+                            <td style="text-align: left;">mean_combine-partial-047e576146f71acaa956a48b1c4387c6</td>
                         </tr>
                     
                 
@@ -1126,7 +1131,7 @@ Wall time: 3.48 s
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-bd34ffa6-2371-11ef-8b14-00224802c87d</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-fb92a285-b27f-11ef-8b5e-000d3a3c95f2</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -1161,7 +1166,7 @@ Wall time: 3.48 s
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">a3fcac7d</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">763219f2</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -1198,11 +1203,11 @@ Wall time: 3.48 s
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-faa43d81-bf23-412f-ada5-a090af1d5dec</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-19765eca-d987-435c-b1de-74ead836c1a7</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:33239
+                        <strong>Comm:</strong> tcp://127.0.0.1:45129
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 4
@@ -1244,7 +1249,7 @@ Wall time: 3.48 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:45811
+                            <strong>Comm: </strong> tcp://127.0.0.1:45111
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1252,7 +1257,7 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39133/status" target="_blank">http://127.0.0.1:39133/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38135/status" target="_blank">http://127.0.0.1:38135/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1260,13 +1265,13 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:38591
+                            <strong>Nanny: </strong> tcp://127.0.0.1:37431
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-7hjy2yld
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-ukuw0dd1
                         </td>
                     </tr>
 
@@ -1289,7 +1294,7 @@ Wall time: 3.48 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:36065
+                            <strong>Comm: </strong> tcp://127.0.0.1:35019
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1297,7 +1302,7 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:44501/status" target="_blank">http://127.0.0.1:44501/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:44321/status" target="_blank">http://127.0.0.1:44321/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1305,13 +1310,13 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:41183
+                            <strong>Nanny: </strong> tcp://127.0.0.1:35965
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-718oi8h9
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-4p5km85r
                         </td>
                     </tr>
 
@@ -1334,7 +1339,7 @@ Wall time: 3.48 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:37679
+                            <strong>Comm: </strong> tcp://127.0.0.1:44161
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1342,7 +1347,7 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45149/status" target="_blank">http://127.0.0.1:45149/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:34111/status" target="_blank">http://127.0.0.1:34111/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1350,13 +1355,13 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:41009
+                            <strong>Nanny: </strong> tcp://127.0.0.1:41247
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-e4f6p2ky
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-bp_26pms
                         </td>
                     </tr>
 
@@ -1379,7 +1384,7 @@ Wall time: 3.48 s
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:43237
+                            <strong>Comm: </strong> tcp://127.0.0.1:36129
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1387,7 +1392,7 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41937/status" target="_blank">http://127.0.0.1:41937/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:44761/status" target="_blank">http://127.0.0.1:44761/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 3.90 GiB
@@ -1395,13 +1400,13 @@ Wall time: 3.48 s
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:46683
+                            <strong>Nanny: </strong> tcp://127.0.0.1:34201
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-5qmh6r3t
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-dqykydhv
                         </td>
                     </tr>
 
@@ -1456,12 +1461,12 @@ Wall time: 3.48 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 523 ms, sys: 104 ms, total: 627 ms
-Wall time: 8.72 s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 613 ms, sys: 72.1 ms, total: 685 ms
+Wall time: 8.95 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.00065933,  9.99971707, 10.00026382, ...,  9.99954561,
-        9.99965514,  9.99968868])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([10.00038937,  9.99938872, 10.00000188, ..., 10.00125733,
+        9.99900545,  9.99999933])
 </pre></div>
 </div>
 </div>
@@ -1481,7 +1486,7 @@ Wall time: 8.72 s
 <h3>Dask Distributed (Cluster Managers)<a class="headerlink" href="#dask-distributed-cluster-managers" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 <p>So far we have talked about running a job on a local machine.</p>
 <p>Dask can be deployed on distributed infrastructure, such as a an HPC system or a cloud computing system.</p>
-<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-cluster-manager.svg"><img alt="High level collections are used to generate task graphs which can be executed by schedulers on a single machine or a cluster." src="https://docs.dask.org/en/stable/_images/dask-cluster-manager.svg" width="75%" /></a>
+<a class="reference internal image-reference" href="https://docs.dask.org/en/stable/_images/dask-cluster-manager.svg"><img alt="High level collections are used to generate task graphs which can be executed by schedulers on a single machine or a cluster." src="https://docs.dask.org/en/stable/_images/dask-cluster-manager.svg" style="width: 75%;" /></a>
 <p><em>Image credit: Dask Contributors</em></p>
 <p>Dask Cluster Managers have different names corresponding to different computing environments. Some examples are <code class="docutils literal notranslate"><span class="pre">dask-jobqueue</span></code> for your HPC systems (including <code class="docutils literal notranslate"><span class="pre">PBSCluster</span></code>) or Kubernetes Cluster for machines on the Cloud.</p>
 <p>The NCAR tutorial series includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC. For the complete set of NCAR tutorial materials, please refer to the main NCAR tutorial content available <a class="reference external" href="https://ncar.github.io/dask-tutorial/README.html">here</a>.</p>
@@ -1588,9 +1593,9 @@ Wall time: 8.72 s
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -1615,14 +1620,14 @@ Wall time: 8.72 s
       
       <li><a href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook.git/main?urlpath=lab/tree/notebooks/04-dask-cluster.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -1761,27 +1766,19 @@ Wall time: 8.72 s
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -1816,7 +1813,7 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on 5 June 2024.
+  Last updated on 4 December 2024.
   <br/>
 </p>
   </div>
@@ -1833,8 +1830,8 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
   </div>
     
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
      
@@ -1870,7 +1867,7 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 5 June 2024.
+          Last updated on 4 December 2024.
         </p>
       </div>
     </div>
