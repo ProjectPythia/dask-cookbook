@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,10 +27,10 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-pythia-theme.min.css?v=ba7ce088" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -40,10 +40,10 @@
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=d0efeab3" />
   
   <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -82,7 +82,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
-    <meta name="docbuild:last-update" content="4 December 2024"/>
+    <meta name="docbuild:last-update" content="13 January 2025"/>
   </head>
   
   
@@ -393,9 +393,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
         </div>
@@ -417,7 +422,7 @@
   <section class="tex2jax_ignore mathjax_ignore" id="dask-cookbook">
 <h1>Dask Cookbook<a class="headerlink" href="#dask-cookbook" title="Link to this heading"><i class="fas fa-link"></i></a></h1>
 <p><a class="reference external" href="https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml"><img alt="nightly-build" src="https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg" /></a>
-<a class="reference external" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a>
+<a class="reference external" href="http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks"><img alt="Binder" src="https://binder.projectpythia.org/badge_logo.svg" /></a>
 <a class="reference external" href="https://zenodo.org/badge/latestdoi/610934658"><img alt="DOI" src="https://zenodo.org/badge/610934658.svg" /></a></p>
 <p>This Project Pythia Cookbook provides a comprehensive guide to understanding the basic concepts and collections of Dask as well as its integration with Xarray.
 Dask is a parallel computing library that allows you to scale your computations to multiple cores or even clusters, while Xarray is a library that enables working with labelled multi-dimensional arrays, with a focus on working with netCDF datasets.</p>
@@ -454,11 +459,11 @@ Finally, we will discuss some best practices regarding Dask+Xarray.</p>
 </section>
 <section id="running-the-notebooks">
 <h2>Running the Notebooks<a class="headerlink" href="#running-the-notebooks" title="Link to this heading"><i class="fas fa-link"></i></a></h2>
-<p>You can either run the notebook using <a class="reference external" href="https://mybinder.org/">Binder</a> or on your local machine.</p>
+<p>You can either run the notebook using <a class="reference external" href="https://binder.projectpythia.org/">Binder</a> or on your local machine.</p>
 <section id="running-on-binder">
 <h3>Running on Binder<a class="headerlink" href="#running-on-binder" title="Link to this heading"><i class="fas fa-link"></i></a></h3>
 <p>The simplest way to interact with a Jupyter Notebook is through
-<a class="reference external" href="https://mybinder.org/">Binder</a>, which enables the execution of a
+<a class="reference external" href="https://binder.projectpythia.org/">Binder</a>, which enables the execution of a
 <a class="reference external" href="https://jupyterbook.org">Jupyter Book</a> in the cloud. The details of how this works are not
 important for now. All you need to know is how to launch a Pythia
 Cookbooks chapter via Binder. Simply navigate your mouse to
@@ -790,7 +795,7 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
   
   <div class="footer-item">
     <p class="last-updated">
-  Last updated on 4 December 2024.
+  Last updated on 13 January 2025.
   <br/>
 </p>
   </div>
@@ -807,8 +812,8 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
   </div>
     
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
      
@@ -844,7 +849,7 @@ By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk
         
           By Negin Sobhani, Brian Vanderwende, Deepak Cherian, and Ben Kirk.
         
-          Last updated on 4 December 2024.
+          Last updated on 13 January 2025.
         </p>
       </div>
     </div>
