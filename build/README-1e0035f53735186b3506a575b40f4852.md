@@ -1,7 +1,7 @@
 # Dask Cookbook
 
-[![nightly-build](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/cookbook-template/actions/workflows/nightly-build.yaml)
-[![Binder](https://binder.projectpythia.org/badge_logo.svg)](http://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks)
+[![nightly-build](https://github.com/ProjectPythia/dask-cookbook/actions/workflows/nightly-build.yaml/badge.svg)](https://github.com/ProjectPythia/dask-cookbook/actions/workflows/nightly-build.yaml)
+[![Binder](https://binder.projectpythia.org/badge_logo.svg)](https://binder.projectpythia.org/v2/gh/ProjectPythia/dask-cookbook/main?labpath=notebooks)
 [![DOI](https://zenodo.org/badge/610934658.svg)](https://zenodo.org/badge/latestdoi/610934658)
 
 This Project Pythia Cookbook provides a comprehensive guide to understanding the basic concepts and collections of Dask as well as its integration with Xarray.
