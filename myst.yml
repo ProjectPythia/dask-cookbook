@@ -1,0 +1,36 @@
+version: 1
+extends:
+  - https://raw.githubusercontent.com/projectpythia-mystmd/pythia-config/main/pythia.yml
+project:
+  title: Dask Cookbook
+  authors:
+    - name: Negin Sobhani
+    - name: Brian Vanderwende
+    - name: Deepak Cherian
+    - name: Ben Kirk
+  copyright: '2024'
+  github: https://github.com/projectpythia-mystmd/dask-cookbook
+  toc:
+    - file: README.md
+    - title: Preamble
+      children:
+        - file: notebooks/how-to-cite.md
+    - title: Introductions to Dask
+      children:
+        - file: notebooks/00-dask-overview.ipynb
+        - file: notebooks/01-dask-array.ipynb
+        - file: notebooks/02-dask-dataframe.ipynb
+    - title: Dask Schedulers
+      children:
+        - file: notebooks/04-dask-cluster.ipynb
+    - title: Dask and Xarray
+      children:
+        - file: notebooks/03-dask-xarray.ipynb
+  jupyter:
+      binder:
+        repo: projectpythia-mystmd/dask-cookbook
+site:
+  options:
+    logo: notebooks/images/logos/pythia_logo-white-rtext.svg
+    folders: true
+  template: book-theme
