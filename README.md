@@ -30,7 +30,7 @@ The motivation behind this repository is to provide a clear and concise resource
 ## Note on Content Origin
 
 This cookbook is derived from the extensive material used in the NCAR tutorial, ["Using Dask on HPC systems"](https://github.com/NCAR/dask-tutorial.git), which was held in February 2023. The NCAR tutorial series also includes an in-depth exploration and practical use cases of Dask on HPC systems and best practices for Dask on HPC. For the complete set of NCAR tutorial materials, including these additional insights
-on Dask on HPC, please refer to the main NCAR tutorial content available [here](https://ncar.github.io/dask-tutorial/README.html).
+on Dask on HPC, please refer to the main NCAR tutorial content available [here](https://ncar.github.io/dask-tutorial/).
 
 ## Structure
 
@@ -58,7 +58,7 @@ and even change the example programs. You’ll see that the code cells
 have no output at first, until you execute them by pressing
 {kbd}`Shift`\+{kbd}`Enter`. Complete details on how to interact with
 a live Jupyter notebook are described in [Getting Started with
-Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter.html).
+Jupyter](https://foundations.projectpythia.org/foundations/getting-started-jupyter).
 
 ### Running on Your Own Machine
 
