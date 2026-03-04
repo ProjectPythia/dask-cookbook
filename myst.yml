@@ -10,6 +10,21 @@ project:
     - name: Ben Kirk
   copyright: '2024'
   github: https://github.com/projectpythia/dask-cookbook
+  error_rules:
+    - rule: link-resolves
+      severity: ignore
+      keys:
+        - 'https://doi.org/**'
+        - 'https://zenodo.org/**'
+        - 'https://www.ncdc.noaa.gov/cdo-web/search?datasetid=GHCND'
+        - 'https://www.ncei.noaa.gov/pub/data/ghcn/daily/ghcnd-stations.txt'
+        - 'https://www.ncei.noaa.gov/products/land-based-station/global-historical-climatology-network-daily'
+        - 'https://www.ncei.noaa.gov/pub/data/ghcn/daily/readme.txt'
+        - 'https://journals.ametsoc.org/view/journals/atot/29/7/jtech-d-11-00103_1.xml'
+    - rule: doi-link-valid
+      severity: ignore
+      keys:
+        - 'https://zenodo.org/**'   # also suppress the DOI validation error
   toc:
     - file: README.md
     - title: Preamble

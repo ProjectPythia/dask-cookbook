@@ -130,7 +130,8 @@ dmypy.json
 .pyre/
 
 # data
-/data
+/data/*
+!/data/.gitkeep
 
 # MyST build outputs
 _build
