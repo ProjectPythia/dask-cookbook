@@ -13,7 +13,7 @@ The motivation behind this repository is to provide a clear and concise resource
 
 ## Authors
 
-[Negin Sobhani](@negin513), [Brian Vanderwende](@vanderwb), [Deepak Cherian](@dcherian), and [Ben Kirk](@benkirk)
+[Negin Sobhani](https://github.com/negin513), [Brian Vanderwende](https://github.com/vanderwb), [Deepak Cherian](https://github.com/dcherian), and [Ben Kirk](https://github.com/benkirk)
 
 ### Contributors
 
